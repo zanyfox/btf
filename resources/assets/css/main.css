@@ -1,0 +1,1755 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  display: inline-block;
+}
+
+@font-face {
+  font-family: "TeX Gyre Bonum";
+  src: url("../fonts/tex-gyre-bonum/texgyrebonum-bold.otf") format("otf");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TeX Gyre Bonum";
+  src: url("../fonts/tex-gyre-bonum/texgyrebonum-regular.otf") format("otf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Denistina";
+  src: url("../fonts/denistina_en.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+  font-family: "TeX Gyre Bonum", sans-serif;
+  font-weight: 400;
+  color: #212529;
+}
+
+.wrapper {
+  overflow: clip;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.title-text {
+  font-family: "TeX Gyre Bonum";
+  font-size: 70px;
+  font-weight: 400;
+  line-height: 70px;
+  text-align: left;
+  color: #212529;
+}
+
+.bg-title {
+  position: absolute;
+  top: 80%;
+  z-index: -1;
+  transform: translateY(-50%);
+  right: 0;
+  opacity: 0.2;
+  color: #f5ab00;
+  font-family: "Denistina";
+  font-size: 200px;
+  font-weight: 400;
+  line-height: 320px;
+}
+
+.title-box__bg {
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.yellow-btn {
+  font-family: "TeX Gyre Bonum";
+  font-size: 20px;
+  font-weight: 400;
+  color: #f5ab00;
+  border: 2px solid #f5ab00;
+  text-decoration: none;
+  padding: 0 25px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  transition: all 0.2s linear;
+}
+.yellow-btn:hover {
+  background: #f5ab00;
+  color: #fff;
+}
+
+.wellcome {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: url(../images/welcome-bg.png) no-repeat;
+  background-size: cover;
+  padding: 0 20px;
+}
+.wellcome-content {
+  max-width: 472px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.wellcome img {
+  display: block;
+  margin: 0 auto;
+}
+.wellcome .age-box {
+  width: 53px;
+  height: 53px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-family: "Jost";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+}
+.wellcome .yellow-btn {
+  margin: 0 auto;
+}
+.wellcome .info-box {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+}
+.wellcome .info-box h3 {
+  font-family: "Jost";
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 30px;
+  text-align: center;
+}
+.wellcome .info-box p,
+.wellcome .info-box .form-check-label {
+  font-family: "Jost";
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 25.6px;
+}
+.wellcome .info-box .form-check-input {
+  float: none;
+}
+.wellcome .info-box .form-check {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+.wellcome .info-box .form-switch .form-check-input {
+  width: 44px;
+  height: 23px;
+  padding: 0;
+}
+
+.header {
+  background: rgba(5, 4, 4, 0.6980392157);
+  border-bottom: 8px solid #f5ab00;
+  padding: 10px 0 15px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+.header .header-media__logo {
+  display: none;
+}
+.header .menu-btn {
+  width: 40px;
+  height: 22px;
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  border: none;
+  background: transparent;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+.header .menu-btn.active span:nth-child(2) {
+  opacity: 0;
+  visibility: hidden;
+}
+.header .menu-btn.active span:last-child {
+  transform: rotate(45deg);
+  top: -10px;
+}
+.header .menu-btn.active span:first-child {
+  top: 8px;
+  transform: rotate(-45deg);
+}
+.header .menu-btn span {
+  width: 100%;
+  background: #f5ab00;
+  height: 4px;
+  border-radius: 2px;
+  transition: all 0.2s linear;
+  position: relative;
+}
+.header .nav {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  justify-content: center;
+}
+.header .nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+.header-link {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25.6px;
+  text-align: left;
+  text-decoration: none;
+  color: #fff;
+  font-family: "TeX Gyre Bonum";
+}
+.header-link.active {
+  color: #f5ab00;
+  opacity: 0.8;
+}
+
+.intro {
+  padding: 292px 0 292px 0;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+}
+.intro-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -2;
+}
+.intro::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3019607843);
+  z-index: -1;
+}
+.intro .intro-content__info {
+  font-family: "Denistina", sans-serif;
+  font-size: 80px;
+  font-weight: 400;
+  line-height: 128px;
+  color: #f5ab00;
+  opacity: 0.7;
+}
+.intro .intro-content__title {
+  font-size: 70px;
+  font-weight: 400;
+  line-height: 70px;
+  color: #fff;
+  font-family: "TeX Gyre Bonum";
+}
+
+.company-history {
+  padding: 100px 40px 136px 0;
+  background: #f5f5f5;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  max-width: 1920px;
+  margin: 0 auto;
+  z-index: 1;
+}
+.company-history .line-img {
+  position: absolute;
+  top: 113px;
+}
+.company-history__bg {
+  position: absolute;
+  left: 0;
+  top: 127px;
+  z-index: -1;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.company-history__block-one {
+  width: 10px;
+  height: 10px;
+  background: #afb0b0;
+  transform: rotate(45deg);
+}
+.company-history__block-two {
+  width: 20px;
+  height: 20px;
+  background: #afb0b0;
+  transform: rotate(45deg);
+}
+.company-history__block-three {
+  width: 10px;
+  height: 10px;
+  background: #afb0b0;
+  transform: rotate(45deg);
+}
+.company-history__content {
+  max-width: 578px;
+  margin: 0 auto;
+  padding-top: 115px;
+}
+.company-history__content h2 {
+  font-family: "TeX Gyre Bonum";
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  text-align: left;
+  color: #212529;
+}
+.company-history__content p {
+  font-family: "Jost";
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 25.6px;
+  margin: 50px 0;
+}
+.company-history .sub-title {
+  font-family: "Denistina";
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 36px;
+  color: #898c8e;
+}
+.company-history__img {
+  position: absolute;
+  top: 177px;
+  right: 40px;
+  z-index: -1;
+}
+
+.brands {
+  padding: 100px 0 224px 0;
+  background: url(../images/brands-bg.png) no-repeat;
+  background-size: 968px 396.09px;
+  background-position: 0 90%;
+}
+.brands .title-box {
+  padding-bottom: 60px;
+}
+.brands .products-swiper {
+  max-width: 1057px;
+  padding-right: 50px;
+  padding-bottom: 36px;
+}
+.brands .products-swiper .swiper-wrapper {
+  align-items: end;
+}
+.brands .products-swiper .swiper-slide {
+  filter: drop-shadow(12px 20px 10px rgba(0, 0, 0, 0.1));
+  text-align: center;
+}
+.brands .products-swiper .swiper-slide img {width: 100%;}
+.brands .products-swiper__next,
+.brands .products-swiper__prev {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+.brands .products-swiper__prev {
+  left: 0;
+}
+.brands .products-swiper__prev img {
+  transform: rotate(180deg);
+}
+.brands .products-swiper__next {
+  right: 0;
+}
+.brands-swiper {
+  position: relative;
+}
+
+.info-section {
+  margin-top: 50px;
+}
+.info-section .row {
+  row-gap: 20px;
+}
+.info-section .info-card {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  height: 100%;
+  text-decoration: none;
+}
+.info-section .info-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(5, 4, 4, 0.3019607843);
+  z-index: -1;
+}
+.info-section .info-card__header {
+  gap: 40px;
+}
+.info-section .info-card__content {
+  border: 4px solid #ffffff;
+  position: relative;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 45px 60px 60px 60px;
+  height: 100%;
+}
+.info-section .info-card__content h3 {
+  font-family: "TeX Gyre Bonum";
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+}
+.info-section .info-card__content p {
+  font-family: "Jost";
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 25.6px;
+  text-align: left;
+}
+.info-section .info-card__content .sub-title {
+  font-family: "Denistina";
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 36px;
+  color: #f5ab00;
+}
+.info-section .info-card .white-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  border: 2px solid #ffffff;
+  padding: 0 25px;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-decoration: none;
+  font-family: "TeX Gyre Bonum";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  height: 54px;
+  margin-top: auto;
+  transition: all 0.2s linear;
+}
+.info-section .info-card .white-btn path,
+.info-section .info-card .white-btn svg {
+  transition: all 0.2s linear;
+}
+.info-section .info-card .white-btn:hover {
+  background: #fff;
+  color: #212529;
+}
+.info-section .info-card .white-btn:hover svg {
+  transform: translateX(5px);
+}
+.info-section .info-card .white-btn:hover path {
+  fill: #212529;
+}
+.info-section .info-card .card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -2;
+}
+.info-section .col-5 {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.info-section .about-card .info-card__content {
+  padding: 45px 40px;
+}
+
+.statistics-section__top {
+  background: #f5f5f5;
+  padding: 10px;
+  margin-top: 100px;
+}
+.statistics-section__top .sub-title {
+  font-family: "Denistina";
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 64px;
+  color: #f5ab00;
+}
+
+.statistics-section {
+  background: url(../images/statistics-bg.jpeg) no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  padding: 155px 0;
+  background-position: center;
+}
+.statistics-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: -1;
+}
+.statistics-section h2 {
+  font-family: "TeX Gyre Bonum";
+  font-size: 120px;
+  font-weight: 400;
+  line-height: 120px;
+}
+.statistics-section p {
+  font-family: "TeX Gyre Bonum";
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  margin-top: 40px;
+}
+
+
+/* About */
+.about-company {
+  padding: 100px 0;
+}
+.about-company .container {
+  display: flex;
+  align-items: start;
+}
+.about-company h3 {
+  font-family: "Jost";
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 30px;
+}
+.about-company section h3 {
+  font-family: "Jost";
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 30px;
+  margin: 60px 0;
+}
+.about-company section p {
+  font-family: "Jost";
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 25.6px;
+  color: #212529;
+}
+.about-company section ol,
+.about-company section ul {
+  font-family: "Jost";
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 25.6px;
+  color: #212529;
+}
+.about-company section ol {
+  list-style: nth;
+  padding-left: 20px;
+}
+.about-company-flower {
+  position: sticky;
+  top: 100px;
+  right: 0;
+}
+.about-company .line-img {
+  margin-bottom: 100px;
+}
+.about-company-content {
+  max-width: 950px;
+  width: 100%;
+}
+.about-company p {
+  font-family: "Jost";
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 25.6px;
+}
+
+.about-tobacco__banner {
+  background: url('../images/about-tobacco-bg.png') no-repeat;
+  background-size: cover;
+  margin-top: 100px;
+  height: 646px;
+  z-index: 1;
+  position: relative;
+}
+.about-tobacco .content-box {
+  position: absolute;
+  top: 116px;
+  z-index: 1;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 30px;
+  width: 100%;
+}
+.about-tobacco .content-box::before {
+  content: "";
+  position: absolute;
+  bottom: -24px;
+  right: -83px;
+  background: #fff;
+  width: 90px;
+  height: 2px;
+  transform: rotate(30deg);
+}
+.about-tobacco .content-box.one {
+  max-width: 500px;
+  left: 193px;
+}
+.about-tobacco .content-box.two {
+  max-width: 596px;
+  top: 302px;
+  left: 63px;
+}
+.about-tobacco .content-box.three {
+  max-width: 290px;
+  right: 96px;
+  top: 54px;
+}
+.about-tobacco .content-box.three::before {
+  content: "";
+  bottom: -14px;
+  left: -46px;
+  transform: rotate(-30deg);
+  width: 50px;
+}
+.about-tobacco .content-box.four {
+  max-width: 332px;
+  right: 96px;
+  top: unset;
+  bottom: 143px;
+}
+.about-tobacco .content-box.four::before {
+  content: "";
+  bottom: -14px;
+  left: -46px;
+  transform: rotate(-30deg);
+  width: 50px;
+}
+.about-tobacco .content-box p {
+  color: #fff;
+  font-family: "Jost";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25.6px;
+  max-width: 426px;
+}
+
+.title-text {
+  font-family: "TeX Gyre Bonum";
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+}
+
+.title-text__bg {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-family: "Denistina";
+  font-size: 150px;
+  font-weight: 400;
+  line-height: 240px;
+  color: #f5ab00;
+  opacity: 0.2;
+}
+
+.title-box {
+  position: relative;
+}
+
+.contact {
+  background: url(../images/contact-bg.png) no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-left: 80px;
+}
+.contact-content {
+  max-width: 620px;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.1019607843);
+  padding: 105px 60px 80px 60px;
+  margin: 215px 0 100px 0;
+}
+.contact .title-box {
+  position: relative;
+  margin-bottom: 40px;
+}
+.contact .title-box .title-text {
+  font-family: "TeX Gyre Bonum";
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+}
+.contact .title-box .title-text__bg {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-family: "Denistina";
+  font-size: 150px;
+  font-weight: 400;
+  line-height: 240px;
+  color: #f5ab00;
+  opacity: 0.2;
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.contact-info a,
+.contact-info p {
+  font-family: "Jost";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25.6px;
+  text-align: left;
+  text-decoration: none;
+  color: #212529;
+}
+.contact-info .label {
+  font-family: "TeX Gyre Bonum";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  display: block;
+  color: #f5ab00;
+  margin-bottom: 20px;
+}
+.contact-info .d-flex span {
+  font-family: "Jost";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25.6px;
+  color: #898c8e;
+}
+
+.city-selection {
+  margin: 100px 0;
+}
+.city-selection .row {
+  row-gap: 40px;
+}
+.city-selection .custom-select {
+  max-width: 290px;
+  width: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  position: relative;
+}
+.city-selection .custom-select .selected-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #212529;
+  height: 50px;
+  cursor: pointer;
+}
+.city-selection .custom-select .selected-box img {
+  transition: all 0.2s linear;
+}
+.city-selection .custom-select .selected-box.active img {
+  transform: rotate(180deg);
+}
+.city-selection .custom-select .selected-text {
+  font-family: "Jost";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25.6px;
+}
+.city-selection .custom-select .options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 10;
+  background: #fff;
+  border: 1px solid #212529;
+  padding: 20px;
+  transition: all 0.2s linear;
+  transform-origin: top;
+  transform: scaleY(0);
+}
+.city-selection .custom-select .options.show {
+  transform: scaleY(1);
+}
+.city-selection .custom-select .option {
+  font-family: "Jost";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25.6px;
+  cursor: pointer;
+}
+.city-selection .store-box {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.city-selection h5 {
+  font-family: "Jost";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+}
+.city-selection .store-title {
+  font-family: "TeX Gyre Bonum";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  text-align: left;
+  text-decoration: underline;
+  color: #f5ab00;
+  margin-bottom: 30px;
+}
+.city-selection .map {
+  position: sticky;
+  top: 140px;
+  right: 0;
+  height: 650px;
+}
+.city-selection .map iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.partner {
+  background: #f5f5f5;
+}
+.partner .relative-box {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 100px 0;
+}
+.partner .title-box {
+  max-width: 775px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.partner .title-box .title-text__bg {
+  top: 20%;
+}
+.partner .title-box .sub-title {
+  margin-top: 50px;
+  font-family: "Jost";
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 25.6px;
+  box-sizing: border-box;
+  width: 775px;
+}
+.partner .title-box .title-text {
+  font-size: 70px;
+  line-height: 70px;
+  z-index: 1;
+  position: relative;
+}
+.partner-form {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 100px auto 0 auto;
+}
+.partner-form .input-box {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
+}
+.partner-form input {
+  width: 100%;
+  padding: 20px;
+  height: 50px;
+  border: 1px solid #898c8e;
+  background: transparent;
+  outline: none;
+  font-family: "Jost";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25.6px;
+}
+.partner-form input::-moz-placeholder {
+  color: #898c8e;
+}
+.partner-form input::placeholder {
+  color: #898c8e;
+}
+.partner-form .input-box > div {position: relative;}
+.partner-form .input-box input.invalid {border-color:#d5001a;}
+.partner-form .input-box small {
+  color: #d5001a;
+  position: absolute;
+  left: 0;
+  top: 50px;
+  font-size: 12px;
+}
+.partner .politica-info {
+  font-family: "Jost";
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 19.2px;
+  text-align: center;
+}
+.partner .politica-info a {
+  color: #1f4085;
+}
+.partner .send-btn {
+  padding: 0 20px;
+  border: 2px solid #f5ab00;
+  background: transparent;
+  color: #f5ab00;
+  height: 54px;
+  margin: 60px auto 20px auto;
+  font-family: "TeX Gyre Bonum";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 54px;
+  display: block;
+  text-transform: uppercase;
+  transition: all 0.2s linear;
+}
+.partner .send-btn:hover {
+  background: #f5ab00;
+  color: #fff;
+}
+.partner .group-product__img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+.partner .group-product__img-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+.partner .group-product__img .group-product {
+  margin-left: 50px;
+}
+
+.business-class {
+  padding: 100px 0;
+  background: #f5f5f5;
+  text-align: center;
+}
+.business-class .title-text {
+  margin: 20px 0 40px 0;
+  font-size: 70px;
+  line-height: 70px;
+  text-align: center;
+}
+.business-class p {
+  font-family: "Jost";
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 25.6px;
+  text-align: center;
+}
+
+.business-class__products-block {
+  padding-top: 142px;
+}
+.business-class__products .bg-title__box {
+  text-align: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 117px;
+  /* center title */
+  width: 100%;
+}
+.business-class__products .bg-title__box .title-text__bg {
+  color: #1f4085;
+  white-space: nowrap;
+  right: 0;
+  left: unset;
+  /* center title */
+  width: 100%;
+  text-align: center;
+}
+.business-class__products .bg-title__box .title-text {
+  color: #212529;
+  position: relative;
+  z-index: 10;
+  /* center title */
+  text-align: center;
+}
+.business-class__products .business-class__products-swiper {
+  overflow: hidden;
+  position: relative;
+}
+.business-class__products .business-class__swiper-next,
+.business-class__products .business-class__swiper-prev {
+  position: absolute;
+  top: 153px;
+  background: transparent;
+  border: none;
+}
+.business-class__products .business-class__swiper-next {
+  right: 0;
+}
+.business-class__products .business-class__swiper-prev {
+  left: 0;
+  transform: rotate(180deg);
+}
+.business-class__products .business-class__swiper {
+  width: 1060px;
+  margin: 0 auto;
+  padding-left: 45px;
+  padding-right: 35px;
+}
+.business-class__products .business-class__swiper .swiper-wrapper {
+  align-items: stretch;
+}
+.business-class__products .swiper-slide {
+  position: relative;
+  height: unset;
+}
+.business-class__products .swiper-slide-before {
+  position: absolute;
+  top: 108px;
+  left: -45px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: #1f4085;
+  opacity: 0.2;
+}
+.business-class__products .product-img__box {
+  height: 348px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.business-class__products .product-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+.business-class__products .product-card .product-img {
+  filter: drop-shadow(5px 25px 15px rgba(0, 0, 0, 0.1));
+  margin: 0 auto;
+  display: block;
+}
+.business-class__products .product-card .product-name {
+  margin: 50px 0 20px 0;
+  font-family: "Jost";
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 30px;
+  color: #1f4085;
+  white-space: nowrap;
+}
+.business-class__products .product-card .product-type {
+  font-family: "Jost";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+}
+.business-class__products .product-card .product-title__box {
+  text-align: center;
+  min-height: 75px;
+}
+.business-class__products .product-table {
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+  color: #333;
+}
+.business-class__products .product-table td {
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  padding: 15px;
+  white-space: nowrap;
+  font-family: "Jost";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25.6px;
+  text-align: center;
+  color: #898c8e;
+}
+.business-class__products .product-table td:nth-child(1) {
+  border-left: none;
+}
+.business-class__products .product-table tr:last-child td {
+  border-bottom: none;
+}
+.business-class__products .product-table .label {
+  font-family: "Jost";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 25.6px;
+  text-align: center;
+  color: #212529;
+}
+.business-class__products-block:last-child {
+  padding-bottom: 100px;
+}
+.business-class__products-block.pink .title-text__bg {
+  color: #d5001a;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+.business-class__products-block.pink .swiper-slide::before {
+  background: #d5001a;
+}
+.business-class__products-block.pink .product-name {
+  color: #d5001a;
+}
+.business-class__products-block.yellow .title-text__bg {
+  color: #f5ab00;
+}
+.business-class__products-block.yellow .swiper-slide::before {
+  background: #f5ab00;
+}
+.business-class__products-block.yellow .product-name {
+  color: #f5ab00;
+}
+
+.footer {
+  background: #212529;
+  color: #fff;
+  padding: 60px 0;
+  position: relative;
+  z-index: 1;
+}
+.footer .footer-flower {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+.footer p {
+  font-family: "Jost";
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 25.6px;
+}
+.footer-logo {
+  margin-bottom: 20px;
+}
+.footer a {
+  font-family: "Jost";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  text-decoration: none;
+  color: #fff;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+.footer a:hover {
+  color: #fff;
+}
+.footer h4 {
+  font-family: "TeX Gyre Bonum";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  color: #f5ab00;
+  margin-bottom: 30px;
+}
+.footer ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer-bottom {
+  border-top: 0.5px solid #ffffff;
+  padding-top: 60px;
+  margin-top: 60px;
+}
+.footer-bottom a {
+  font-family: "Jost";
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 25.6px;
+  opacity: 1;
+  color: #afb0b0;
+}
+.footer-bottom .col-6 {
+  display: flex;
+  gap: 20px;
+}
+.footer-bottom .col-6:last-child {
+  gap: 240px;
+}
+.footer-bottom p {
+  font-family: "Jost";
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 25.6px;
+}
+.footer-bottom p span {
+  opacity: 1;
+}
+.footer-bottom span {
+  font-family: "Jost";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 25.6px;
+  color: #f5ab00;
+  opacity: 0.8;
+}
+
+.business-class__products .business-class__swiper-next,
+.business-class__products .business-class__swiper-prev {
+  z-index: 10;
+}
+
+.about-company section .about-company__title {
+  display: block !important;
+}
+
+@media screen and (min-width: 768px) {
+  .about-company section .about-company__title {
+    font-family: "Jost";
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 30px;
+  }
+}
+.media-line__img {
+  display: none;
+}
+
+@media screen and (max-width: 1300px) {
+  .container {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .company-history__bg {
+    display: none;
+  }
+  .company-history__content {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .brands .products-swiper {
+    max-width: 900px;
+  }
+  .footer-bottom .col-6:last-child {
+    gap: 100px;
+  }
+  .business-class__products .swiper-slide::before {
+    left: 0;
+  }
+  .business-class__products .business-class__swiper {
+    padding-left: 0;
+  }
+}
+@media screen and (max-width: 992px) {
+  .brands .products-swiper {
+    padding-right: 0;
+  }
+  .business-class__products .business-class__swiper {
+    padding-right: 0;
+  }
+  .company-history__img {
+    width: 448px;
+    height: 504px;
+    left: -227px;
+    bottom: -157px;
+    top: unset;
+  }
+  .company-history {
+    padding-bottom: 327px;
+    padding: 119px 0 275px 0;
+  }
+  .company-history__content {
+    max-width: 100%;
+    padding-top: 0;
+  }
+  .company-history .line-img {
+    left: 20px;
+    display: none;
+    top: 50px;
+  }
+  .company-history .media-line__img {
+    display: block !important;
+  }
+  .brands .products-swiper {
+    max-width: 100%;
+    margin: 0 30px;
+  }
+  .info-section .info-card__content,
+  .info-section .about-card .info-card__content {
+    padding: 20px;
+  }
+  .footer .row {
+    row-gap: 50px;
+  }
+  .footer .col-lg-6 .row {
+    justify-content: space-between !important;
+  }
+  .footer-bottom .col-6:last-child {
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+  }
+  .footer-bottom {
+    text-align: center;
+    padding-top: 50px;
+  }
+  .footer-bottom .row {
+    gap: 30px;
+  }
+  .footer-bottom .col-lg-6:first-child {
+    order: 1;
+  }
+  .business-class__products .bg-title__box .title-text__bg {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    right: unset;
+  }
+  .business-class__products .swiper-slide::before {
+    left: 80px;
+  }
+  .business-class__products .product-table {
+    width: 200px;
+    margin: 0 auto;
+  }
+  .map-box {
+    order: -1;
+  }
+  .partner .relative-box {
+    padding-bottom: 321px;
+  }
+  .partner .group-product__img {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .partner .group-product__img .group-product__img-bg {
+    width: 370.38px;
+    height: 369.11px;
+  }
+  .partner .group-product__img .group-product {
+    height: 258px;
+  }
+  .about-tobacco__banner {
+    height: 537px;
+    background-position: 73% 0%;
+  }
+  .about-tobacco .content-box p {
+    font-size: 12px;
+    line-height: 19.2px;
+  }
+  .about-tobacco .content-box {
+    padding-bottom: 20px;
+  }
+  .about-tobacco .content-box::before {
+    width: 33px !important;
+  }
+  .about-tobacco .content-box.one {
+    top: 28px;
+    right: 11px;
+    left: unset;
+    max-width: 216px;
+  }
+  .about-tobacco .content-box.one::before {
+    content: "";
+    bottom: -10px;
+    left: -30px;
+    transform: rotate(-30deg);
+    width: 50px;
+  }
+  .about-tobacco .content-box.four {
+    display: none;
+  }
+  .about-tobacco .content-box.three {
+    left: 25px;
+    top: 175px;
+    right: unset;
+    width: 185px;
+  }
+  .about-tobacco .content-box.three::before {
+    right: -30px;
+    left: unset;
+    transform: rotate(30deg);
+    bottom: -10px;
+  }
+  .about-tobacco .content-box.two {
+    width: 180px;
+    border-bottom: none;
+    border-top: 2px solid #fff;
+    padding-top: 20px;
+    padding-bottom: 0;
+    bottom: 49px;
+    right: 15px;
+    top: unset;
+    left: unset;
+  }
+  .about-tobacco .content-box.two::before {
+    top: -10px;
+    left: -30px;
+    bottom: unset;
+    right: unset;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header-logo {
+    display: none;
+  }
+  .header {
+    border-bottom-width: 4px;
+  }
+  .header .header-media__logo {
+    display: block;
+    width: 80px;
+    height: 63px;
+    margin: 0 auto;
+  }
+  .header .header-media__logo img {
+    width: 100%;
+    height: 100%;
+  }
+  .header .menu-btn {
+    display: flex;
+  }
+  .header .nav {
+    position: fixed;
+    top: 92px;
+    width: 100%;
+    height: 100%;
+    background: #212529;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    justify-content: start;
+    padding-top: 60px;
+    right: -100%;
+    transition: all 0.2s ease-in-out;
+  }
+  .header .nav ul {
+    flex-direction: column;
+  }
+  .header .nav.show {
+    right: 0;
+  }
+  .intro .intro-content__info {
+    font-size: 40px;
+    line-height: 64px;
+  }
+  .intro .intro-content__title {
+    font-size: 40px;
+    line-height: 40px;
+  }
+  .intro {
+    padding: 0 20px;
+  }
+  .company-history .sub-title {
+    font-size: 25px;
+    line-height: 30px;
+  }
+  .brands {
+    padding: 50px 0 204px 0;
+    background-position: 90% 100%;
+  }
+  .brands .title-box {
+    padding-bottom: 20px;
+  }
+  .brands .title-box .yellow-btn {
+    display: none;
+  }
+  .brands-swiper {
+    margin-bottom: 50px;
+  }
+  .yellow-btn {
+    font-size: 16px;
+    line-height: 25.6px;
+    height: 50px;
+  }
+  .info-section .info-card__content h3 {
+    font-size: 25px;
+    line-height: 25px;
+  }
+  .info-section .info-card__content .sub-title {
+    font-size: 25px;
+    line-height: 30px;
+  }
+  .info-section .info-card__header {
+    flex-direction: column;
+    gap: 20px;
+    align-items: start !important;
+  }
+  .info-section .info-card__header img {
+    width: 100%;
+  }
+  .info-section .info-card .white-btn {
+    font-size: 16px;
+  }
+  .statistics-section__top {
+    margin-top: 50px;
+  }
+  .statistics-section__top .sub-title {
+    font-size: 25px;
+    line-height: 40px;
+  }
+  .statistics-section h2 {
+    font-size: 60px;
+    line-height: 60px;
+  }
+  .statistics-section p {
+    font-size: 25px;
+    line-height: 25px;
+    margin-top: 20px;
+  }
+  .statistics-section {
+    padding: 50px 0;
+  }
+  .statistics-section .row {
+    row-gap: 40px;
+  }
+  .footer {
+    text-align: center;
+    padding: 50px 0;
+  }
+  .footer .col-lg-6 p {
+    display: none;
+  }
+  .footer .footer-flower {
+    right: -182px;
+  }
+  .footer p {
+    font-size: 12px;
+    line-height: 19.2px;
+  }
+  .business-class {
+    padding: 50px 0;
+  }
+  .business-class .title-text {
+    font-size: 40px;
+    line-height: 40px;
+  }
+  .business-class__products .bg-title__box .title-text__bg {
+    font-size: 60px;
+    line-height: 108px;
+  }
+  .business-class__products .bg-title__box .title-text {
+    font-size: 25px;
+    line-height: 25px;
+  }
+  .business-class__products-block {
+    padding-top: 90px;
+  }
+  .business-class__products .bg-title__box {
+    margin-bottom: 68px;
+  }
+  .business-class__products-block:last-child {
+    padding-bottom: 64px;
+  }
+  .business-class__products .business-class__swiper {
+    width: unset !important;
+  }
+  .business-class__products .swiper-slide::before {
+    left: 26%;
+  }
+  .about-company__flower {
+    display: none;
+  }
+  .fixed-header {
+    position: unset;
+    margin-bottom: -20px;
+  }
+  .about-company .about-company__title {
+    font-size: 20px;
+    line-height: 20px;
+  }
+  .about-company__content {
+    gap: 60px;
+  }
+  .about-company__list,
+  .about-company .muted-text {
+    color: #212529;
+  }
+  .bg-title {
+    font-size: 80px;
+    line-height: 128px;
+  }
+  .about-tobacco .bg-title {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    right: unset;
+  }
+  .about-company {
+    padding: 50px 0;
+  }
+  .about-company .container {
+    display: block;
+  }
+  .about-tobacco__banner {
+    margin-top: 50px;
+  }
+  .about-company .line-img {
+    margin-bottom: -20px;
+    width: 283px;
+  }
+  .about-company-flower {display: none;}
+  .contact-content {
+    margin-top: 170px;
+    padding: 72px 20px 50px 20px;
+  }
+  .contact {
+    padding: 0 20px;
+    background-position: center;
+  }
+  .contact .title-box .title-text__bg {
+    font-size: 80px;
+    line-height: 128px;
+    margin-top: 6px;
+  }
+  .contact .title-box .title-text {
+    font-size: 25px;
+    line-height: 25px;
+  }
+  .contact-info {
+    gap: 40px;
+  }
+  .contact .title-box {
+    margin-bottom: 68px;
+  }
+  .map-box .map {
+    height: 248px;
+  }
+  .city-selection {
+    margin: 50px 0;
+  }
+  .partner .title-box .title-text {
+    font-size: 25px;
+    line-height: 25px;
+  }
+  .partner .title-box .title-text__bg {
+    font-size: 80px;
+    line-height: 128px;
+    top: 10%;
+  }
+  .partner .title-box .sub-title {
+    display: none;
+  }
+  .partner-form {
+    margin-top: 86px;
+  }
+  .partner-form .input-box {
+    grid-template-columns: 1fr;
+  }
+  .partner .send-btn {
+    margin-top: 40px;
+  }
+  .wellcome .info-box h3 {
+    font-size: 20px;
+  }
+  .media-line__img {
+    display: block !important;
+  }
+  .footer .bottom-text {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    font-size: 16px;
+    transform: translateX(-50%);
+  }
+  .footer {
+    padding-bottom: 80px;
+  }
+}
+@media screen and (max-width: 490px) {
+  .business-class__products .swiper-slide-before {
+    left: 0;
+  }
+  .brands .products-swiper .swiper-slide img,
+  .business-class__products .product-card .product-img {
+    max-width: 170px!important;
+  }
+}/*# sourceMappingURL=main.css.map */

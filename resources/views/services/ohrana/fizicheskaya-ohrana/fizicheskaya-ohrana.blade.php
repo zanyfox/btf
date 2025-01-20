@@ -1,0 +1,181 @@
+@extends('layouts/app')
+
+@section('title', $service->metatitle ? $service->metatitle : $service->name )
+@section('keywords', $service->keywords )
+@section('description', $service->description )
+
+@php
+$custom = [];
+if( !empty($service->custom) ) {
+  foreach(json_decode($service->custom) as $item) {
+    if( isset($item->alias) ) {
+      $custom[$item->alias] = $item;
+    }
+  }
+}
+@endphp
+@section('content')
+<section class="mb-5 grandchild-service grandchild-service-{{$service->slug}}">
+<div class="container">
+
+    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+      <p id="mainCarouselTitle" class="h3 mb-30">{{ $service->name }}</p>
+      <div class="row mb-60 align-items-center">
+        <div class="col-xxl-8 col-lg-12">
+          {!! $service->body !!}
+        </div>
+        <div class="col-xxl-4 col-lg-0 align-content-center text-end">
+          <button type="button" class="btn submit_application" data-bs-toggle="modal" data-bs-target="#feedbackModal">ОСТАВИТЬ ЗАЯВКУ</button>
+        </div>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-title="{{ $service->name }}" data-subtitle="{{ $service->tagline }}">
+          <picture>
+            <source media="(max-width: 768px)" srcset="{{ asset('assets/img/physical_security_title_header_mobile.png') }}">
+            <img src="{{ asset('assets/img/physical_security_title_header.png') }}" class="w-100" loading="eager" decoding="sync" fetchpriority="high" alt="">
+          </picture>
+        </div>
+      </div>
+    </div>
+
+  <div class="row mb-100">
+  	<nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url('/') }}">@lang('Main')</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ $service->name }}</li>
+              </ol>
+            </nav>
+    <div class="col-lg-5 pe-lg-5">
+      @isset($custom['text-1'])
+      <div class="text text-1">
+        <h4>{{ $custom['text-1']->title }}</h4>
+        {!! $custom['text-1']->body !!}
+      </div>
+      @endisset
+    </div>
+    <div class="col-lg-7 ps-lg-5">
+	@include('partials.numbers')
+    </div>
+  </div>
+
+  @if(count($childs) > 0)
+  <div class="servicesPreviewList mb-100">
+    <div class="row g-5 justify-content-between">
+      @foreach ($childs as $child)
+      <div class="col-xxl-4">
+        <div class="button_image">
+          <a href="{{ url('fizicheskaya-ohrana', $child->slug ) }}" class="blur">
+            <p>{{ $child->name }}</p>
+            <span>ПОДРОБНЕЕ</span>
+          </a>
+          <img src="{{ Storage::url($child->cover) }}" alt="{{ $child->name }}">
+        </div>
+      </div>
+      @endforeach
+    </div>
+  </div>
+  @endif
+
+  <h4 class="page-subheader mb-80">Виды физической охраны</h4>
+  <div class="row g-5">
+    <div class="col-4 card_types_of_physical_security">
+      <div class="d-flex justify-content-start gap-4 align-items-center mb-5">
+        <span>01</span>
+        <h4>объекты, территории</h4>
+      </div>
+      <p>Охрана отдельных помещений, территории, зданий и т. п. Наши сотрудники имеют опыт работы с
+        современными техническими средствами. Профессиональные охранники надежно защитят территорию от
+        незаконного вторжения;</p>
+    </div>
+    <div class="col-4 card_types_of_physical_security">
+      <div class="d-flex justify-content-start gap-4 align-items-center mb-5">
+        <span>02</span>
+        <h4>предметы, документы</h4>
+      </div>
+      <p>Защита предметов и документов, содержащих сведения о государственной тайне. У нашей группы компаний
+        имеются соответствующие лицензии и разрешения;</p>
+    </div>
+    <div class="col-4 card_types_of_physical_security">
+      <div class="d-flex justify-content-start gap-4 align-items-center mb-5">
+        <span>03</span>
+        <h4>материальные ценности</h4>
+      </div>
+      <p>Охрана отдельных помещений, территории, зданий и т. п. Наши сотрудники имеют опыт работы с
+        современными техническими средствами. Профессиональные охранники надежно защитят территорию от
+        незаконного вторжения;</p>
+    </div>
+    <div class="col-4 card_types_of_physical_security">
+      <div class="d-flex justify-content-start gap-4 align-items-center mb-5">
+        <span>04</span>
+        <h4>массовые мероприятия</h4>
+      </div>
+      <p>Охрана отдельных помещений, территории, зданий и т. п. Наши сотрудники имеют опыт работы с
+        современными техническими средствами. Профессиональные охранники надежно защитят территорию от
+        незаконного вторжения;</p>
+    </div>
+    <div class="col-4 card_types_of_physical_security">
+      <div class="d-flex justify-content-start gap-4 align-items-center mb-5">
+        <span>05</span>
+        <h4>персональная охрана</h4>
+      </div>
+      <p>Защита предметов и документов, содержащих сведения о государственной тайне. У нашей группы компаний
+        имеются соответствующие лицензии и разрешения;</p>
+    </div>
+    <div class="col-4 card_types_of_physical_security">
+      <div class="d-flex justify-content-start gap-4 align-items-center mb-5">
+        <span>06</span>
+        <h4>персональная тревожная кнопка</h4>
+      </div>
+      <p>Охрана отдельных помещений, территории, зданий и т. п. Наши сотрудники имеют опыт работы с
+        современными техническими средствами. Профессиональные охранники надежно защитят территорию от
+        незаконного вторжения;</p>
+    </div>
+  </div>
+
+  <div class="section_price_security mb-80">
+    <div class="mt-4">
+      @isset($custom['text-2'])
+      <div class="text text-2">
+        <h4>{{ $custom['text-2']->title }}</h4>
+        {!! $custom['text-2']->body !!}
+      </div>
+      @endisset
+    </div>
+  </div>
+  <div class="row g-5 mb-100">
+    <div class="col-xxl-6 col-md-6 mt-5">
+      @isset($custom['text-3'])
+      <div class="text text-3">
+        <h4>{{ $custom['text-3']->title }}</h4>
+        {!! $custom['text-3']->body !!}
+      </div>
+      @endisset
+    </div>
+    <div class="col-xxl-6 col-md-6 mt-5">
+      @isset($custom['text-4'])
+      <div class="text text-4">
+        <h4>{{ $custom['text-4']->title }}</h4>
+        {!! $custom['text-4']->body !!}
+      </div>
+      @endisset
+    </div>
+  </div>
+
+  <div class="another-services mb-100">
+    <h4 class="page-subheader mb-5">цены на услуги физической охраны:</h4>
+    <div class="another-services-list">
+      @foreach ($childs as $child)
+      <div class="row py-3 align-items-center">
+        <div class="col-xxl-8 col-6">
+          <span class="check_box_img"></span>
+          <p class="mb-0">{{ $child->name }}</p>
+        </div>
+        <div class="col-xxl-4 col-6 text-end">
+          <button type="button" class="btn btn-warning">от {{ $child->price }} руб/месяц</button>
+        </div>
+      </div>
+      @endforeach
+    </div>
+  </div>
+</section>
+@endsection

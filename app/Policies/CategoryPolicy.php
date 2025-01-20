@@ -1,0 +1,125 @@
+<?php
+
+namespace App\Policies;
+
+use App\Models\Category;
+use App\Models\User;
+use Illuminate\Auth\Access\HandlesAuthorization;
+
+
+// php artisan make:policy CategoryPolicy --model=Category
+class CategoryPolicy {
+  use HandlesAuthorization;
+
+  public function before(User $user): bool|null {
+    if ($user->hasRole('super_admin')) {
+      return true;
+    }
+    return null;
+  }
+
+  /**
+   * Determine whether the user can view any models.
+   *
+   * @param  \App\Models\User  $user
+   * @return \Illuminate\Auth\Access\Response|bool
+   */
+  public function viewAny(User $user): bool {
+    return true;
+  }
+
+  /**
+   * Determine whether the user can view the model.
+   *
+   * @param  \App\Models\User  $user
+   * @param  \App\Models\Category  $category
+   * @return \Illuminate\Auth\Access\Response|bool
+   */
+  public function view(User $user, Category $category) {
+    if($user->hasPermissionTo('view category') || $user->hasRole(['admin', 'super-admin'])) {
+    //if($user->hasRole(['admin', 'super-admin'])) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  /**
+   * Determine whether the user can create models.
+   *
+   * @param  \App\Models\User  $user
+   * @return \Illuminate\Auth\Access\Response|bool
+   */
+  public function create(User $user){
+    //print_r($user); die;
+    if($user->hasPermissionTo('create category') || $user->hasRole(['admin', 'super-admin'])) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  /**
+   * Determine whether the user can update the model.
+   *
+   * @param  \App\Models\User  $user
+   * @param  \App\Models\Category  $category
+   * @return \Illuminate\Auth\Access\Response|bool
+   */
+  public function update(User $user) {
+
+    if($user->hasPermissionTo('update category') || $user->hasRole(['admin', 'super-admin'])) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  /**
+   * Determine whether the user can delete the model.
+   *
+   * @param  \App\Models\User  $user
+   * @param  \App\Models\Category  $category
+   * @return \Illuminate\Auth\Access\Response|bool
+   */
+  public function delete(User $user, Category $category){
+    if($user->hasPermissionTo('delete category') || $user->hasRole(['admin', 'super-admin'])) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  /**
+   * Determine whether the user can restore the model.
+   *
+   * @param  \App\Models\User  $user
+   * @param  \App\Models\Category  $category
+   * @return \Illuminate\Auth\Access\Response|bool
+   */
+  public function restore(User $user, Category $category) {
+    if($user->hasPermissionTo('restore category') || $user->hasRole(['admin', 'super-admin'])) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  /**
+   * Determine whether the user can permanently delete the model.
+   *
+   * @param  \App\Models\User  $user
+   * @param  \App\Models\Category  $category
+   * @return \Illuminate\Auth\Access\Response|bool
+   */
+  public function forceDelete(User $user, Category $category) {
+    if($user->hasPermissionTo('delete category') || $user->hasRole(['admin', 'super-admin'])) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+
+
+}

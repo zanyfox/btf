@@ -1,0 +1,457 @@
+.media-line__img {
+  display: none;
+}
+@media screen and (max-width: 1300px) {
+  .container {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .company-history__bg {
+    display: none;
+  }
+  .company-history__content {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .brands .products-swiper {
+    max-width: 900px;
+  }
+  .footer-bottom .col-6:last-child {
+    gap: 100px;
+  }
+  .business-class__products .swiper-slide::before {
+    left: 0;
+  }
+  .business-class__products .business-class__swiper {
+    padding-left: 0;
+  }
+}
+@media screen and (max-width: 992px) {
+  .brands .products-swiper {
+    padding-right: 0;
+  }
+  .business-class__products .business-class__swiper {
+    padding-right: 0;
+  }
+  .company-history__img {
+    width: 448px;
+    height: 504px;
+    left: -227px;
+    bottom: -157px;
+    top: unset;
+  }
+  .company-history {
+    padding-bottom: 327px;
+    padding: 119px 0 275px 0;
+  }
+  .company-history__content {
+    max-width: 100%;
+    padding-top: 0;
+  }
+  .company-history .line-img {
+    left: 20px;
+    display: none;
+    top: 50px;
+  }
+  .company-history .media-line__img {
+    display: block !important;
+  }
+  .brands .products-swiper {
+    max-width: 100%;
+    margin: 0 30px;
+  }
+  .info-section .info-card__content,
+  .info-section .about-card .info-card__content {
+    padding: 20px;
+  }
+  .footer {
+    .row {
+      row-gap: 50px;
+    }
+    .col-lg-6 {
+      .row {
+        justify-content: space-between !important;
+      }
+    }
+  }
+  .footer-bottom .col-6:last-child {
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+  }
+  .footer-bottom {
+    text-align: center;
+    padding-top: 50px;
+    .row {
+      gap: 30px;
+    }
+    .col-lg-6:first-child {
+      order: 1;
+    }
+  }
+  .business-class__products .bg-title__box .title-text__bg {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    right: unset;
+  }
+  .business-class__products .swiper-slide::before {
+    left: 80px;
+  }
+  .business-class__products .product-table {
+    width: 200px;
+    margin: 0 auto;
+  }
+  .map-box {
+    order: -1;
+  }
+  .partner .relative-box {
+    padding-bottom: 321px;
+  }
+  .partner .group-product__img {
+    left: 50%;
+    transform: translateX(-50%);
+    .group-product__img-bg {
+      width: 370.38px;
+      height: 369.11px;
+    }
+    .group-product {
+      height: 258px;
+    }
+  }
+  .about-tobacco__banner {
+    height: 537px;
+    background-position: 73% 0%;
+  }
+  .about-tobacco .content-box p {
+    font-size: 12px;
+    line-height: 19.2px;
+  }
+  .about-tobacco .content-box {
+    padding-bottom: 20px;
+    &::before {
+      width: 33px !important;
+    }
+  }
+  .about-tobacco .content-box.one {
+    top: 28px;
+    right: 11px;
+    left: unset;
+    max-width: 216px;
+    &::before {
+      content: '';
+      bottom: -10px;
+      left: -30px;
+      transform: rotate(-30deg);
+      width: 50px;
+    }
+  }
+  .about-tobacco .content-box.four {
+    display: none;
+  }
+  .about-tobacco .content-box.three {
+    left: 25px;
+    top: 175px;
+    right: unset;
+    width: 185px;
+    &::before {
+      right: -30px;
+      left: unset;
+      transform: rotate(30deg);
+      bottom: -10px;
+    }
+  }
+  .about-tobacco .content-box.two {
+    width: 180px;
+    border-bottom: none;
+    border-top: 2px solid #fff;
+    padding-top: 20px;
+    padding-bottom: 0;
+    bottom: 49px;
+    right: 15px;
+    top: unset;
+    left: unset;
+    &::before {
+      top: -10px;
+      left: -30px;
+      bottom: unset;
+      right: unset;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .header-logo {
+    display: none;
+  }
+  .header {
+    border-bottom-width: 4px;
+    .header-media__logo {
+      display: block;
+      width: 80px;
+      height: 63px;
+      margin: 0 auto;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .menu-btn {
+      display: flex;
+    }
+    .nav {
+      position: fixed;
+      top: 92px;
+      width: 100%;
+      height: 100%;
+      background: #212529;
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+      justify-content: start;
+      padding-top: 60px;
+      right: -100%;
+      transition: all 0.2s ease-in-out;
+      ul {
+        flex-direction: column;
+      }
+      &.show {
+        right: 0;
+      }
+    }
+  }
+  .intro .intro-content__info {
+    font-size: 40px;
+    line-height: 64px;
+  }
+  .intro .intro-content__title {
+    font-size: 40px;
+    line-height: 40px;
+  }
+  .intro {
+    padding: 0 20px;
+  }
+  .company-history .sub-title {
+    font-size: 25px;
+    line-height: 30px;
+  }
+  .brands {
+    padding: 50px 0 204px 0;
+    background-position: 90% 100%;
+  }
+  .brands .title-box {
+    padding-bottom: 20px;
+    .yellow-btn {
+      display: none;
+    }
+  }
+  .brands-swiper {
+    margin-bottom: 50px;
+  }
+  .yellow-btn {
+    font-size: 16px;
+    line-height: 25.6px;
+    height: 50px;
+  }
+  .info-section .info-card__content h3 {
+    font-size: 25px;
+    line-height: 25px;
+  }
+  .info-section .info-card__content .sub-title {
+    font-size: 25px;
+    line-height: 30px;
+  }
+  .info-section .info-card__header {
+    flex-direction: column;
+    gap: 20px;
+    align-items: start !important;
+    img {
+      width: 100%;
+    }
+  }
+  .info-section .info-card .white-btn {
+    font-size: 16px;
+  }
+  .statistics-section__top {
+    margin-top: 50px;
+  }
+  .statistics-section__top .sub-title {
+    font-size: 25px;
+    line-height: 40px;
+  }
+  .statistics-section h2 {
+    font-size: 60px;
+    line-height: 60px;
+  }
+  .statistics-section p {
+    font-size: 25px;
+    line-height: 25px;
+    margin-top: 20px;
+  }
+  .statistics-section {
+    padding: 50px 0;
+    .row {
+      row-gap: 40px;
+    }
+  }
+  .footer {
+    text-align: center;
+    padding: 50px 0;
+    .col-lg-6 {
+      p {
+        display: none;
+      }
+    }
+    .footer-flower {
+      right: -182px;
+    }
+  }
+  .footer p {
+    font-size: 12px;
+    line-height: 19.2px;
+  }
+  .business-class {
+    padding: 50px 0;
+  }
+  .business-class .title-text {
+    font-size: 40px;
+    line-height: 40px;
+  }
+  .business-class__products .bg-title__box .title-text__bg {
+    font-size: 80px;
+    line-height: 128px;
+  }
+  .business-class__products .bg-title__box .title-text {
+    font-size: 25px;
+    line-height: 25px;
+  }
+  .business-class__products-block {
+    padding-top: 90px;
+  }
+  .business-class__products .bg-title__box {
+    margin-bottom: 68px;
+  }
+  .business-class__products-block:last-child {
+    padding-bottom: 64px;
+  }
+  .business-class__products .business-class__swiper {
+    width: unset !important;
+  }
+  .business-class__products .swiper-slide::before {
+    left: 26%;
+  }
+  .about-company__flower {
+    display: none;
+  }
+  .fixed-header {
+    position: unset;
+    margin-bottom: -20px;
+  }
+  .about-company .about-company__title {
+    font-size: 20px;
+    line-height: 20px;
+  }
+  .about-company__content {
+    gap: 60px;
+  }
+  .about-company__list,
+  .about-company .muted-text {
+    color: #212529;
+  }
+  .bg-title {
+    font-size: 80px;
+    line-height: 128px;
+  }
+  .about-tobacco {
+    .bg-title {
+      left: 50%;
+      transform: translate(-50%, -50%);
+      right: unset;
+    }
+  }
+  .about-company {
+    padding: 50px 0;
+  }
+  .about-tobacco__banner {
+    margin-top: 50px;
+  }
+  .about-company .line-img {
+    margin-bottom: -20px;
+    width: 283px;
+  }
+  .contact-content {
+    margin-top: 170px;
+    padding: 72px 20px 50px 20px;
+  }
+  .contact {
+    padding: 0 20px;
+    background-position: center;
+  }
+  .contact .title-box .title-text__bg {
+    font-size: 80px;
+    line-height: 128px;
+    margin-top: 6px;
+  }
+  .contact .title-box .title-text {
+    font-size: 25px;
+    line-height: 25px;
+  }
+  .contact-info {
+    gap: 40px;
+  }
+  .contact .title-box {
+    margin-bottom: 68px;
+  }
+  .map-box {
+    .map {
+      height: 248px;
+    }
+  }
+  .city-selection {
+    margin: 50px 0;
+  }
+  .partner .title-box .title-text {
+    font-size: 25px;
+    line-height: 25px;
+  }
+  .partner .title-box .title-text__bg {
+    font-size: 80px;
+    line-height: 128px;
+    top: 10%;
+  }
+  .partner .title-box .sub-title {
+    display: none;
+  }
+  .partner-form {
+    margin-top: 86px;
+  }
+  .partner-form .input-box {
+    grid-template-columns: 1fr;
+  }
+  .partner .send-btn {
+    margin-top: 40px;
+  }
+  .wellcome .info-box h3 {
+    font-size: 20px;
+  }
+  .media-line__img {
+    display: block !important;
+  }
+  .footer .bottom-text {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    font-size: 16px;
+    transform: translateX(-50%);
+  }
+  .footer {
+    padding-bottom: 80px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .business-class__products .swiper-slide::before {
+    left: 0;
+  }
+}
