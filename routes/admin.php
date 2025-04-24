@@ -7,8 +7,8 @@ use App\Http\Controllers\Admin\PostsController as AdminPostsController;
 use App\Http\Controllers\Admin\RolesController as AdminRolesController;
 use App\Http\Controllers\Admin\FeaturesController as AdminFeaturesController;
 
-Route::get('login', [AdminAuthController::class, 'login'])->name('admin.login');
-Route::post('authenticate', [AdminAuthController::class, 'authenticate'])->name('admin.authenticate');
+//Route::get('login', [AdminAuthController::class, 'login'])->name('admin.login');
+//Route::post('authenticate', [AdminAuthController::class, 'authenticate'])->name('admin.authenticate');
 
 Route::middleware(['auth','isAdmin','role:super-admin|admin'])->name('admin.')->group(function() {
 
@@ -74,14 +74,14 @@ Route::middleware(['auth','isAdmin','role:super-admin|admin'])->name('admin.')->
   Route::get('merchants/{merchant}/update-token/', [\App\Http\Controllers\Admin\MerchantsController::class, 'updateToken'])->name('merchants.updateToken');
 
   Route::post('upload', \App\Http\Controllers\Admin\UploadController::class)->name('adminUpload');
-  
+
   Route::resource('goods', AdminGoodsController::class, ['except' => ['show']]);
   Route::match(['GET','POST'], 'goods/import', [AdminGoodsController::class, 'import']);
   Route::get('goods/export/{format?}', [AdminGoodsController::class, 'export']);
   Route::get('goods/{id}/remove-picture/{pictureId}', [AdminGoodsController::class, 'removePicture'])->whereNumber('id')->whereNumber('pictureId');
   Route::delete('goods/{goodId}/remove-good-feature/{featureId}', [AdminGoodsController::class, 'removeGoodFeature'])->whereNumber('goodId')->whereNumber('featureId');
   Route::any('goods/{id}/changestatus', [AdminGoodsController::class, 'changestatus'])->whereNumber('id');
-  
+
   Route::resource('orders', AdminOrdersController::class);
   Route::patch('orders/change-status/{id}', [AdminOrdersController::class, 'changeStatus'])->whereNumber('id');
   Route::patch('orders/restore/{id}', [AdminOrdersController::class, 'restore'])->middleware(['can:isAdmin'])->whereNumber('id')->name('orders.restore');
@@ -89,7 +89,7 @@ Route::middleware(['auth','isAdmin','role:super-admin|admin'])->name('admin.')->
   Route::get('orders/download-invoice/{id}', [AdminOrdersController::class, 'downloadInvoice'])->whereNumber('id');
   Route::get('orders/send-invoice/{id}', [AdminOrdersController::class, 'sendInvoice'])->whereNumber('id');
   Route::get('orders/export', [AdminOrdersController::class, 'export']);
-  
+
   Route::resource('discounts', \App\Http\Controllers\Admin\DiscountsController::class);
   Route::resource('coupons', \App\Http\Controllers\Admin\CouponsController::class);
   Route::resource('delivery-methods', \App\Http\Controllers\Admin\DeliveryMethodsController::class);
@@ -100,7 +100,7 @@ Route::middleware(['auth','isAdmin','role:super-admin|admin'])->name('admin.')->
     Route::get('payments/{id}', [\App\Http\Controllers\Admin\PaymentsController::class, 'show'])->whereNumber('id');
     Route::get('payments/get-payment-info/{id}', [\App\Http\Controllers\Admin\PaymentsController::class, 'getPaymentInfo'])->whereNumber('id');
   });
-  
+
 
   Route::controller(\App\Http\Controllers\Admin\SettingsController::class)->group(function() {
     Route::get('settings', 'index');

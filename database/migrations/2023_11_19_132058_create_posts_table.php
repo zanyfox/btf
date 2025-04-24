@@ -27,7 +27,7 @@ return new class extends Migration {
       $table->string('tagline')->nullable();
       $table->text('excerpt')->nullable();
       $table->longText('body')->fullText()->nullable();
-      $table->string('preview',100)->nullable();
+      $table->string('cover',100)->nullable();
       $table->string('picture',100)->nullable();
       $table->string('tags')->nullable();
       $table->char('lang',2)->nullable();

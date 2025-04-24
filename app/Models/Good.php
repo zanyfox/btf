@@ -69,7 +69,7 @@ class Good extends Model {
   public function scopeActiveStatus($query) {
     return $query->where('status', 1);
   }
-  
+
   /* public function category() {
     return $this->belongsTo(Category::class);
   } */
@@ -89,7 +89,7 @@ class Good extends Model {
     //return $this->hasManyThrough(Feature::class, FeatureGood::class, 'good_id', 'id');
   }
 
-  
+
 
   public function brand() {
     return $this->belongsTo(Brand::class, 'brand_id');

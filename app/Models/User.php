@@ -94,9 +94,9 @@ class User extends Authenticatable {
   } */
 
   // Relationship With User Posts
-  public function promotions() {
+  /* public function promotions() {
     return $this->hasMany(Promotion::class, 'author_id')->orderBy('created_at', 'DESC');
-  }
+  } */
 
   public function roles() {
     return $this->belongsToMany(Role::class);

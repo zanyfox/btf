@@ -9,7 +9,6 @@ window._ = _;
 
 import axios from 'axios';
 window.axios = axios;
-
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**
@@ -32,3 +31,25 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
 //     enabledTransports: ['ws', 'wss'],
 // });
+
+/* document.addEventListener('DOMContentLoaded', () => {
+
+  if(document.getElementById('mobile-collapse')) {
+    document.getElementById('mobile-collapse').addEventListener('click', () => {
+
+      if (document.querySelector('.pcoded-navbar').classList.contains('navbar-collapsed')) {
+        localStorage.setItem('sidebarState', 'collapsed')
+      } else {
+        localStorage.setItem('sidebarState', 'expanded')
+      }
+    })
+
+    const sidebarState = localStorage.getItem('sidebarState')
+    if (sidebarState === 'collapsed') {
+      document.querySelector('.pcoded-navbar').classList.add('navbar-collapsed')
+    } else {
+      document.querySelector('.pcoded-navbar').classList.remove('navbar-collapsed')
+    }
+  }
+
+}) */

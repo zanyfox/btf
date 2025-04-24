@@ -688,9 +688,9 @@ window.onscroll = function() {
   }
 }
 
-document.getElementById('more-details').onclick = function() {
+/* document.getElementById('more-details').onclick = function() {
   slideToggle(document.getElementById('nav-user-link'))
-}
+} */
 
 /* COOKIE */
 function setCookie(name,value,days) {
@@ -715,19 +715,3 @@ function getCookie(name) {
 function deleteCookie(name) {
   document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
 }
-
-$('.hasEditor').summernote({
-  lang: 'ru-RU',
-  placeholder: '',
-  tabsize: 2,
-  height: 100,
-  toolbar: [
-    ['style', ['style']],
-    ['font', ['bold', 'underline', 'clear']],
-    ['color', ['color']],
-    ['para', ['ul', 'ol', 'paragraph']],
-    ['table', ['table']],
-    ['insert', ['link', 'picture', 'video']],
-    ['view', ['fullscreen', 'codeview', 'help']]
-  ]
-})

@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('name',20);
             $table->string('code',20);
             $table->tinyInteger('status')->default(1);
-            $table->timestamps();
         });
     }
 

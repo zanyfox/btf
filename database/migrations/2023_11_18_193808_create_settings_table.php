@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->string('name',100);
-            $table->string('key',20);
+            $table->string('key',20)->unique();
             $table->string('value')->nullable();
             $table->char('lang',2)->nullable();
             $table->boolean('status')->default(false);

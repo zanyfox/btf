@@ -17,4 +17,17 @@ enum OrderStatus: string {
     return array_column(self::cases(), 'name', 'value');
   }
 
+  public function color(): string {
+    return match ($this) {
+      self::New => 'blue',
+      self::Error => 'red',
+      self::Pending => 'yellow',
+      self::Cancelled => 'gray',
+      self::Delivered => 'green',
+      self::Shipped => 'purple',
+      self::Complete => 'teal',
+      self::Done => 'indigo',
+    };
+  }
+
 }

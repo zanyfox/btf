@@ -1,1 +1,15 @@
-@import '~bootstrap/dist/css/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap');
+@import url('../assets/backend/fonts/tabler-icons.min.css');
+@import url('../assets/backend/fonts/feather.css');
+@import url('../assets/backend/fonts/fontawesome.css');
+@import url('../assets/backend/fonts/material.css');
+@import url('../assets/backend/css/style.css');
+@import url('../assets/backend/css/style-preset.css');
+[x-clock] {display: none!important;}
+.dropzone {
+  padding: 10px;
+  border-style: dashed!important;
+  border-width: 2px!important;
+}
+.dropzone .dz-preview {margin: 0 10px 10px 0;}
+.dropzone .dz-preview .dz-image {border-radius: 5px;}

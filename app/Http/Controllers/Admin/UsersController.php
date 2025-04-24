@@ -22,7 +22,7 @@ class UsersController extends Controller {
   }
 
   public function index(Request $request) {
-    
+
     $query = User::latest('created_at')->orderBy('id');//->with('roles');
 
     if(!empty($request->get('search'))) {

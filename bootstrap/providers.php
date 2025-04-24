@@ -1,4 +1,6 @@
 <?php
+
 return [
-  Spatie\Html\HtmlServiceProvider::class,
+    App\Providers\FortifyServiceProvider::class,
+    Spatie\Html\HtmlServiceProvider::class,
 ];

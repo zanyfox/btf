@@ -7,6 +7,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\SendController;
 use App\Http\Controllers\Account\AccountController;
+use App\Http\Controllers\BackendController;
 
 use App\Mail\WelcomeMail;
 
@@ -20,6 +21,11 @@ use App\Mail\WelcomeMail;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// Backend
+Route::get('/backend/{view}', BackendController::class)->where('view', '(.*)')->name('app');
+
+//Route::get('{any?}', fn () => view('app'))->where('any', '.*');
 
 if( !request()->cookie('age_limit') ) {
   Route::get('/{any}', function () {
@@ -64,4 +70,4 @@ Route::get('distributors', [PagesController::class, 'distributors']);
 Route::get('politika-konfidentsialnosti', [\App\Http\Controllers\PagesController::class, 'privacy'])->name('receiver');
 Route::get('polzovatelskoe-soglashenie', [\App\Http\Controllers\PagesController::class, 'userAgreement'])->name('receiver');
 
-require __DIR__.'/auth.php';
+//require __DIR__.'/auth.php';

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 100);
             $table->string('code', 100)->nullable();
-            $table->boolean('status')->default(false);
+            $table->tinyInteger('status')->default(1);
         });
     }
 

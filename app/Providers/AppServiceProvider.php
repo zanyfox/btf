@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider {
    * @return void
    */
   public function register() {
-    Schema::defaultStringLength(255);
+    Schema::defaultStringLength(191);
   }
 
   /**
@@ -42,7 +42,7 @@ class AppServiceProvider extends ServiceProvider {
     Blade::directive('datetime', function ($expression) {
         return "<?php echo ($expression)->format('d.m.Y H:i'); ?>";
     });
-    
+
     View::share('your_ip', '192.168.0.102');
     view()->share('your_location', 'Kaliningrad, Russia');
 
