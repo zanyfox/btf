@@ -12,6 +12,9 @@ export const useSettingsStore = defineStore('settings', {
       { id: 2, name: 'Доллар', code: 'USD' },
       { id: 3, name: 'Евро', code: 'EUR' }
     ],
+    appMetaRobots: [
+      { id: 1, name: 'Noindex, Nofollow', code: 'noindex, nofollow' },
+    ],
     appSettings: [
       { id: 1, name: 'Тема', value: 'тёмная' },
       { id: 2, name: 'Язык', value: 'русский' },
@@ -33,5 +36,6 @@ export const useSettingsStore = defineStore('settings', {
     getSettings: (state) => state.appSettings,
     getLangs: (state) => state.appLangs,
     getCurrencies: (state) => state.appCurrencies,
+    getMetaRobots: (state) => state.appMetaRobots
   }
 })

@@ -5,6 +5,7 @@
 /public/uploads
 /public/temp
 /storage/*.key
+/storage/framework/cache/data
 /vendor
 .env
 .env.backup

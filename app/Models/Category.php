@@ -8,7 +8,7 @@ use App\Http\Traits\ActiveStatusTrait;
 use App\Http\Traits\Translatable;
 
 class Category extends Model {
-  
+
   use ActiveStatusTrait;
   use Translatable;
 

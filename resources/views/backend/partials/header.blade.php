@@ -24,8 +24,8 @@
             <i data-feather="search"></i>
           </a>
           <div class="dropdown-menu pc-h-dropdown drp-search">
-            <form class="px-3 py-2">
-              <input type="search" class="form-control border-0 shadow-none" placeholder="Search here. . ." />
+            <form onsubmit="window.location.href = '/backend/goods?search=' + this.children[0].value; return false;" class="px-3 py-2">
+              <input type="search" v-model="searchQuery" class="form-control border-0 shadow-none" placeholder="Search here...">
             </form>
           </div>
         </li>
@@ -47,12 +47,14 @@
             aria-expanded="false"
           >
             <i data-feather="bell"></i>
-            <span class="badge bg-success pc-h-badge">3</span>
+            @if(count($newMessages) > 0)
+            <span class="badge bg-danger pc-h-badge">{{ count($newMessages) }}</span>
+            @endif
           </a>
           <div class="dropdown-menu dropdown-notification dropdown-menu-end pc-h-dropdown">
             <div class="dropdown-header d-flex align-items-center justify-content-between">
-              <h5 class="m-0">Notifications</h5>
-              <a href="#!" class="btn btn-link btn-sm">Mark all read</a>
+              <h5 class="m-0">{{__('Messages')}}</h5>
+              <a href="#!" class="btn btn-link btn-sm">{{__('Mark all read')}}</a>
             </div>
             <div class="dropdown-body text-wrap header-notification-scroll position-relative" style="max-height: calc(100vh - 215px)">
               @foreach($newMessages as $message)
@@ -69,8 +71,8 @@
                       <a href="{{ url('admin/messages/'.$message->id) }}" class="media p-2">
                         <div class="media-body p-0">
                           <p>{{ $message->email }}</p>
-                          <button class="btn btn-sm btn-outline-secondary me-2">Decline</button>
-                          <button class="btn btn-sm btn-primary">Accept</button>
+                          {{-- <button class="btn btn-sm btn-outline-secondary me-2">Decline</button>
+                          <button class="btn btn-sm btn-primary">Accept</button> --}}
                         </div>
                       </a>
                     </div>
@@ -80,7 +82,9 @@
               @endforeach
             </div>
             <div class="text-center py-2">
-              <a href="#!" class="link-danger">Clear all Notifications</a>
+              <router-link to="/backend/messages" class="link-primary">
+                {{__('View Messages')}} <i class="fas fa-arrow-circle-right"></i>
+              </router-link>
             </div>
           </div>
         </li>
@@ -96,59 +100,49 @@
           >
             <i data-feather="user"></i>
           </a>
+          @if(Auth::check())
           <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown p-0 overflow-hidden">
             <div class="dropdown-header d-flex align-items-center justify-content-between bg-primary">
               <div class="d-flex my-2">
+                @if(auth()->user()->picture)
                 <div class="flex-shrink-0">
-                  <img src="/assets/backend/images/user/avatar-2.jpg" alt="user-image" class="user-avtar wid-35" />
+                  <img src="/uploads/users/{{ auth()->user()->picture }}" class="user-avtar wid-35" alt="{{ auth()->user()->name }}">
                 </div>
-                <div class="flex-grow-1 ms-3">
-                  <h6 class="text-white mb-1">Carson Darrin 🖖</h6>
-                  <span class="text-white text-opacity-75">carson.darrin@company.io</span>
+                @endif
+                <div class="flex-grow-1 @if(auth()->user()->picture) ms-3 @endif">
+                  <h6 class="text-white mb-1">{{ auth()->user()->name }} {{ Auth::user()->is_admin ? '(admin)' : '' }}</h6>
+                  <span class="text-white text-opacity-75">{{ auth()->user()->email }}</span>
                 </div>
               </div>
             </div>
             <div class="dropdown-body">
               <div class="profile-notification-scroll position-relative" style="max-height: calc(100vh - 225px)">
-                <a href="#" class="dropdown-item">
+                <router-link to="/backend/profile" class="dropdown-item">
                   <span>
                     <svg class="pc-icon text-muted me-2">
                       <use xlink:href="#custom-setting-outline"></use>
                     </svg>
-                    <span>Settings</span>
+                    <span>{{__('Profile')}}</span>
                   </span>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <span>
-                    <svg class="pc-icon text-muted me-2">
-                      <use xlink:href="#custom-share-bold"></use>
-                    </svg>
-                    <span>Share</span>
-                  </span>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <span>
-                    <svg class="pc-icon text-muted me-2">
-                      <use xlink:href="#custom-lock-outline"></use>
-                    </svg>
-                    <span>Change Password</span>
-                  </span>
-                </a>
+                </router-link>
                 <div class="d-grid my-2">
-                  <button class="btn btn-primary">
-                    <svg class="pc-icon me-2">
-                      <use xlink:href="#custom-logout-1-outline"></use></svg>Logout
-                  </button>
+                  <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" onclick="event.preventDefault(); this.closest('form').submit();" class="btn btn-primary w-100">
+                      <svg class="pc-icon me-2">
+                        <use xlink:href="#custom-logout-1-outline"></use></svg> @lang('admin.Logout')
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
+          @endif
         </li>
       </ul>
     </div>
   </div>
 </header>
-
 {{--
 <header class="navbar pcoded-header navbar-expand-lg navbar-light header-dark">
   <div class="m-header">

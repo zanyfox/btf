@@ -3,31 +3,42 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 use Cocur\Slugify\Slugify;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
- */
 class GoodFactory extends Factory {
-  /**
-   * Define the model's default state.
-   *
-   * @return array<string, mixed>
-   */
+
   public function definition(): array {
-    $fakeName = $this->faker->unique()->name();
+
+    $name = $this->faker->unique()->name();
     $slugify = new Slugify();
-    $fakeSlug = $slugify->slugify($fakeName);
+    $slug = $slugify->slugify($name);
     $brandsId = \App\Models\Brand::pluck('id')->toArray();
+    if (empty($brandsId)) {
+      $brandsId = [1]; // Default brand ID if no brands exist
+    }
+    $status = $this->faker->enum(['draft', 'published', 'archived'])->default('draft');
+    switch ($status) {
+      case 'draft':
+        $status = 0;
+        break;
+      case 'published':
+        $status = 1;
+        break;
+      case 'archived':
+        $status = 2;
+        break;
+      default:
+        $status = 0; // Default to draft if no match
+        break;
+    }
 
     $categoriesId = \App\Models\Category::pluck('id')->toArray();
     $categoryRandomKey = array_rand($categoriesId);
     $categoryId = $categoriesId[$categoryRandomKey];
 
     return [
-      'name' => $fakeName,
-      'slug' => $fakeSlug,
+      'name' => $name,
+      'slug' => $slug,
       'description' => $this->faker->sentence,
       'brand_id' => $this->faker->randomElement($brandsId),
       'price' => rand(100, 10000)

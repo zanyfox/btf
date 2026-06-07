@@ -9,9 +9,9 @@
         <div class="swiper-wrapper align-items-center">
           @foreach($goods as $good)
           <div class="swiper-slide">
-			  @if($good->pictures->first())
-            <img class="product-img" src="{{ url('uploads/goods/small/' . $good->pictures->first()->path) }}" alt="{{ $good->__('name') }}">
-			@endif
+			      @if($good->pictures->first())
+              <img class="product-img" src="{{ url('uploads/goods/small/' . $good->pictures->first()->path) }}" alt="{{ $good->__('name') }}">
+			      @endif
           </div>
           @endforeach
         </div>

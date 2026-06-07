@@ -1,40 +1,37 @@
 <template>
-  <div class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h1 class="m-0">Settings</h1>
-        </div>
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><router-link to="/backend/dashboard">Dashboard</router-link></li>
-            <li class="breadcrumb-item active">Settings</li>
-          </ol>
+    <div class="page-header">
+    <div class="page-block">
+      <div class="row align-items-center">
+        <div class="col-md-12">
+          <div class="page-header-title"></div>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item">
+              <router-link to="/backend/dashboard"><i class="feather icon-home"></i></router-link>
+            </li>
+            <li class="breadcrumb-item"><a href="#!">Settings</a></li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
-  <div class="content">
-    <div class="container-fluid">
-
-      <div class="d-flex justify-content-between mb-3">
-        <div>
-          <button type="button" @click.prevent="showCreateSettingModal = true" class="btn btn-secondary">
-            <i class="fa fa-plus-circle mr-1"></i> New Setting
-          </button>
-        </div>
-      </div>
-
+  <div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h4 ref="pageTitle" class="card-title">Settings</h4>
+      <button type="button" @click.prevent="showCreateSettingModal = true" title="Создать новый тип" class="btn btn-sm btn-primary">
+        <i class="feather icon-plus"></i> New Setting
+      </button>
+    </div>
+    <div class="card-body table-border-style">
       <div class="table-responsive">
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Имя</th>
-              <th scope="col">Ключ</th>
-              <th scope="col">Значение</th>
-              <th scope="col">Язык</th>
-              <th scope="col">&nbsp;</th>
+              <th>#</th>
+              <th>Имя</th>
+              <th>Ключ</th>
+              <th>Значение</th>
+              <th>Язык</th>
+              <th>&nbsp;</th>
             </tr>
           </thead>
           <tbody>
@@ -44,11 +41,11 @@
               <td>{{ setting.key }}</td>
               <td>{{ setting.value }}</td>
               <td>{{ setting.lang }}</td>
-              <td>
+              <td class="text-end" style="width: 100px;">
                 <button type="button" class="btn btn-sm btn-warning" @click="editSetting(setting.id)">
                   <i class="fa fa-edit"></i>
                 </button>
-                <button type="button" class="btn btn-sm btn-danger ml-2" @click="deleteSetting(setting.id)">
+                <button type="button" class="btn btn-sm btn-danger ms-1" @click="deleteSetting(setting.id)">
                   <i class="fa fa-trash"></i>
                 </button>
               </td>
@@ -61,34 +58,34 @@
 
   <div v-if="showCreateSettingModal" class="modal fade show" id="createSettingModal" style="display: block;" tabindex="-1" role="dialog" aria-labelledby="createSettingModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="createSettingModalLabel">Create New Setting</h5>
-          <button @click.prevent="showCreateSettingModal = false" type="button" class="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <button type="button" class="btn-close" @click.prevent="showCreateSettingModal = false" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form @submit.prevent="createSetting">
-            <div class="form-group">
-              <label for="settingName">Setting Name</label>
+            <div class="mb-3">
+              <label for="settingName" class="form-label">Setting Name</label>
               <input type="text" class="form-control" id="settingName" v-model="newSetting.name" required>
+              <div class="invalid-feedback d-block text-danger text-sm" v-if="errors.name">{{ errors.name }}</div>
             </div>
-            <div class="form-group">
-              <label for="settingKey">Setting Key</label>
+            <div class="mb-3">
+              <label for="settingKey" class="form-label">Setting Key</label>
               <input type="text" class="form-control" id="settingKey" v-model="newSetting.key" required>
+              <div class="invalid-feedback d-block text-danger text-sm" v-if="errors.key">{{ errors.key }}</div>
             </div>
-            <div class="form-group">
-              <label for="settingValue">Setting Value</label>
+            <div class="mb-3">
+              <label for="settingValue" class="form-label">Setting Value</label>
               <input type="text" class="form-control" id="settingValue" v-model="newSetting.value" required>
+              <div class="invalid-feedback d-block text-danger text-sm" v-if="errors.value">{{ errors.value }}</div>
             </div>
-            <div class="form-group">
-              <label for="settingLang">Language</label>
+            <div class="mb-3">
+              <label for="settingLang" class="form-label">Language</label>
               <select class="form-control" id="settingLang" v-model="newSetting.lang">
                 <option value="">Select Language</option>
-                <option value="en">English</option>
-                <option value="ru">Russian</option>
+                <option :value="lang.code" v-for="lang in langs" :key="lang.id">{{ lang.name }}</option>
               </select>
             </div>
             <button type="submit" class="btn btn-primary">Create Setting</button>
@@ -100,34 +97,31 @@
 
   <div v-if="showEditSettingModal" class="modal fade show" style="display: block;" id="editSettingModal" tabindex="-1" role="dialog" aria-labelledby="editSettingModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="editSettingModalLabel">Edit Setting</h5>
-          <button type="button" class="close" @click.prevent="showEditSettingModal = false" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <button type="button" class="btn-close" @click.prevent="showEditSettingModal = false" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form @submit.prevent="updateSetting">
-            <div class="form-group">
-              <label for="settingName">Setting Name</label>
+            <div class="mb-3">
+              <label for="settingName" class="form-label">Setting Name</label>
               <input type="text" class="form-control" id="settingName" v-model="editSettingData.name" required>
             </div>
-            <div class="form-group">
-              <label for="settingKey">Setting Key</label>
+            <div class="mb-3">
+              <label for="settingKey" class="form-label">Setting Key</label>
               <input type="text" class="form-control" id="settingKey" v-model="editSettingData.key" required>
             </div>
-            <div class="form-group">
-              <label for="settingValue">Setting Value</label>
+            <div class="mb-3">
+              <label for="settingValue" class="form-label">Setting Value</label>
               <input type="text" class="form-control" id="settingValue" v-model="editSettingData.value" required>
             </div>
-            <div class="form-group">
-              <label for="settingLang">Language</label>
+            <div class="mb-3">
+              <label for="settingLang" class="form-label">Language</label>
               <select class="form-control" id="settingLang" v-model="editSettingData.lang">
                 <option value="">Select Language</option>
-                <option value="en">English</option>
-                <option value="ru">Russian</option>
+                <option :value="lang.code" v-for="lang in langs" :key="lang.id">{{ lang.name }}</option>
               </select>
             </div>
             <button type="submit" class="btn btn-primary">Update Setting</button>
@@ -140,17 +134,20 @@
 </template>
 <script setup>
 import { ref, onMounted } from 'vue'
-import toastr from 'toastr'
-import 'toastr/build/toastr.min.css'
-toastr.options = {
-  closeButton: true,
-  progressBar: true,
-  positionClass: 'toast-top-right',
-  timeOut: 5000
-}
+import { useSettingsStore } from '@/stores/settings'
+
+const errors = ref({
+  name: '',
+  key: '',
+  value: ''
+})
+
 const settings = ref([])
 const showCreateSettingModal = ref(false)
 const showEditSettingModal = ref(false)
+
+const settingsStore = useSettingsStore()
+const langs = settingsStore.getLangs
 
 const newSetting = ref({
   name: '',

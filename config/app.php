@@ -195,13 +195,11 @@ return [
       App\Providers\EventServiceProvider::class,
       App\Providers\RouteServiceProvider::class,
       App\Providers\FortifyServiceProvider::class,
-      App\Providers\JetstreamServiceProvider::class,
       Ladumor\OneSignal\OneSignalServiceProvider::class,
       Maatwebsite\Excel\ExcelServiceProvider::class,
 
       // Custom
       App\Providers\ViewServiceProvider::class,
-
       Spatie\Permission\PermissionServiceProvider::class,
       Spatie\Html\HtmlServiceProvider::class,
   ],

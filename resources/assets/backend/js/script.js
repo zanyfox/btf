@@ -5,8 +5,8 @@ Template Name: Datta Able - Admin Template
 Author: CodedThemes
 Support: https://codedthemes.support-hub.io/
 File: script.js
-Description:  this file will contains behavior, properties, 
-              functionality and interactions of a small module of ui element 
+Description:  this file will contains behavior, properties,
+              functionality and interactions of a small module of ui element
               which used to build a theme layout.
 =========================================================================
 =========================================================================
@@ -485,6 +485,28 @@ var slideToggle = (target, duration = 0) => {
     return slideUp(target, duration);
   }
 };
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  if(document.getElementById('mobile-collapse')) {
+    document.getElementById('mobile-collapse').addEventListener('click', () => {
+
+      if (document.querySelector('.pcoded-navbar').classList.contains('navbar-collapsed')) {
+        localStorage.setItem('sidebarState', 'collapsed')
+      } else {
+        localStorage.setItem('sidebarState', 'expanded')
+      }
+    })
+
+    const sidebarState = localStorage.getItem('sidebarState')
+    if (sidebarState === 'collapsed') {
+      document.querySelector('.pcoded-navbar').classList.add('navbar-collapsed')
+    } else {
+      document.querySelector('.pcoded-navbar').classList.remove('navbar-collapsed')
+    }
+  }
+
+})
 
 // =======================================================
 // =======================================================

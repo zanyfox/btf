@@ -7,8 +7,8 @@ export default defineConfig({
   plugins: [
     laravel({
       input: [
-        //'resources/css/backend.css',
-        //'resources/js/backend.js',
+        'resources/css/backend.css',
+        'resources/js/backend.js',
         //'resources/css/app.css',
         'resources/js/app.js'
       ],

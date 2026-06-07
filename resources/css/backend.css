@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap'); */
 @import url('../assets/backend/fonts/tabler-icons.min.css');
 @import url('../assets/backend/fonts/feather.css');
 @import url('../assets/backend/fonts/fontawesome.css');
 @import url('../assets/backend/fonts/material.css');
 @import url('../assets/backend/css/style.css');
 @import url('../assets/backend/css/style-preset.css');
+.auth-main {
+  background-image: url('../assets/admin/images/img-auth-big.png');
+  background-size: cover;
+}
 [x-clock] {display: none!important;}
 .dropzone {
   padding: 10px;
@@ -13,3 +17,85 @@
 }
 .dropzone .dz-preview {margin: 0 10px 10px 0;}
 .dropzone .dz-preview .dz-image {border-radius: 5px;}
+
+.pc-navbar .router-link-exact-active {
+  font-weight: 500;
+  color: var(--pc-sidebar-main-active-color);
+  background: rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+.pc-navbar .router-link-exact-active:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  width: 3px;
+  background: #04a9f5;
+}
+
+#toast-container>.toast-success {
+  background-color: green;
+}
+#toast-container>.toast-error {
+  background-color: red;
+}
+
+.threebody-loader {
+  background:rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.threebody-loader>div {
+  display: block;
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+i.threebody-spinner {
+  height:2em;
+  width:2em;
+  border-radius:100%;
+  background:#fff;
+  display:block;
+  margin:10em auto;
+  position:absolute;
+  left:50%;
+  top: 50%;
+  animation:spin 2s ease infinite;
+}
+i.threebody-spinner:before, i.threebody-spinner:after{
+  content:'';
+  display:block;
+  position:absolute;
+  height:inherit;
+  width:inherit;
+  background:inherit;
+  border-radius:inherit;
+  animation:spin 2s ease infinite;
+}
+i.threebody-spinner:before {left:-2.15em;}
+i.threebody-spinner:after{left:2.15em;}
+
+@keyframes spin{
+  0%{
+    top:0;
+    transform:rotate(0deg);
+  }
+  50%{
+    top: -4em;
+    transform:rotate(-180deg);
+  }
+  100%{
+    top:0;
+    transform:rotate(-360deg);
+  }
+}

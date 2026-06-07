@@ -1,0 +1,12 @@
+$ ls -l
+$ cd backend
+$ composer create-project laravel/laravel .
+$ code .
+
+#$ cd ../frontend
+$ npm create vite@latest frontend
+$ cd frontend
+$ nom install 
+
+
+$ laravel new backend

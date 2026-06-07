@@ -164,14 +164,6 @@
 
 <script setup>
 import {onMounted, ref} from 'vue'
-import toastr from 'toastr'
-import 'toastr/build/toastr.min.css'
-toastr.options = {
-  closeButton: true,
-  progressBar: true,
-  positionClass: 'toast-top-right',
-  timeOut: 5000
-}
 const colors = ref([])
 const formValues = ref({
   id: null,

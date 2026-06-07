@@ -18,8 +18,6 @@ use TeaEagle\IikoTransport\App AS IikoTransport;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Imagick\Driver;
 
-// 
-
 class GoodSeeder extends Seeder {
 
   protected $app;
@@ -47,13 +45,15 @@ class GoodSeeder extends Seeder {
    */
   public function run() {
 
+    //\App\Models\Good::factory()->count(10)->create();
+
     $products = $this->app->product->list();
 
     if( !is_null($products) && count($products) > 0 ) {
 
       set_time_limit(0);
       DB::table('goods')->update(['status' => false]);
-      
+
       foreach($products as $product) {
 
         $good = Good::where('external_id', $product->id)->first();
@@ -68,7 +68,7 @@ class GoodSeeder extends Seeder {
         $good->order_by = $product->order;
         $good->code = $product->code;
         $good->name = $product->name;
-        
+
         $good->slug = Str::slug($product->name);
         $good->type = $product->type;
         $good->excerpt = $product->description;
@@ -92,7 +92,7 @@ class GoodSeeder extends Seeder {
               }
             }
           }
-        }    
+        }
 
         DB::table('feature_good')->where('good_id', $good->id)->delete();
 
@@ -116,7 +116,7 @@ class GoodSeeder extends Seeder {
           DB::insert('INSERT INTO feature_good (value,feature_id,good_id) VALUES(?,?,?)', [$product->energyAmount, 5, $good->id]);
         }
 
-        
+
 
         // Delete old pictures
         if($good->pictures->isNotEmpty()) {
@@ -173,7 +173,7 @@ class GoodSeeder extends Seeder {
             $smallImage = ImageManager::imagick()->read($sourcePath);
             $smallImage->cover($this->imageSizes['small'][0], $this->imageSizes['small'][1]);
             $smallImage->save($destinationPath);
-    
+
             if($insertPictures) {
               $good->pictures()->attach($insertPictures);
             }
@@ -189,7 +189,7 @@ class GoodSeeder extends Seeder {
         'response' => json_encode($products, JSON_UNESCAPED_UNICODE),
         'status' => 'success'
       ]);
-  
+
       return response()->json([
         'status' => 'success',
         'message' => 'Goods updated successfully'

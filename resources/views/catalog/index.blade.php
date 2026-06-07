@@ -5,17 +5,8 @@
 @section('description', $page->description)
 
 @section('content')
-{{-- <!-- intro start -->
-<section class="intro">
-  <img class="intro-bg" src="{{ asset('assets/images/katalog-bg.png') }}" alt="">
-  <div class="intro-content">
-    <div class="intro-content__info">Tobacco</div>
-    <h1 class="intro-content__title">{{ $page->title }}</h1>
-  </div>
-</section>
-<!-- intro end --> --}}
 
-<!-- business-class -->
+@if(count($categories) > 0)
 @foreach($categories as $category)
 <section class="business-class">
   <div class="container">
@@ -26,9 +17,7 @@
     <p>{{ $category->__('excerpt') }}</p>
   </div>
 </section>
-<!-- business-class -->
 
-<!-- business-class__products -->
 <section class="business-class__products">
   <div class="container">
 
@@ -55,11 +44,11 @@
               <div class="product-card">
                 <div>
                   <div class="product-img__box" style="height: auto;">
-					@if($good->pictures->first())
-					  <a href="{{ url('uploads/goods/small/' . $good->pictures->first()->path) }}" data-fancybox="{{$child->slug}}" data-caption="{{ $good->name }}">
-					    <img class="product-img" src="{{ url('uploads/goods/small/' . $good->pictures->first()->path) }}" style="max-width: -webkit-fill-available;" alt="{{ $good->name }}">
-					  </a>
-					@endif
+                    @if($good->pictures->first())
+                      <a href="{{ url('uploads/goods/small/' . $good->pictures->first()->path) }}" data-fancybox="{{$child->slug}}" data-caption="{{ $good->name }}">
+                        <img class="product-img" src="{{ url('uploads/goods/small/' . $good->pictures->first()->path) }}" style="max-width: -webkit-fill-available;" alt="{{ $good->name }}">
+                      </a>
+                    @endif
                   </div>
                   <div class="product-title__box">
                     <h4 class="product-name" @isset($child->color->code) style="color: {{ $child->color->code }}" @endisset>{{ $good->__('name') }}</h4>
@@ -91,4 +80,5 @@
   </div>
 </section>
 @endforeach
+@endif
 @endsection

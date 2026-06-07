@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Cache;
+use Illuminate\Support\Facades\Cache;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -20,74 +20,47 @@ class CatalogController extends Controller {
   //use GoodFeaturesTrait;
 
   public function index() {
-
-    $page = Cache::rememberForever('pages.catalog', function () {
-      return Page::where(['slug' => 'catalog','status' => true])->first();
-    });
+    //Cache::flush();
+    $page = Cache::rememberForever('pages.catalog', fn () => Page::where(['slug'=>'catalog','status'=>true])->first());
 
     if(!$page) {
       abort(404);
     }
 
-    /*$categories = Cache::remember('catalog.categories', now()->addDays(30), function () {
-      return Category::orderBy('order_by','ASC')
-        //->orderBy('id','ASC')
-        ->orderByColumn('id','ASC')
-        ->where(['parent_id' => NULL])->activeStatus()
-        ->with('goods')
-        ->take(100)->get();
-    });*/
-    
-    $categories = Category::orderBy('order_by','ASC')
-        //->orderBy('id','ASC')
-        //->orderByColumn('id','ASC')
-        ->where(['parent_id' => NULL])
-        ->activeStatus()
-        ->with('goods')
-        ->take(100)->get();
-    //print_r($categories); die;
-
-
-
-    //$deliveryByCourier = DB::select('SELECT id FROM delivery_methods WHERE code=? AND status=?', ['DeliveryByCourier', false]);
-
-    //cache(['deliveryByCourier' => DB::select('SELECT id FROM delivery_methods WHERE code=? AND status=?', ['DeliveryByCourier', true])], now()->addMinutes(10));
-    //$deliveryByCourier = cache('deliveryByCourier');
-    //$deliveryByCourier = Cache::get('deliveryByCourier', null);
-
-    return view('catalog.index', compact('page','categories'));
-  }
-
-  public function stock() {
-
-    //throw new HttpException(503);
-
-    $page = new \stdClass();
-    $page->title = 'Пиццы с напитками';
-    $page->keywords = 'пиццы, напитки';
-    $page->description = 'Пиццы с напитками';
-    $page->slug = 'stock';
-    $page->subtitle = 'Пиццы с напитками';
-
-    cache()->forget('catalog.stock');
-    $categories = Cache::remember('catalog.stock', now()->addDays(30), function () {
-      return Category::orderBy('order_by','ASC')
-        ->orderBy('id','ASC')
-        ->whereIn('slug', ['picca','gaznapitki','sokimors','limonad-regano','napitki'])->activeStatus()
-        ->with('goods')
-        ->take(4)->get();
+    $categories = Cache::remember('catalog.categories', now()->addDays(30), function () {
+      return Category::orderByColumn('order_by','ASC')
+      ->where(['parent_id' => NULL])
+      ->activeStatus()
+      ->with('goods')
+      ->take(100)->get();
     });
 
-
-    cache(['deliveryByCourier' => DB::select('SELECT id FROM delivery_methods WHERE code=? AND status=?', ['DeliveryByCourier', true])], now()->addMinutes(10));
-    $deliveryByCourier = Cache::get('deliveryByCourier', null);
-
-    return view('catalog.index', compact('page','categories','deliveryByCourier'));
+    return view('catalog.index')->with(['page' => $page, 'categories' => $categories]);
   }
 
-  public function details(Request $request, int $id = null) {
+  public function category(string $slug) {
+    $id = Category::where('slug', $slug)->value('id');
+    $category = Category::with('goods')->find($id);
 
-    
+    if(!$category) {
+      abort(404);
+    }
+
+    $category->loadCount('goods');
+    //dd($category->goods);
+
+    $categoryGoods = Good::whereHas('categories', function ($query) use ($id) {
+      $query->where('category_id', $id);
+    })->select('id','name','slug','price')->paginate(20);
+
+    dd($categoryGoods);
+
+    return view('catalog.category')->with(['category' => $category]);
+  }
+
+  public function details(Request $request, string $category, int $id) {
+
+
 
     if(!$id) {
 
@@ -100,7 +73,7 @@ class CatalogController extends Controller {
     }
 
     /* Request Instance */
-    
+
 
     //$value = $request->session()->pull('viewedGoods', []);
 
@@ -125,7 +98,7 @@ class CatalogController extends Controller {
     // Storing Data
     array_push($viewedGoods, $id);
     $request->session()->put('viewedGoods', $viewedGoods);
-    
+
     /* $request->session()->flash('status', 'Viewed');
     $request->session()->keep(['name','email']);
     $request->session()->now('status', 'Viewed'); */
@@ -162,6 +135,17 @@ class CatalogController extends Controller {
         ->with('categories')->with('pictures')->take(8)->get();
     }
 
+    // Get sibling goods by categories with whereHas filtering
+    $categoriesIds = $good->categories->pluck('id')->toArray();
+    $siblingGoods = Good::whereHas('categories', function ($query) use ($categoriesIds) {
+      $query->whereIn('category_id', $categoriesIds);
+    })->where('id', '!=', $good->id)
+      ->where('status', true)
+      ->with('pictures')
+      ->orderBy('id', 'desc')
+      ->limit(8)->get(['id', 'name', 'price', 'slug', 'external_id'])->toArray();
+    dd($siblingGoods);
+
     //$good->sizes;
 
     if($good) {
@@ -190,13 +174,13 @@ class CatalogController extends Controller {
 
   public function getModifiers($goodId) {
     $result = DB::select('SELECT * FROM modifiers AS m JOIN goods AS g ON m.id = g.external_id WHERE g.type = "Modifier" AND m.good_id=' . $goodId);
-    
+
     $groups = [];
     if(count($result) > 0) {
       foreach($result as $modifier) {
         $groups[$modifier->group_id][] = $modifier;
-      } 
-    } 
+      }
+    }
     $data = collect($result)->map(function($x){ return (array) $x; })->toArray();
     return response()->json([
       'status' => 'success',

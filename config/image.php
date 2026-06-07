@@ -16,8 +16,8 @@ return [
   |
   */
 
-  //'driver' => \Intervention\Image\Drivers\Gd\Driver::class,
-  'driver' => env('APP_ENV') != 'local' ? \Intervention\Image\Drivers\Imagick\Driver::class : \Intervention\Image\Drivers\Gd\Driver::class,
+  'driver' => \Intervention\Image\Drivers\Gd\Driver::class,
+  //'driver' => env('APP_ENV') != 'local' ? \Intervention\Image\Drivers\Imagick\Driver::class : \Intervention\Image\Drivers\Gd\Driver::class,
 
   /*
   |--------------------------------------------------------------------------

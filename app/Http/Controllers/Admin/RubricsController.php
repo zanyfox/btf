@@ -15,7 +15,7 @@ class RubricsController extends Controller {
     //dd($rubrics);
     return view('admin.rubrics.index', [
       'rubrics' => $rubrics
-    ]); 
+    ]);
   }
 
   public function create() {
@@ -106,7 +106,7 @@ class RubricsController extends Controller {
       'status' => $request->status == 'on' ? true : false,
       'sort' => $request->sort
     ]);
-    
+
     session()->flash('success', __('admin.RecordUpdatedSuccessfully'));
 
     return response()->json([
@@ -117,16 +117,7 @@ class RubricsController extends Controller {
   }
 
   public function destroy($id) {
-
-    DB::table('payment_methods')->where('id', $id)->delete();
-
-    //DB::table('payment_methods')->truncate();
-
-    session()->flash('success', __('admin.RecordDeletedSuccessfully'));
-
-    return response()->json([
-      'status' => 'success',
-      'message' => __('admin.RecordDeletedSuccessfully')
-    ]);
+    Rubric::destroy($id);
+    return response()->noContent();
   }
 }

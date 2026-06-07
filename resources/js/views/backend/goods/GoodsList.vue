@@ -33,12 +33,12 @@
         </div>
         <div class="card-body">
           <form action="" method="GET">
-            <div class="form-row">
-              <div class="form-group col-md-6">
+            <div class="row">
+              <div class="mb-3 col-md-6">
                 <label for="inputSearch">Поиск по названию</label>
                 <input type="text" name="search" value="" class="form-control" id="inputSearch">
               </div>
-              <div class="form-group col-md-2">
+              <div class="mb-3 col-md-2">
                 <label for="inputState">Категория</label>
                 <select name="category" id="inputState" class="form-control">
                   <option value="" disabled selected>Выберите вариант</option>
@@ -60,14 +60,14 @@
                   <option value="22" >&nbsp;&nbsp;&nbsp;&nbsp; Bayron</option>
                 </select>
               </div>
-              <div class="form-group col-md-2">
+              <div class="mb-3 col-md-2">
                 <label for="inputLang">Бренд</label>
                 <select name="brand_id[]" id="inputLang" class="form-control">
                   <option value="" disabled selected>Выберите вариант</option>
                   <option v-for="brand in brands" :value="brand.id" :key="brand.id">{{ brand.name }}</option>
                 </select>
               </div>
-              <div class="form-group col-md-2">
+              <div class="mb-3 col-md-2">
                 <label for="inputLang">Язык</label>
                 <select id="inputLang" class="form-control">
                   <option value="" disabled selected>Выберите вариант</option>
@@ -75,16 +75,16 @@
                 </select>
               </div>
             </div>
-            <div class="form-row">
-              <div class="form-group col-md-2">
+            <div class="row">
+              <div class="mb-3 col-md-2">
                 <label for="inputPriceFrom">Цена от</label>
                 <input type="number" name="price_from" min="0" max="0" value="" class="form-control" id="inputPriceFrom">
               </div>
-              <div class="form-group col-md-2">
+              <div class="mb-3 col-md-2">
                 <label for="inputPriceTo">Цена до</label>
                 <input type="number" name="price_to" min="0" max="0" value="" class="form-control" id="inputPriceTo">
               </div>
-              <div class="form-group col-md-2">
+              <div class="mb-3 col-md-2">
                 <label for="inputLang">Статус</label>
                 <select @change="filterByStatus($event)" id="inputLang" class="form-control">
                   <option value="" disabled selected>Выберите вариант</option>
@@ -92,19 +92,19 @@
                   <option value="1">Active</option>
                 </select>
               </div>
-              <div class="form-group col-md-2 mt-4">
+              <div class="mb-3 col-md-2 mt-4">
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" name="featured"  class="custom-control-input" id="inputFeatured">
                   <label class="custom-control-label" for="inputFeatured">Рекомендуемый</label>
                 </div>
               </div>
-              <div class="form-group col-md-2 mt-4">
+              <div class="mb-3 col-md-2 mt-4">
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" name="novelty"  class="custom-control-input" id="inputNovelty">
                   <label class="custom-control-label" for="inputNovelty">Новинка</label>
                 </div>
               </div>
-              <div class="form-group col-md-2 mt-4">
+              <div class="mb-3 col-md-2 mt-4">
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" name="hit"  class="custom-control-input" id="inputHit">
                   <label class="custom-control-label" for="inputHit">Хит</label>
@@ -126,7 +126,7 @@
           </router-link>
         </div>
         <div class="card-body table-border-style">
-          <div class="table-responsive">
+          <div v-if="goods.data" class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
@@ -142,7 +142,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="good in goods.data" :key="good.id" class="index-0 iteration-1">
+                <tr v-for="(good, index) in goods.data" :key="good.id" :class="`index-${index} iteration-${index + 1}`">
                   <td>{{ good.id }}</td>
                   <td>
                     <img :src="`/uploads/goods/small/${good.picture}`" v-if="good.picture" width="60">
@@ -174,12 +174,11 @@
               </tbody>
             </table>
           </div>
+          <Preloader v-if="loading" />
         </div>
       </div>
     </div>
   </div>
-    <!-- <Preloader :loading="loading" /> -->
-
 </template>
 <script setup>
 import { onMounted, ref, computed } from 'vue'
@@ -188,12 +187,12 @@ import axios from 'axios'
 import moment from 'moment'
 
 const goods = ref([])
-const loading = ref(false);
+const loading = ref(true);
 
 const settingsStore = useSettingsStore()
 const langs = settingsStore.getLangs
 
-//import Preloader from '../../components/Preloader.vue';
+import Preloader from '../../../components/Preloader.vue';
 
 const brands = ref([]);
 const appointmentStatus = ref([]);
@@ -205,7 +204,6 @@ const getAppointmentStatus = () => {
 }
 
 const getGoods = (status) => {
-  loading.value = true
   fetch('/api/backend/goods').then(response => response.json()).then(data => {
     goods.value = data.goods
     loading.value = false

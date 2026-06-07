@@ -10,7 +10,7 @@ use App\Http\Controllers\Admin\FeaturesController as AdminFeaturesController;
 //Route::get('login', [AdminAuthController::class, 'login'])->name('admin.login');
 //Route::post('authenticate', [AdminAuthController::class, 'authenticate'])->name('admin.authenticate');
 
-Route::middleware(['auth','isAdmin','role:super-admin|admin'])->name('admin.')->group(function() {
+Route::middleware(['auth','AdminCheck','role:super-admin|admin'])->name('admin.')->group(function() {
 
   Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
   Route::get('dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index']);
@@ -23,13 +23,13 @@ Route::middleware(['auth','isAdmin','role:super-admin|admin'])->name('admin.')->
   Route::get('messages', [\App\Http\Controllers\Admin\MessagesController::class, 'index'])->name('adminMessages');
   Route::get('messages/{id}', [\App\Http\Controllers\Admin\MessagesController::class, 'show'])->whereNumber('id');
 
-  Route::get('posts', [AdminPostsController::class, 'index']);//->middleware(['can:isAdmin, App\Models\Post']);
+  Route::get('posts', [AdminPostsController::class, 'index']);//->middleware(['can:AdminCheck, App\Models\Post']);
   Route::get('posts/create', [AdminPostsController::class, 'create']);
   Route::post('posts/store', [AdminPostsController::class, 'store']);
   Route::get('posts/{id}/edit', [AdminPostsController::class, 'edit'])->where('id', '[0-9]+');
   Route::put('posts/{id}', [AdminPostsController::class, 'update'])->where('id', '[0-9]+');
   Route::delete('posts/delete/{id}', [AdminPostsController::class, 'delete'])
-    ->middleware(['can:isAdmin, App\Models\Post'])
+    ->middleware(['can:AdminCheck, App\Models\Post'])
     //->middleware(['permission:delete-post'])
     ->whereNumber('id');
 
@@ -84,7 +84,7 @@ Route::middleware(['auth','isAdmin','role:super-admin|admin'])->name('admin.')->
 
   Route::resource('orders', AdminOrdersController::class);
   Route::patch('orders/change-status/{id}', [AdminOrdersController::class, 'changeStatus'])->whereNumber('id');
-  Route::patch('orders/restore/{id}', [AdminOrdersController::class, 'restore'])->middleware(['can:isAdmin'])->whereNumber('id')->name('orders.restore');
+  Route::patch('orders/restore/{id}', [AdminOrdersController::class, 'restore'])->middleware(['can:AdminCheck'])->whereNumber('id')->name('orders.restore');
   Route::get('orders/view-invoice/{id}', [AdminOrdersController::class, 'viewInvoice'])->whereNumber('id');
   Route::get('orders/download-invoice/{id}', [AdminOrdersController::class, 'downloadInvoice'])->whereNumber('id');
   Route::get('orders/send-invoice/{id}', [AdminOrdersController::class, 'sendInvoice'])->whereNumber('id');

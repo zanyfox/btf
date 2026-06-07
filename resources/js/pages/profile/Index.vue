@@ -1,6 +1,6 @@
 <template>
   <div class="content-header">
-  <h1>{{ title }}</h1>
+  <h1>{{ title }}1</h1>
 </div>
 <div class="content px-2">
 <blockquote class="quote-info mt-0">

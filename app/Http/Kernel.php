@@ -70,10 +70,10 @@ class Kernel extends HttpKernel {
     'signed' => \App\Http\Middleware\ValidateSignature::class,
     'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-    'isAdmin' => \App\Http\Middleware\IsAdmin::class,
+    'AdminCheck' => \App\Http\Middleware\AdminCheck::class,
     'setlocale' => \App\Http\Middleware\SetLocale::class,
     'viewcount' => \App\Http\Middleware\ViewCount::class,
-    
+
     'role' => \Spatie\Permission\Middleware\RoleMiddleware::class,
     'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class,
     'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,

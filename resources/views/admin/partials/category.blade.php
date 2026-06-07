@@ -18,4 +18,4 @@
   </ul>
   @endif
 </li>
-@endforeach 
+@endforeach

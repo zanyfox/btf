@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name', 100)->nullable();
             $table->string('surname', 100)->nullable();
-            $table->string('phone', 20)->nullable();
+            $table->string('phone', 20)->nullable();//->unique()
             $table->string('email', 100)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -29,7 +29,7 @@ return new class extends Migration {
             $table->string('postcode', 100)->nullable();
             $table->string('country', 100)->nullable();
             $table->boolean('marketingoptin')->default(false);
-            $table->timestamp('date_of_birth')->nullable();
+            $table->timestamp('birthdate')->nullable();
             $table->boolean('agree')->nullable();
             $table->string('device_key', 255)->nullable();
             $table->boolean('status')->default(false);

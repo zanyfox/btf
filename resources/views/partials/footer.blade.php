@@ -74,7 +74,6 @@
           <a href="{{ url('polzovatelskoe-soglashenie') }}">Обработка персональных данных</a>
         </div>
         <div class="col-6">
-          <p class="bottom-text">Разработано <a href="https://web-aimart.com/" target="_blank">AIMART</a></p>
           <a href="{{ url('distributors') }}">Стать партнером</a>
         </div>
       </div>

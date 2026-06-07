@@ -165,10 +165,10 @@ return [
     'name' => [
       'required' => 'Не заполнено поле Имя',
     ],
-    'email' => [
+    /* 'email' => [
       'required' => 'We need to know your email address',
       'max' => 'Your email address is too long',
-    ],
+    ], */
   ],
 
   /*

@@ -1,0 +1,236 @@
+[2026-06-05 11:36:20] production.ERROR: include(/Users/aleksandr/projects/btf/vendor/composer/../barryvdh/laravel-dompdf/src/ServiceProvider.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(/Users/aleksandr/projects/btf/vendor/composer/../barryvdh/laravel-dompdf/src/ServiceProvider.php): Failed to open stream: No such file or directory at /Users/aleksandr/projects/btf/vendor/composer/ClassLoader.php:576)
+[stacktrace]
+#0 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(258): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(/Users/...', '/Users/aleksand...', 576)
+#1 /Users/aleksandr/projects/btf/vendor/composer/ClassLoader.php(576): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'include(/Users/...', '/Users/aleksand...', 576)
+#2 /Users/aleksandr/projects/btf/vendor/composer/ClassLoader.php(576): include('/Users/aleksand...')
+#3 /Users/aleksandr/projects/btf/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}('/Users/aleksand...')
+#4 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(961): Composer\\Autoload\\ClassLoader->loadClass('Barryvdh\\\\DomPDF...')
+#5 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(893): Illuminate\\Foundation\\Application->resolveProvider('Barryvdh\\\\DomPDF...')
+#6 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register('Barryvdh\\\\DomPDF...')
+#7 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(871): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#8 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(37): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#9 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(342): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#10 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(474): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#11 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#12 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#13 {main}
+"} 
+[2026-06-05 11:36:20] production.ERROR: include(/Users/aleksandr/projects/btf/vendor/composer/../barryvdh/laravel-dompdf/src/ServiceProvider.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(/Users/aleksandr/projects/btf/vendor/composer/../barryvdh/laravel-dompdf/src/ServiceProvider.php): Failed to open stream: No such file or directory at /Users/aleksandr/projects/btf/vendor/composer/ClassLoader.php:576)
+[stacktrace]
+#0 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(258): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(/Users/...', '/Users/aleksand...', 576)
+#1 /Users/aleksandr/projects/btf/vendor/composer/ClassLoader.php(576): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'include(/Users/...', '/Users/aleksand...', 576)
+#2 /Users/aleksandr/projects/btf/vendor/composer/ClassLoader.php(576): include('/Users/aleksand...')
+#3 /Users/aleksandr/projects/btf/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}('/Users/aleksand...')
+#4 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(961): Composer\\Autoload\\ClassLoader->loadClass('Barryvdh\\\\DomPDF...')
+#5 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(893): Illuminate\\Foundation\\Application->resolveProvider('Barryvdh\\\\DomPDF...')
+#6 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register('Barryvdh\\\\DomPDF...')
+#7 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(871): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#8 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(37): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#9 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(342): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#10 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(474): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#11 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#12 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#13 {main}
+"} 
+[2026-06-05 11:47:18] production.ERROR: Class "Ladumor\OneSignal\OneSignalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Ladumor\\OneSignal\\OneSignalServiceProvider\" not found at /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:206)
+[stacktrace]
+#0 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Ladumor\\\\OneSign...')
+#1 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(871): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(37): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(342): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(474): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 /Users/aleksandr/projects/btf/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2026-06-05 11:47:20] production.ERROR: Class "Ladumor\OneSignal\OneSignalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Ladumor\\OneSignal\\OneSignalServiceProvider\" not found at /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:206)
+[stacktrace]
+#0 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Ladumor\\\\OneSign...')
+#1 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(871): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(37): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(342): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(474): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2026-06-05 11:47:20] production.ERROR: Class "Ladumor\OneSignal\OneSignalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Ladumor\\OneSignal\\OneSignalServiceProvider\" not found at /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:206)
+[stacktrace]
+#0 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Ladumor\\\\OneSign...')
+#1 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(871): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(37): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(342): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(474): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2026-06-05 11:49:10] production.ERROR: Class "Spatie\Permission\PermissionServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\Permission\\PermissionServiceProvider\" not found at /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:206)
+[stacktrace]
+#0 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Spatie\\\\Permissi...')
+#1 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(871): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(37): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(342): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(474): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 /Users/aleksandr/projects/btf/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2026-06-05 11:49:20] production.ERROR: Class "Spatie\Permission\PermissionServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\Permission\\PermissionServiceProvider\" not found at /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:206)
+[stacktrace]
+#0 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Spatie\\\\Permissi...')
+#1 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(871): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(37): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(342): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(474): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2026-06-05 11:49:20] production.ERROR: Class "Spatie\Permission\PermissionServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\Permission\\PermissionServiceProvider\" not found at /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:206)
+[stacktrace]
+#0 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Spatie\\\\Permissi...')
+#1 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(871): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(37): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(342): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(474): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2026-06-05 11:59:18] production.ERROR: Command "test" is not defined.
+
+Did you mean one of these?
+    make:test
+    schedule:test {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"test\" is not defined.
+
+Did you mean one of these?
+    make:test
+    schedule:test at /Users/aleksandr/projects/btf/vendor/symfony/console/Application.php:759)
+[stacktrace]
+#0 /Users/aleksandr/projects/btf/vendor/symfony/console/Application.php(298): Symfony\\Component\\Console\\Application->find('test')
+#1 /Users/aleksandr/projects/btf/vendor/symfony/console/Application.php(195): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /Users/aleksandr/projects/btf/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 {main}
+"} 
+[2026-06-05 12:02:53] production.ERROR: Class "Spatie\Permission\PermissionServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\Permission\\PermissionServiceProvider\" not found at /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:205)
+[stacktrace]
+#0 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(141): Illuminate\\Foundation\\ProviderRepository->createProvider('Spatie\\\\Permissi...')
+#1 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(60): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(871): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(37): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(342): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(494): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 /Users/aleksandr/projects/btf/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2026-06-05 12:03:22] production.ERROR: Class "Spatie\Permission\PermissionServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\Permission\\PermissionServiceProvider\" not found at /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:205)
+[stacktrace]
+#0 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(141): Illuminate\\Foundation\\ProviderRepository->createProvider('Spatie\\\\Permissi...')
+#1 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(60): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(871): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(37): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(342): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(494): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2026-06-05 12:03:22] production.ERROR: Class "Spatie\Permission\PermissionServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\Permission\\PermissionServiceProvider\" not found at /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:205)
+[stacktrace]
+#0 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(141): Illuminate\\Foundation\\ProviderRepository->createProvider('Spatie\\\\Permissi...')
+#1 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(60): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(871): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(37): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(342): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(494): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2026-06-05 12:08:10] production.DEBUG: Gzip: 16838B → 4268B (25.35%), saved 12.28KB  
+[2026-06-05 12:09:52] production.DEBUG: Gzip: 16854B → 4272B (25.35%), saved 12.29KB  
+[2026-06-05 12:37:03] production.DEBUG: Gzip: 30665B → 7296B (23.79%), saved 22.82KB  
+[2026-06-05 12:37:08] production.DEBUG: Gzip: 13833B → 4044B (29.23%), saved 9.56KB  
+[2026-06-05 12:37:08] production.DEBUG: Gzip: 1263B → 535B (42.36%), saved 0.71KB  
+[2026-06-05 12:37:11] production.DEBUG: Gzip: 7681B → 2206B (28.72%), saved 5.35KB  
+[2026-06-05 12:37:25] production.DEBUG: Gzip: 68138B → 5915B (8.68%), saved 60.76KB  
+[2026-06-05 14:02:14] production.DEBUG: Gzip: 1016B → 561B (55.22%), saved 0.44KB  
+[2026-06-05 14:02:44] production.DEBUG: Gzip: 1016B → 564B (55.51%), saved 0.44KB  
+[2026-06-05 14:04:21] production.DEBUG: Gzip: 1016B → 564B (55.51%), saved 0.44KB  
+[2026-06-05 14:04:37] production.DEBUG: Gzip: 1887B → 913B (48.38%), saved 0.95KB  
+[2026-06-05 14:04:37] production.DEBUG: Gzip: 1887B → 913B (48.38%), saved 0.95KB  
+[2026-06-05 14:06:06] production.DEBUG: Gzip: 19416B → 4073B (20.98%), saved 14.98KB  
+[2026-06-05 14:06:14] production.DEBUG: Gzip: 1979B → 609B (30.77%), saved 1.34KB  
+[2026-06-05 14:06:14] production.DEBUG: Gzip: 10787B → 1183B (10.97%), saved 9.38KB  
+[2026-06-05 14:06:14] production.DEBUG: Gzip: 3213B → 540B (16.81%), saved 2.61KB  
+[2026-06-05 14:06:36] production.DEBUG: Gzip: 1016B → 553B (54.43%), saved 0.45KB  
+[2026-06-05 14:07:38] production.DEBUG: Gzip: 587B → 255B (43.44%), saved 0.32KB  
+[2026-06-05 14:07:42] production.DEBUG: Gzip: 1259B → 514B (40.83%), saved 0.73KB  
+[2026-06-05 14:07:44] production.DEBUG: Gzip: 992B → 437B (44.05%), saved 0.54KB  
+[2026-06-05 14:07:45] production.DEBUG: Gzip: 992B → 437B (44.05%), saved 0.54KB  
+[2026-06-05 14:07:45] production.DEBUG: Gzip: 992B → 437B (44.05%), saved 0.54KB  
+[2026-06-05 16:03:52] production.DEBUG: Gzip: 19433B → 4081B (21%), saved 14.99KB  
+[2026-06-05 16:04:11] production.DEBUG: Gzip: 19159B → 4050B (21.14%), saved 14.75KB  
+[2026-06-05 16:04:24] production.DEBUG: Gzip: 19433B → 4081B (21%), saved 14.99KB  
+[2026-06-05 16:05:14] production.DEBUG: Gzip: 19434B → 4081B (21%), saved 14.99KB  
+[2026-06-05 16:06:18] production.DEBUG: Gzip: 19432B → 4078B (20.99%), saved 14.99KB  
+[2026-06-05 16:12:18] production.DEBUG: Gzip: 2665B → 687B (25.78%), saved 1.93KB  
+[2026-06-05 16:17:18] production.DEBUG: Gzip: 18892B → 4023B (21.29%), saved 14.52KB  
+[2026-06-05 16:17:24] production.DEBUG: Gzip: 19432B → 4078B (20.99%), saved 14.99KB  
+[2026-06-05 17:02:32] production.DEBUG: Gzip: 1737B → 584B (33.62%), saved 1.13KB  
+[2026-06-05 17:02:58] production.DEBUG: Gzip: 6605B → 2130B (32.25%), saved 4.37KB  
+[2026-06-05 17:03:18] production.DEBUG: Gzip: 1498B → 564B (37.65%), saved 0.91KB  
+[2026-06-05 17:22:23] production.DEBUG: Gzip: 6605B → 2130B (32.25%), saved 4.37KB  
+[2026-06-05 17:23:09] production.DEBUG: Gzip: 1498B → 564B (37.65%), saved 0.91KB  
+[2026-06-05 17:23:38] production.DEBUG: Gzip: 19432B → 4078B (20.99%), saved 14.99KB  
+[2026-06-05 17:23:38] production.DEBUG: Gzip: 19432B → 4078B (20.99%), saved 14.99KB  
+[2026-06-05 17:23:38] production.DEBUG: Gzip: 10787B → 1183B (10.97%), saved 9.38KB  
+[2026-06-05 17:23:38] production.DEBUG: Gzip: 10787B → 1183B (10.97%), saved 9.38KB  
+[2026-06-05 17:23:39] production.DEBUG: Gzip: 3213B → 540B (16.81%), saved 2.61KB  
+[2026-06-05 17:23:39] production.DEBUG: Gzip: 3213B → 540B (16.81%), saved 2.61KB  
+[2026-06-05 17:23:45] production.DEBUG: Gzip: 1498B → 564B (37.65%), saved 0.91KB  
+[2026-06-05 17:24:13] production.DEBUG: Gzip: 1498B → 564B (37.65%), saved 0.91KB  
+[2026-06-05 17:24:28] production.DEBUG: Gzip: 1498B → 564B (37.65%), saved 0.91KB  
+[2026-06-05 17:25:42] production.DEBUG: Gzip: 1498B → 564B (37.65%), saved 0.91KB  
+[2026-06-05 17:33:35] production.DEBUG: Gzip: 1259B → 514B (40.83%), saved 0.73KB  
+[2026-06-05 17:33:47] production.DEBUG: Gzip: 992B → 437B (44.05%), saved 0.54KB  
+[2026-06-05 17:35:25] production.DEBUG: Gzip: 992B → 437B (44.05%), saved 0.54KB  
+[2026-06-05 17:35:50] production.DEBUG: Gzip: 992B → 437B (44.05%), saved 0.54KB  
+[2026-06-05 17:36:01] production.DEBUG: Gzip: 6612B → 2134B (32.27%), saved 4.37KB  
+[2026-06-05 17:36:12] production.DEBUG: Gzip: 992B → 437B (44.05%), saved 0.54KB  
+[2026-06-05 17:39:36] production.DEBUG: Gzip: 992B → 437B (44.05%), saved 0.54KB  
+[2026-06-05 17:39:49] production.DEBUG: Gzip: 6605B → 2130B (32.25%), saved 4.37KB  
+[2026-06-05 17:39:50] production.DEBUG: Gzip: 6605B → 2130B (32.25%), saved 4.37KB  
+[2026-06-05 17:40:00] production.DEBUG: Gzip: 992B → 437B (44.05%), saved 0.54KB  
+[2026-06-05 18:08:37] production.DEBUG: Gzip: 6605B → 2130B (32.25%), saved 4.37KB  
+[2026-06-05 18:08:38] production.DEBUG: Gzip: 6605B → 2130B (32.25%), saved 4.37KB  
+[2026-06-05 18:08:45] production.DEBUG: Gzip: 992B → 437B (44.05%), saved 0.54KB  
+[2026-06-05 18:36:41] production.DEBUG: Gzip: 898B → 534B (59.47%), saved 0.36KB  
+[2026-06-05 18:36:44] production.DEBUG: Gzip: 19437B → 4077B (20.98%), saved 15KB  
+[2026-06-05 18:36:44] production.DEBUG: Gzip: 994B → 437B (43.96%), saved 0.54KB  
+[2026-06-05 18:36:51] production.DEBUG: Gzip: 898B → 535B (59.58%), saved 0.35KB  
+[2026-06-05 18:36:58] production.DEBUG: Gzip: 19434B → 4079B (20.99%), saved 15KB  
+[2026-06-05 18:36:58] production.DEBUG: Gzip: 994B → 437B (43.96%), saved 0.54KB  
+[2026-06-05 18:37:03] production.DEBUG: Gzip: 896B → 534B (59.6%), saved 0.35KB  
+[2026-06-05 18:37:05] production.DEBUG: Gzip: 896B → 534B (59.6%), saved 0.35KB  
+[2026-06-05 18:37:07] production.DEBUG: Gzip: 19432B → 4080B (21%), saved 14.99KB  
+[2026-06-05 18:37:08] production.DEBUG: Gzip: 992B → 440B (44.35%), saved 0.54KB  
+[2026-06-05 18:37:09] production.DEBUG: Gzip: 896B → 535B (59.71%), saved 0.35KB  
+[2026-06-05 18:37:11] production.DEBUG: Gzip: 19432B → 4078B (20.99%), saved 14.99KB  
+[2026-06-05 18:37:11] production.DEBUG: Gzip: 992B → 437B (44.05%), saved 0.54KB  
+[2026-06-05 21:24:17] production.DEBUG: Gzip: 19434B → 4080B (20.99%), saved 14.99KB  
+[2026-06-05 21:24:26] production.DEBUG: Gzip: 19432B → 4078B (20.99%), saved 14.99KB  
+[2026-06-05 22:49:37] production.DEBUG: Gzip: 19433B → 4080B (21%), saved 14.99KB  
+[2026-06-05 22:52:06] production.DEBUG: Gzip: 19434B → 4080B (20.99%), saved 14.99KB  
+[2026-06-05 22:52:56] production.DEBUG: Gzip: 19440B → 4088B (21.03%), saved 14.99KB  
+[2026-06-05 22:53:10] production.DEBUG: Gzip: 19440B → 4086B (21.02%), saved 14.99KB  
+[2026-06-05 23:43:00] production.DEBUG: Gzip: 19440B → 4086B (21.02%), saved 14.99KB  

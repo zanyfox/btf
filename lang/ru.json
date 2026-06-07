@@ -200,5 +200,17 @@
   "InsertEmailAndWeWillSendYouCheck": "Введите e-mail и мы вышлем вам чек",
   "CheckOrder": "Проверьте заказ",
   "Place": "Оформить",
-  "BookTable": "Забронировать столик"
+  "BookTable": "Забронировать столик",
+  "Role Management": "Управление ролями",
+  "Add New Role": "Добавить роль",
+  "Posts": "Записи",
+  "Add New Post": "Добавить запись",
+  "Create Post": "Создать запись",
+  "Rubric": "Рубрика",
+  "Add New Rubric": "Добавить рубрику",
+  "Author": "Автор",
+  "Edit Post": "Редактировать запись",
+  "View Messages": "Смотреть сообщения",
+  "Messages": "Сообщения",
+  "Mark all read": "Отметить все как прочитанные"
 }

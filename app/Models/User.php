@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+//use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -13,7 +13,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable {
 
-  use HasFactory, HasApiTokens, Notifiable, TwoFactorAuthenticatable, HasRoles;
+  use HasFactory, Notifiable, HasApiTokens, TwoFactorAuthenticatable, HasRoles;
 
   protected $connection = 'mysql';
   protected $table = 'users';
@@ -68,7 +68,7 @@ class User extends Authenticatable {
     'email_verified_at' => 'datetime',
   ];
 
-  protected $appends = ['full_name', 'age'];
+  protected $appends = ['full_name','age','formatted_created_at']; // ,'role_names'
 
   public function getFullNameAttribute() {
     return $this->name . ' ' . $this->surname;
@@ -98,9 +98,11 @@ class User extends Authenticatable {
     return $this->hasMany(Promotion::class, 'author_id')->orderBy('created_at', 'DESC');
   } */
 
-  public function roles() {
-    return $this->belongsToMany(Role::class);
-  }
+  /* public function roles() {
+    return $this->belongsToMany(\Spatie\Permission\Models\Role::class, 'model_has_roles', 'model_id', 'role_id');
+  } */
+
+  /* s */
 
   public function orders() {
     return $this->hasMany(Order::class, 'user_id');
@@ -115,7 +117,23 @@ class User extends Authenticatable {
   }
 
   public function isAdmin() {
-    return $this->is_admin === 1;
+    return ($this->is_admin === 1 || $this->role_id == 2 || $this->hasRole(['admin', 'super-admin'])) ? true : false;
   }
 
+  /* {{ auth()->user()->avatar }} */
+  /* public function avatar(): Attribute {
+    return Attribute::make(
+      get: fn ($value) => asset(Storage::url($value) ?? ''),
+    );
+  } */
+
+  /* public function getRoleNamesAttribute() {
+    return $this->getRoleNames()->toArray(); // Возвращает массив названий ролей
+  } */
+
+
+
+  public function getFormattedCreatedAtAttribute() {
+    return Carbon::parse($this->attributes['created_at'])->format('d.m.Y H:i');
+  }
 }
