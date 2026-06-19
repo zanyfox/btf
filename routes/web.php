@@ -25,8 +25,8 @@ use App\Mail\WelcomeMail;
 // Backend
 Route::get('/backend/{view}', BackendController::class)->where('view', '(.*)')->middleware('auth');
 
-//Route::group(['prefix' => 'api/backend', 'middleware' => ['auth','AdminCheck']], function () {
-Route::group(['prefix' => 'api/backend'], function () {
+Route::group(['prefix' => 'api/backend', 'middleware' => ['auth','AdminCheck']], function () {
+//Route::group(['prefix' => 'api/backend'], function () {
 
   Route::get('stats/orders', [\App\Http\Controllers\Backend\StatsController::class, 'orders']);
   Route::get('stats/customers', [\App\Http\Controllers\Backend\StatsController::class, 'customers']);
@@ -100,11 +100,11 @@ Route::group(['prefix' => 'api/backend'], function () {
 });
 //Route::get('{any?}', fn () => view('app'))->where('any', '.*');
 
-if( !request()->cookie('age_limit') ) {
+/* if( !request()->cookie('age_limit') ) {
   Route::get('/{any}', function () {
     return view('welcome');
   })->where('any', '.*');
-}
+} */
 
 Route::get('/', HomeController::class)->name('home');
 Route::get('catalog', [CatalogController::class, 'index'])->name('catalog');

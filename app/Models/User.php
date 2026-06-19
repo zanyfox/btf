@@ -33,18 +33,21 @@ class User extends Authenticatable {
   protected $fillable = [
     'name',
     'surname',
-    'phone',
     'email',
     'password',
-    'companyname',
+    'picture',
+    'is_admin',
+    'role_id',
+    'phone',
     'address',
     'city',
-    'state',
-    'postcode',
+    'region',
+    'zip',
     'country',
     'marketingoptin',
-    'role_id',
-    'device_key'
+    'birthdate',
+    'device_key',
+    'status'
   ];
 
   /**

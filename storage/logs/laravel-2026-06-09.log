@@ -1,0 +1,157 @@
+[2026-06-09 11:48:28] production.DEBUG: Gzip: 1004B → 557B (55.48%), saved 0.44KB  
+[2026-06-09 11:48:33] production.DEBUG: Gzip: 19452B → 4099B (21.07%), saved 14.99KB  
+[2026-06-09 11:48:33] production.DEBUG: Gzip: 2281B → 502B (22.01%), saved 1.74KB  
+[2026-06-09 11:56:48] production.DEBUG: Gzip: 2015B → 632B (31.36%), saved 1.35KB  
+[2026-06-09 11:56:52] production.DEBUG: Gzip: 633B → 182B (28.75%), saved 0.44KB  
+[2026-06-09 11:57:12] production.DEBUG: Gzip: 633B → 182B (28.75%), saved 0.44KB  
+[2026-06-09 11:57:45] production.DEBUG: Gzip: 19452B → 4099B (21.07%), saved 14.99KB  
+[2026-06-09 11:57:48] production.DEBUG: Gzip: 633B → 182B (28.75%), saved 0.44KB  
+[2026-06-09 11:58:49] production.DEBUG: Gzip: 633B → 182B (28.75%), saved 0.44KB  
+[2026-06-09 11:59:32] production.DEBUG: Gzip: 633B → 182B (28.75%), saved 0.44KB  
+[2026-06-09 12:00:21] production.DEBUG: Gzip: 633B → 182B (28.75%), saved 0.44KB  
+[2026-06-09 12:00:53] production.DEBUG: Gzip: 633B → 182B (28.75%), saved 0.44KB  
+[2026-06-09 12:01:38] production.DEBUG: Gzip: 633B → 182B (28.75%), saved 0.44KB  
+[2026-06-09 12:02:30] production.DEBUG: Gzip: 633B → 182B (28.75%), saved 0.44KB  
+[2026-06-09 12:04:14] production.DEBUG: Gzip: 633B → 182B (28.75%), saved 0.44KB  
+[2026-06-09 12:18:04] production.DEBUG: Gzip: 633B → 182B (28.75%), saved 0.44KB  
+[2026-06-09 12:19:09] production.DEBUG: Gzip: 633B → 182B (28.75%), saved 0.44KB  
+[2026-06-09 12:20:38] production.DEBUG: Gzip: 633B → 182B (28.75%), saved 0.44KB  
+[2026-06-09 12:21:17] production.DEBUG: Gzip: 633B → 182B (28.75%), saved 0.44KB  
+[2026-06-09 12:21:57] production.DEBUG: Gzip: 524B → 174B (33.21%), saved 0.34KB  
+[2026-06-09 12:22:06] production.DEBUG: Gzip: 524B → 174B (33.21%), saved 0.34KB  
+[2026-06-09 12:23:34] production.DEBUG: Gzip: 633B → 182B (28.75%), saved 0.44KB  
+[2026-06-09 12:23:52] production.DEBUG: Gzip: 540B → 189B (35%), saved 0.34KB  
+[2026-06-09 12:25:13] production.DEBUG: Gzip: 682B → 210B (30.79%), saved 0.46KB  
+[2026-06-09 12:26:00] production.DEBUG: Gzip: 730B → 211B (28.9%), saved 0.51KB  
+[2026-06-09 12:28:17] production.DEBUG: Gzip: 630B → 214B (33.97%), saved 0.41KB  
+[2026-06-09 12:28:21] production.DEBUG: Gzip: 744B → 248B (33.33%), saved 0.48KB  
+[2026-06-09 13:04:39] production.DEBUG: Gzip: 341B → 198B (58.06%), saved 0.14KB  
+[2026-06-09 14:27:18] production.DEBUG: Gzip: 2272B → 665B (29.27%), saved 1.57KB  
+[2026-06-09 14:27:48] production.ERROR: Class "App\Http\Controllers\Backend\Role" not found {"userId":1,"exception":"[object] (Error(code: 0): Class \"App\\Http\\Controllers\\Backend\\Role\" not found at /Users/aleksandr/projects/btf/app/Http/Controllers/Backend/UsersController.php:126)
+[stacktrace]
+#0 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): App\\Http\\Controllers\\Backend\\UsersController->store(Object(Illuminate\\Http\\Request))
+#1 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('store', Array)
+#2 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Routing/Route.php(269): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\Backend\\UsersController), 'store')
+#3 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Routing/Route.php(215): Illuminate\\Routing\\Route->runController()
+#4 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate\\Routing\\Route->run()
+#5 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#6 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authorize.php(59): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#7 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Auth\\Middleware\\Authorize->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'isAdmin')
+#8 /Users/aleksandr/projects/btf/app/Http/Middleware/AdminCheck.php(15): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#9 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): App\\Http\\Middleware\\AdminCheck->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#10 /Users/aleksandr/projects/btf/app/Http/Middleware/UserActivity.php(20): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#11 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): App\\Http\\Middleware\\UserActivity->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#12 /Users/aleksandr/projects/btf/app/Http/Middleware/SetLocale.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#13 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): App\\Http\\Middleware\\SetLocale->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#14 /Users/aleksandr/projects/btf/vendor/erlandmuchasaj/laravel-gzip/src/Middleware/GzipEncodeResponse.php(26): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): ErlandMuchasaj\\LaravelGzip\\Middleware\\GzipEncodeResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#16 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(52): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(63): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'web')
+#20 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(63): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#22 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestForgery.php(104): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestForgery->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(48): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(120): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(63): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#28 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(36): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(74): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Routing/Router.php(821): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#35 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#36 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Routing/Router.php(764): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#37 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Routing/Router.php(753): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#38 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#39 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#40 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#44 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(109): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(74): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#51 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#52 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#53 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#54 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#55 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#56 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#57 /Users/aleksandr/projects/btf/public/index.php(50): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#58 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('/Users/aleksand...')
+#59 {main}
+"} 
+[2026-06-09 14:27:48] production.DEBUG: Gzip: 1192574B → 303970B (25.49%), saved 867.78KB  
+[2026-06-09 14:29:33] production.ERROR: Class "App\Models\Role" not found {"userId":1,"exception":"[object] (Error(code: 0): Class \"App\\Models\\Role\" not found at /Users/aleksandr/projects/btf/app/Http/Controllers/Backend/UsersController.php:127)
+[stacktrace]
+#0 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): App\\Http\\Controllers\\Backend\\UsersController->store(Object(Illuminate\\Http\\Request))
+#1 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('store', Array)
+#2 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Routing/Route.php(269): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\Backend\\UsersController), 'store')
+#3 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Routing/Route.php(215): Illuminate\\Routing\\Route->runController()
+#4 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate\\Routing\\Route->run()
+#5 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#6 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authorize.php(59): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#7 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Auth\\Middleware\\Authorize->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'isAdmin')
+#8 /Users/aleksandr/projects/btf/app/Http/Middleware/AdminCheck.php(15): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#9 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): App\\Http\\Middleware\\AdminCheck->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#10 /Users/aleksandr/projects/btf/app/Http/Middleware/UserActivity.php(20): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#11 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): App\\Http\\Middleware\\UserActivity->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#12 /Users/aleksandr/projects/btf/app/Http/Middleware/SetLocale.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#13 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): App\\Http\\Middleware\\SetLocale->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#14 /Users/aleksandr/projects/btf/vendor/erlandmuchasaj/laravel-gzip/src/Middleware/GzipEncodeResponse.php(26): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): ErlandMuchasaj\\LaravelGzip\\Middleware\\GzipEncodeResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#16 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(52): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(63): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'web')
+#20 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(63): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#22 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestForgery.php(104): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestForgery->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(48): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(120): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(63): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#28 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(36): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(74): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Routing/Router.php(821): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#35 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#36 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Routing/Router.php(764): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#37 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Routing/Router.php(753): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#38 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#39 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#40 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#44 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(109): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(74): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#51 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#52 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#53 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#54 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#55 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#56 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#57 /Users/aleksandr/projects/btf/public/index.php(50): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#58 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('/Users/aleksand...')
+#59 {main}
+"} 
+[2026-06-09 14:29:33] production.DEBUG: Gzip: 1192464B → 303983B (25.49%), saved 867.66KB  

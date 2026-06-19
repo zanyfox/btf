@@ -90,19 +90,19 @@
                   <td>{{ user.email }}</td>
                   <td>{{ user.phone }}</td>
                   <td>{{ user.role }}
-                    <!-- <span v-for="(userRole, index) in user.roles" :key="index" class="badge rounded-pill bg-info ms-1">{{ userRole.name }}</span> -->
+                    <span v-for="(userRole, index) in user.roles" :key="index" class="badge rounded-pill bg-info ms-1">{{ userRole.name }}</span>
                   </td>
                   <td>
                     {{ moment(String(user.created_at)).format('DD.MM.YYYY HH:mm') }}
                   </td>
                   <td class="text-end">
-                    <button type="button" @click.prevent="changeStatus(user)" class="btn btn-sm me-1" :class="user.status !== 1 ? 'btn-danger' : 'btn-success'" title="Изменить статус">
+                    <button type="button" @click.prevent="changeStatus(user)" class="btn btn-sm me-1" :class="user.status !== 1 ? 'btn-danger' : 'btn-success'" title="Change Status">
                       <i class="fa" :class="user.status !== 1 ? 'fa-lock' : 'fa-lock-open'"></i>
                     </button>
-                    <button type="button" @click.prevent="editUserModal(user)" class="btn btn-sm btn-info" title="Редактировать">
+                    <button type="button" @click.prevent="editUserModal(user)" class="btn btn-sm btn-info" title="Edit User">
                       <i class="fa fa-edit"></i>
                     </button>
-                    <button type="button" @click.prevent="deleteUser(user)" class="btn btn-sm btn-danger ms-1" title="Удалить">
+                    <button type="button" @click.prevent="deleteUser(user)" class="btn btn-sm btn-danger ms-1" title="Delete User">
                       <i class="fa fa-trash-alt"></i>
                     </button>
                   </td>
@@ -137,14 +137,14 @@
             <span v-show="editMode">Редактировать пользователя</span>
             <span v-show="!editMode">Новый пользователь</span>
           </h5>
-          <button type="button" class="btn-close" @click.prevent="showUserFormModal = false" aria-label="Close"></button>
+          <button type="button" class="btn-close" @click.prevent="closeUserFormModal" aria-label="Close"></button>
         </div>
         <Form @submit="handleSubmit" v-slot:default="{ errors }" :initial-values="formValues">
           <div class="modal-body">
             <div class="row">
               <div class="col col-8">
                 <div class="mb-2">
-                  <label for="inputName" class="form-label">Имя</label>
+                  <label for="inputName" class="form-label">{{ $t('Name') }}</label>
                   <Field
                     type="text"
                     name="name"
@@ -156,7 +156,7 @@
                   <span v-if="errors.name" class="invalid-feedback">{{ errors.name }}</span>
                 </div>
                 <div class="form-group">
-                  <label for="inputSurname" class="form-label">Фамилия</label>
+                  <label for="inputSurname" class="form-label">{{ $t('Surname') }}</label>
                   <Field
                     type="text"
                     name="surname"
@@ -182,7 +182,7 @@
                     <span v-if="errors.email" class="invalid-feedback">{{ errors.email }}</span>
                   </div>
                   <div class="mb-2 col-md-6">
-                    <label for="inputPhone" class="form-label">Телефон</label>
+                    <label for="inputPhone" class="form-label">{{ $t('Phone') }}</label>
                     <Field
                       type="text"
                       name="phone"
@@ -198,7 +198,7 @@
                 <hr>
                 <div class="row">
                   <div class="mb-2 col-md-8">
-                    <label for="inputPassword" class="form-label">Пароль</label>
+                    <label for="inputPassword" class="form-label">{{ $t('Password') }}</label>
                     <Field
                       type="password"
                       name="password"
@@ -216,12 +216,20 @@
                   <label for="inputRole" class="form-label">Choose role</label>
                   <Field name="role" as="select" class="form-control" id="inputRole">
                     <option value="" disabled selected>Выберите вариант</option>
-                    <option v-for="role in roles" :value="role.id" :key="role.id">{{ role.name }}</option>
+                    <option v-for="role in roles" :value="role.id" :key="role.id" :selected="role.id == formValues.role">{{ role.name }}</option>
                   </Field>
+                  <span v-if="errors.role" class="d-block invalid-feedback">{{ errors.role }}</span>
                 </div>
                 <div class="mb-3">
                   <div class="form-check">
-                    <input type="checkbox" name="status" class="form-check-input" id="inputStatus" :checked="formValues.status">
+                      <Field
+                        type="checkbox"
+                        name="status"
+                        :value="true"
+                        class="form-check-input"
+                        id="inputStatus"
+                        v-model="formValues.status"
+                      />
                     <label class="form-check-label" for="inputStatus">Активный статус</label>
                   </div>
                 </div>
@@ -235,10 +243,18 @@
                     id="inputBirthdate"
                     placeholder="Enter birth date"
                   />
-                  <span class="invalid-feedback" v-if="errors.birthdate">{{ errors.birthdate }}</span>
+                  <span v-if="errors.birthdate" class="d-block invalid-feedback">{{ errors.birthdate }}</span>
                 </div>
                 <div class="mb-3">
                   <label for="uploadFile" class="form-label">Изображение</label>
+                  <div v-if="formValues.picture" class="upload-preview">
+                    <div class="position-relative mb-3">
+                      <img class="w-100 img-thumbnail" :src="'/uploads/users/' + formValues.picture" alt="">
+                      <button type="button" class="btn btn-sm btn-danger position-absolute" style="left: 10px; top: 10px;">
+                        <i class="feather icon-trash"></i>
+                      </button>
+                    </div>
+                  </div>
                   <input type="hidden" value="" id="inputImageId">
                   <div id="uploadFile" class="dropzone dz-clickable border-dropzone border-primary">
                     <i class="feather icon-upload-cloud" style="font-size: 52px; color: #04a9f5;"></i>
@@ -249,13 +265,24 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" title="Save changes">{{ editMode ? 'Сохранить' : 'Создать' }}</button>
-            <button type="button" @click.prevent="showUserFormModal = false" class="ml-3 btn btn-outline-warning">Отмена</button>
+            <button type="submit" class="btn btn-primary" title="Save User">
+              <template v-if="!isSavingUser">
+                {{ editMode ? 'Сохранить' : 'Создать' }}
+              </template>
+              <template v-else>
+                <div class="spinner-grow spinner-grow-sm" role="status">
+                  <span class="visually-hidden">Saving...</span>
+                </div>
+                {{ editMode ? 'Saving...' : 'Creating...' }}
+              </template>
+            </button>
+            <button type="button" @click.prevent="closeUserFormModal" class="ml-3 btn btn-outline-warning" title="Cancel">Отмена</button>
           </div>
         </Form>
       </div>
     </div>
   </div>
+  <div class="modal-backdrop fade show" v-if="showUserFormModal"></div>
 </template>
 
 <script setup>
@@ -270,11 +297,12 @@ import 'flatpickr/dist/flatpickr.min.css'
 import PermissionsComponent from '@/components/Permissions.vue'
 import RolesComponent from '@/components/Roles.vue'
 
+const users = ref({'data': []})
+const roles = ref([])
+
 const editMode = ref(false)
 const showUserFormModal = ref(false)
 
-const users = ref({'data': []})
-const roles = ref([])
 const formValues = ref({
   name: '',
   surname: '',
@@ -282,7 +310,7 @@ const formValues = ref({
   phone: '',
   password: '',
   role: '',
-  status: true,
+  status: false,
   birthdate: ''
 })
 /* const formValues = new Form({
@@ -306,6 +334,19 @@ const errors = ref({
   status: '',
   birthdate: ''
 })
+
+const resetForm = () => {
+  formValues.value = {
+    name: '',
+    surname: '',
+    email: '',
+    phone: '',
+    password: '',
+    role: '',
+    status: false,
+    birthdate: ''
+  }
+}
 
 const searchQuery = ref(null)
 
@@ -364,28 +405,56 @@ const editUserSchema = yup.object({
 
 const addUserModal = () => {
   resetForm() // Reset the form fields
-  editMode.value = false
   showUserFormModal.value = true
 }
 
 const editUserModal = (user) => {
   resetForm()
-  editMode.value = true
   formValues.value = {
     id: user.id,
     name: user.name,
     surname: user.surname,
     email: user.email,
     phone: user.phone,
+    picture: user.picture,
     password: '',
     role: user.role,
     status: user.status,
-    birthdate: user.birthdate
+    birthdate: user.birthdate,
   }
+  editMode.value = true
   showUserFormModal.value = true
 }
 
+const closeUserFormModal = () => {
+  showUserFormModal.value = false
+  editMode.value = false
+  //resetForm()
+}
+
+/* const resetForm = () => {
+  formValues.value = {
+    name: '',
+    email: '',
+    phone: '',
+    password: '',
+    role: '',
+    status: true,
+    birthdate: ''
+  }
+  errors.value = {
+    name: '',
+    email: '',
+    phone: '',
+    password: '',
+    role: '',
+    status: true,
+    birthdate: ''
+  }
+} */
+
 const handleSubmit = (values, actions) => {
+  isSavingUser.value = true
   if (editMode.value) {
     updateUser(values, actions)
   } else {
@@ -394,7 +463,6 @@ const handleSubmit = (values, actions) => {
 }
 
 const createUser = (values, actions) => {
-
   fetch('/api/backend/users', {
     method: 'POST',
     headers: {
@@ -402,38 +470,47 @@ const createUser = (values, actions) => {
     },
     body: JSON.stringify(values)
   }).then(response => response.json()).then(data => {
-    console.log(data)
-
-    if(data.status === 'fail') {
-      errors.value.name = data.errors.name ? data.errors.name[0] : ''
-      errors.value.email = data.errors.email ? data.errors.email[0] : ''
-    }
 
     if (data.success) {
       users.value.data.unshift(data.user)
+
       swal.fire({
         icon: 'success',
         title: 'User created successfully',
         showConfirmButton: false,
         timer: 1500
       })
+
+      closeUserFormModal()
+
     } else {
+
       // Handle validation errors
-      /* console.log('Validation errors:', data.errors)
-      if (data.errors.email) {
-        setFieldError('email', data.errors.email[0])
-      }
+      console.log('Validation errors:', data.errors)
       if (data.errors) {
-        setErrors(data.errors)
-      } */
-      //actions.setErrors(data.errors)
+        actions.setErrors(data.errors)
+      }
+      if (data.errors.email) {
+        actions.setFieldError('email', data.errors.email[0])
+      }
+
     }
+
   }).catch(error => {
     //actions.setErrors(error.response.data.errors)
+
     console.error('Error creating user:', error.message)
+
+    swal.fire({
+      icon: 'error',
+      title: 'Cannot create user, try again',
+      showConfirmButton: false,
+      timer: 1500
+    })
+
   }).finally(() => {
-    //showUserFormModal.value = false
-    //resetForm()
+    //actions.setSubmitting(false)
+    isSavingUser.value = false
   })
 
 }
@@ -475,19 +552,9 @@ const updateUser = (values, actions) => {
     console.error('Error updating user:', error.message)
   }).finally(() => {
     resetForm()
+    isSavingUser.value = false
   })
 
-}
-
-const resetForm = () => {
-  formValues.value = {
-    name: '',
-    email: '',
-    phone: '',
-    password: '',
-    role: '',
-    status: true
-  }
 }
 
 const deleteUser = (user) => {
@@ -626,16 +693,17 @@ const bulkModify = (event) => {
 }
 
 const fetchRoles = () => {
-  fetch('/api/backend/roles')
-  .then(response => response.json())
-  .then(data => {
+  fetch('/api/backend/roles').then(response => response.json()).then(data => {
     roles.value = data.roles
+  }).catch(error => {
+    console.error('Error fetching roles:', error.message)
   })
 }
 
 const pageTitle = ref(null)
 
 const isLoading = ref(true)
+const isSavingUser = ref(false)
 const activeTab = ref('users')
 const changeTab = (tab) => {
   activeTab.value = tab

@@ -114,9 +114,11 @@ let editFormModal = null
 
 const fetchPermissions = () => {
   fetch('/api/backend/permissions').then(response => response.json()).then(data => {
-    permissions.value = data.permissions
-  }).catch(error => {
-    console.error('Error fetching permissions:', error.message)
+    if(data.success) {
+      permissions.value = data.permissions
+    }
+  }).catch(err => {
+    console.error('Error fetching permissions:', err.message)
   })
 }
 

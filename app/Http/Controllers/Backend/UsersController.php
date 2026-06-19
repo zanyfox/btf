@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
+//use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller {
@@ -21,11 +22,24 @@ class UsersController extends Controller {
 
     $this->authorize('isAdmin', User::class);
 
-
-
     $query = User::latest('created_at')->orderBy('id')
-      //->with('roles')
-      ->select('id','name','surname','email','phone', 'picture', 'birthdate','created_at','birthdate','status');
+      ->with('roles')
+      ->select('id','name','surname','email','phone','picture','birthdate','created_at','status');
+    /* $query = $query->transform(function ($user) {
+      $user->roles = $user->roles->pluck('name');
+      return [
+        'id' => $user->id,
+        'name' => $user->name,
+        'surname' => $user->surname,
+        'email' => $user->email,
+        'phone' => $user->phone,
+        'picture' => $user->picture,
+        'birthdate' => $user->birthdate,
+        'created_at' => $user->created_at,
+        'status' => $user->status,
+        'roles' => $user->roles
+      ];
+    }); */
     //$query = $query->roles();
 
 
@@ -82,19 +96,22 @@ class UsersController extends Controller {
   public function store(Request $request) {
 
     $validator = Validator::make($request->all(), [
-      'name' => 'required|string|min:2|max:191',
-      'surname' => 'nullable|string|min:2|max:191',
-      'email' => 'bail|required|email|max:191|unique:users',
-      'phone' => 'nullable|string|max:30',
-      //'picture' => 'required|mime:jpeg,png,jpg,gif,svg|max:2048',
-      //'password' => 'required|string|min:8',
-      //'status' => 'required|boolean',
+      'name' => 'required|string|min:2|max:100',
+      'surname' => 'nullable|string|min:2|max:100',
+      'email' => 'bail|required|email|max:100|unique:users',
+      'phone' => 'nullable|string|max:20',
+      'picture' => 'nullable|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+      'password' => 'required|string|alpha_num|min:6',
+      'role' => 'required|integer',
+      'birthdate' => 'nullable|date',
+      'status' => 'required|boolean',
     ], [
-      //'name.required' => 'Name is required',
-      //'email.required' => 'Email is required',
-      //'email.unique' => 'Email is already taken',
-      //'password.required' => 'Password is required',
-      //'password.min' => 'Password must be at least 8 characters',
+      'name.required' => 'Не заполнено имя пользователя',
+      'email.required' => 'Введите Email',
+      'email.unique' => 'Email уже используется',
+      'password.required' => 'Введите пароль',
+      'password.min' => 'Пароль должен быть не менее :min символов',
+      'role.required' => 'Выберите роль пользователя',
     ]);
 
     if( $validator->fails() ) {
@@ -112,12 +129,25 @@ class UsersController extends Controller {
       'phone' => $request->phone,
       'picture' => $request->picture,
       'password' => Hash::make($request->password), //bcrypt($request->password),
+      'role_id' => $request->role || 1,
+      'birthdate' => $request->birthdate,
       'status' => (bool)$request->status,
     ]);
     if (!$user) {
       return response()->json(['status' => 'error', 'message' => 'User not created'], 500);
     }
-    return response()->json(['success' => true, 'user' => $user], 201);
+
+    //$role = Role::findById($request->role);
+    //$user->assignRole($role->name);
+    //$user->role_id = $role->id;
+
+    if( $request->has('permissions') ) {
+      $user->givePermissionTo($request->permissions);
+    }
+
+    $user->save();
+
+    return response()->json(['success' => true, 'user' => $user, 'message' => 'User created successfully'], 201);
   }
 
   // Update user
@@ -126,21 +156,23 @@ class UsersController extends Controller {
     $user = User::findOrFail($id);
 
     $this->validate($request, [
-      'name' => 'required|string|max:191',
-      'email' => 'bail|required|string|email|max:191|unique:users,email,' . $user->id,
-      //'phone' => 'required|string|max:191',
-      'password' => 'sometimes|min:8',
-      //'status' => 'required|boolean',
+      'name' => 'required|string|min:2|max:100',
+      'surname' => 'nullable|string|min:2|max:100',
+      'email' => 'bail|required|email|max:100|unique:users,email,' . $user->id,
+      'phone' => 'nullable|string|max:20',
+      'password' => 'sometimes|string|alpha_num|min:6',
+      'role' => 'required|integer',
+      'status' => 'required|boolean',
     ]);
-
-
 
     $userData = [
       'name' => $request->name,
       'surname' => $request->surname,
       'email' => $request->email,
       'phone' => $request->phone,
-      //'status' => $request->status,
+      'password' => $request->password,
+      'role_id' => $request->role,
+      'status' => $request->status,
     ];
 
     if($request->password) {

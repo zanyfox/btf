@@ -1,0 +1,4 @@
+[2026-06-08 08:40:52] production.DEBUG: Gzip: 1004B → 563B (56.08%), saved 0.43KB  
+[2026-06-08 08:40:59] production.DEBUG: Gzip: 19452B → 4095B (21.05%), saved 15KB  
+[2026-06-08 08:41:00] production.DEBUG: Gzip: 1707B → 443B (25.95%), saved 1.23KB  
+[2026-06-08 08:41:59] production.DEBUG: Gzip: 342B → 207B (60.53%), saved 0.13KB  

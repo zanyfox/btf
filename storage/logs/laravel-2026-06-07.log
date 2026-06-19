@@ -9,3 +9,76 @@
 [2026-06-07 07:50:52] production.DEBUG: Gzip: 994B → 440B (44.27%), saved 0.54KB  
 [2026-06-07 07:50:53] production.DEBUG: Gzip: 994B → 440B (44.27%), saved 0.54KB  
 [2026-06-07 07:50:54] production.DEBUG: Gzip: 994B → 440B (44.27%), saved 0.54KB  
+[2026-06-07 13:40:06] production.ERROR: Class "App\Providers\Passport" not found {"exception":"[object] (Error(code: 0): Class \"App\\Providers\\Passport\" not found at /Users/aleksandr/projects/btf/app/Providers/AuthServiceProvider.php:56)
+[stacktrace]
+#0 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): App\\Providers\\AuthServiceProvider->boot()
+#1 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#2 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#3 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#4 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Container/Container.php(799): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#5 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1151): Illuminate\\Container\\Container->call(Array)
+#6 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1132): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\AuthServiceProvider))
+#7 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\AuthServiceProvider), 'App\\\\Providers\\\\A...')
+#8 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1131): array_walk(Array, Object(Closure))
+#9 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#10 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(342): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#11 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(494): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#12 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#13 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#14 {main}
+"} 
+[2026-06-07 13:40:06] production.ERROR: Class "App\Providers\Passport" not found {"exception":"[object] (Error(code: 0): Class \"App\\Providers\\Passport\" not found at /Users/aleksandr/projects/btf/app/Providers/AuthServiceProvider.php:56)
+[stacktrace]
+#0 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): App\\Providers\\AuthServiceProvider->boot()
+#1 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#2 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#3 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#4 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Container/Container.php(799): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#5 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1151): Illuminate\\Container\\Container->call(Array)
+#6 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1132): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\AuthServiceProvider))
+#7 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\AuthServiceProvider), 'App\\\\Providers\\\\A...')
+#8 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1131): array_walk(Array, Object(Closure))
+#9 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#10 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(342): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#11 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(494): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#12 /Users/aleksandr/projects/btf/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#13 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#14 {main}
+"} 
+[2026-06-07 16:56:23] production.DEBUG: Gzip: 1004B → 558B (55.58%), saved 0.44KB  
+[2026-06-07 16:56:25] production.DEBUG: Gzip: 19452B → 4097B (21.06%), saved 15KB  
+[2026-06-07 18:54:57] production.DEBUG: Gzip: 19635B → 3160B (16.09%), saved 16.09KB  
+[2026-06-07 18:54:59] production.DEBUG: Gzip: 6764B → 1847B (27.31%), saved 4.8KB  
+[2026-06-07 18:55:01] production.DEBUG: Gzip: 994B → 440B (44.27%), saved 0.54KB  
+[2026-06-07 18:56:03] production.DEBUG: Gzip: 6211B → 1650B (26.57%), saved 4.45KB  
+[2026-06-07 18:59:09] production.DEBUG: Gzip: 19452B → 4097B (21.06%), saved 15KB  
+[2026-06-07 19:00:05] production.DEBUG: Gzip: 19452B → 4097B (21.06%), saved 15KB  
+[2026-06-07 19:00:05] production.DEBUG: Gzip: 6764B → 1847B (27.31%), saved 4.8KB  
+[2026-06-07 19:00:09] production.DEBUG: Gzip: 6764B → 1844B (27.26%), saved 4.8KB  
+[2026-06-07 19:00:09] production.DEBUG: Gzip: 6211B → 1647B (26.52%), saved 4.46KB  
+[2026-06-07 19:49:26] production.DEBUG: Gzip: 19452B → 4097B (21.06%), saved 15KB  
+[2026-06-07 20:05:22] production.DEBUG: Gzip: 2946B → 497B (16.87%), saved 2.39KB  
+[2026-06-07 20:07:15] production.DEBUG: Gzip: 298B → 184B (61.74%), saved 0.11KB  
+[2026-06-07 20:07:58] production.DEBUG: Gzip: 1240B → 500B (40.32%), saved 0.72KB  
+[2026-06-07 20:08:28] production.DEBUG: Gzip: 289B → 180B (62.28%), saved 0.11KB  
+[2026-06-07 20:08:45] production.DEBUG: Gzip: 1477B → 530B (35.88%), saved 0.92KB  
+[2026-06-07 20:09:53] production.DEBUG: Gzip: 317B → 200B (63.09%), saved 0.11KB  
+[2026-06-07 20:10:05] production.DEBUG: Gzip: 1742B → 575B (33.01%), saved 1.14KB  
+[2026-06-07 21:02:57] production.DEBUG: Gzip: 1477B → 530B (35.88%), saved 0.92KB  
+[2026-06-07 21:49:11] production.DEBUG: Gzip: 19452B → 4097B (21.06%), saved 15KB  
+[2026-06-07 21:49:12] production.DEBUG: Gzip: 19452B → 4097B (21.06%), saved 15KB  
+[2026-06-07 21:49:12] production.DEBUG: Gzip: 1477B → 530B (35.88%), saved 0.92KB  
+[2026-06-07 21:49:12] production.DEBUG: Gzip: 10787B → 1183B (10.97%), saved 9.38KB  
+[2026-06-07 21:49:12] production.DEBUG: Gzip: 10787B → 1183B (10.97%), saved 9.38KB  
+[2026-06-07 21:49:12] production.DEBUG: Gzip: 2946B → 497B (16.87%), saved 2.39KB  
+[2026-06-07 21:49:12] production.DEBUG: Gzip: 2946B → 497B (16.87%), saved 2.39KB  
+[2026-06-07 21:50:58] production.DEBUG: Gzip: 19452B → 4097B (21.06%), saved 15KB  
+[2026-06-07 21:50:58] production.DEBUG: Gzip: 19452B → 4097B (21.06%), saved 15KB  
+[2026-06-07 21:50:58] production.DEBUG: Gzip: 19452B → 4097B (21.06%), saved 15KB  
+[2026-06-07 21:50:58] production.DEBUG: Gzip: 1477B → 530B (35.88%), saved 0.92KB  
+[2026-06-07 21:50:58] production.DEBUG: Gzip: 10787B → 1183B (10.97%), saved 9.38KB  
+[2026-06-07 21:50:58] production.DEBUG: Gzip: 10787B → 1183B (10.97%), saved 9.38KB  
+[2026-06-07 21:50:59] production.DEBUG: Gzip: 2946B → 497B (16.87%), saved 2.39KB  
+[2026-06-07 21:50:59] production.DEBUG: Gzip: 2946B → 497B (16.87%), saved 2.39KB  
+[2026-06-07 23:45:30] production.DEBUG: Gzip: 317B → 199B (62.78%), saved 0.12KB  
+[2026-06-07 23:45:56] production.DEBUG: Gzip: 1742B → 579B (33.24%), saved 1.14KB  

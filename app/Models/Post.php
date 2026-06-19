@@ -35,6 +35,16 @@ class Post extends Model {
     );
   } */
 
+  /* public function setTitleAttribute($value) {
+    $this->attributes['slug'] = $this->uniqiueSlug($value);
+  }
+
+  private function uniqiueSlug($title) {
+    $slug = Str::slug($title, '-');
+    $count = Post::whereRaw("slug RLIKE '^{$slug}(-[0-9]+)?$'")->count();
+    return $count ? "{$slug}-{$count}" : $slug;
+  } */
+
   public function scopeFilter($query, array $filters) {
     if($filters['tag'] ?? false) {
       $query->where('tags', 'like', '%' . $filters['tag'] . '%');
