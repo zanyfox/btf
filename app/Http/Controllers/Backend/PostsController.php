@@ -66,7 +66,7 @@ class PostsController extends Controller {
       $rubric = Rubric::find($rubricId);
 
       $post = new Post;
-      $post->user_id = $request->input('user_id') ?? auth()->id();
+      $post->user_id = $request->input('user_id') ?? auth()->id(); // Auth::user()->id;
       $post->name = $request->input('name');
 
       if(empty($request->input('slug'))) {
@@ -120,6 +120,25 @@ class PostsController extends Controller {
 
       //$user = $request->user();
       //$user->posts()->save($post);
+
+      // Insert into pivot table
+      /* $rubrics = $request->rubric_ids;
+      foreach($rubrics as $rubric) {
+        PostRubric::create([
+          'post_id' => $post->id,
+          'rubric_id' => $rubric
+        ]);
+      } */
+
+
+      /* $rubrics = $request->rubric_ids;
+      $postRubrics = [];
+      foreach($rubrics as $rubric) {
+        array_push($postRubrics, ['post_id' => $post->id, 'rubric_id' => $rubric]);
+      }
+      \Log::info($postRubrics);
+      PostRubric::insert($postRubrics); */
+
 
       return response()->json([
         'status' => 'success',

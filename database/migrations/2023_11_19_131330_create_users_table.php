@@ -34,6 +34,7 @@ return new class extends Migration {
             $table->string('device_key', 255)->nullable();
             $table->boolean('status')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

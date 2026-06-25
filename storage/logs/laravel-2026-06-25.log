@@ -1,3 +1,19 @@
+[2026-06-25 02:28:53] production.DEBUG: Gzip: 1004B → 560B (55.78%), saved 0.43KB  
+[2026-06-25 02:28:53] production.DEBUG: Gzip: 1004B → 559B (55.68%), saved 0.43KB  
+[2026-06-25 02:28:53] production.DEBUG: Gzip: 1004B → 564B (56.18%), saved 0.43KB  
+[2026-06-25 02:28:53] production.DEBUG: Gzip: 1004B → 564B (56.18%), saved 0.43KB  
+[2026-06-25 02:28:53] production.DEBUG: Gzip: 1004B → 562B (55.98%), saved 0.43KB  
+[2026-06-25 02:29:44] production.DEBUG: Gzip: 18982B → 4076B (21.47%), saved 14.56KB  
+[2026-06-25 02:29:44] production.DEBUG: Gzip: 632B → 336B (53.16%), saved 0.29KB  
+[2026-06-25 02:29:45] production.DEBUG: Gzip: 11144B → 1203B (10.8%), saved 9.71KB  
+[2026-06-25 02:29:45] production.DEBUG: Gzip: 2946B → 497B (16.87%), saved 2.39KB  
+[2026-06-25 02:29:45] production.DEBUG: Gzip: 11144B → 1203B (10.8%), saved 9.71KB  
+[2026-06-25 02:29:45] production.DEBUG: Gzip: 2946B → 497B (16.87%), saved 2.39KB  
+[2026-06-25 02:29:45] production.DEBUG: Gzip: 1477B → 592B (40.08%), saved 0.86KB  
+[2026-06-25 07:55:11] production.DEBUG: Gzip: 1004B → 562B (55.98%), saved 0.43KB  
+[2026-06-25 07:55:15] production.DEBUG: Gzip: 18982B → 4076B (21.47%), saved 14.56KB  
+[2026-06-25 07:58:03] production.DEBUG: Gzip: 18982B → 4076B (21.47%), saved 14.56KB  
+[2026-06-25 07:58:03] production.INFO: {"current_page":1,"data":[{"id":34,"name":"Test9","surname":"Testov9","email":"test9@mail.ru","phone":null,"picture":null,"birthdate":"2026-06-09","created_at":"2026-06-09T11:04:39.000000Z","status":1,"full_name":"Test9 Testov9","age":null,"formatted_created_at":"09.06.2026 13:04","roles":[{"id":4,"name":"user","guard_name":"web","created_at":"2024-11-09T01:29:02.000000Z","updated_at":"2024-11-09T01:29:02.000000Z","pivot":{"model_type":"App\\Models\\User","model_id":34,"role_id":4}}]},{"id":1,"name":"\u0414\u0430\u043d\u0438\u043b\u0430","surname":"\u0424\u0438\u043b\u0430\u0442\u043e\u0432","email":"fff_trizna@mail.ru","phone":"+7 (950) 675 40 57","picture":"1780565481.jpeg","birthdate":"2007-08-01","created_at":"2023-11-20T05:41:33.000000Z","status":1,"full_name":"\u0414\u0430\u043d\u0438\u043b\u0430 \u0424\u0438\u043b\u0430\u0442\u043e\u0432","age":null,"formatted_created_at":"20.11.2023 07:41","roles":[]}],"first_page_url":"http:\/\/localhost:8000\/api\/backend\/users?page=1","from":1,"last_page":1,"last_page_url":"http:\/\/localhost:8000\/api\/backend\/users?page=1","links":[{"url":null,"label":"&laquo; Previous","page":null,"active":false},{"url":"http:\/\/localhost:8000\/api\/backend\/users?page=1","label":"1","page":1,"active":true},{"url":null,"label":"Next &raquo;","page":null,"active":false}],"next_page_url":null,"path":"http:\/\/localhost:8000\/api\/backend\/users","per_page":10,"prev_page_url":null,"to":2,"total":2}  
 [2026-06-25 07:59:21] production.INFO: array (
   'name' => 'Test9',
   'surname' => 'Testov9',

@@ -1,0 +1,107 @@
+[2026-06-24 00:13:18] production.DEBUG: Gzip: 6612B → 2134B (32.27%), saved 4.37KB  
+[2026-06-24 00:13:18] production.DEBUG: Gzip: 6612B → 2134B (32.27%), saved 4.37KB  
+[2026-06-24 00:13:28] production.DEBUG: Gzip: 2946B → 497B (16.87%), saved 2.39KB  
+[2026-06-24 00:13:28] production.DEBUG: Gzip: 2946B → 497B (16.87%), saved 2.39KB  
+[2026-06-24 00:46:10] production.DEBUG: Gzip: 18964B → 4074B (21.48%), saved 14.54KB  
+[2026-06-24 13:33:07] production.DEBUG: Gzip: 1004B → 563B (56.08%), saved 0.43KB  
+[2026-06-24 13:33:12] production.DEBUG: Gzip: 18964B → 4072B (21.47%), saved 14.54KB  
+[2026-06-24 13:33:17] production.DEBUG: Gzip: 18964B → 4072B (21.47%), saved 14.54KB  
+[2026-06-24 13:38:09] production.DEBUG: Gzip: 16838B → 4273B (25.38%), saved 12.27KB  
+[2026-06-24 14:11:56] production.DEBUG: Gzip: 2831B → 803B (28.36%), saved 1.98KB  
+[2026-06-24 19:03:36] production.DEBUG: Gzip: 2574B → 772B (29.99%), saved 1.76KB  
+[2026-06-24 19:20:42] production.DEBUG: Gzip: 1766B → 646B (36.58%), saved 1.09KB  
+[2026-06-24 19:23:47] production.ERROR: Trait "App\Models\SoftDeletes" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\SoftDeletes\" not found at /Users/aleksandr/projects/btf/app/Models/User.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2026-06-24 19:24:40] production.ERROR: Trait "App\Models\SoftDeletes" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\SoftDeletes\" not found at /Users/aleksandr/projects/btf/app/Models/User.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2026-06-24 19:25:40] production.ERROR: Trait "App\Models\SoftDeletes" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\SoftDeletes\" not found at /Users/aleksandr/projects/btf/app/Models/User.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2026-06-24 19:26:40] production.ERROR: Trait "App\Models\SoftDeletes" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\SoftDeletes\" not found at /Users/aleksandr/projects/btf/app/Models/User.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2026-06-24 19:27:40] production.ERROR: Trait "App\Models\SoftDeletes" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\SoftDeletes\" not found at /Users/aleksandr/projects/btf/app/Models/User.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2026-06-24 19:28:40] production.ERROR: Trait "App\Models\SoftDeletes" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\SoftDeletes\" not found at /Users/aleksandr/projects/btf/app/Models/User.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2026-06-24 19:29:40] production.ERROR: Trait "App\Models\SoftDeletes" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\SoftDeletes\" not found at /Users/aleksandr/projects/btf/app/Models/User.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2026-06-24 19:30:13] production.ERROR: Trait "App\Models\SoftDeletes" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\SoftDeletes\" not found at /Users/aleksandr/projects/btf/app/Models/User.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2026-06-24 19:30:40] production.ERROR: Trait "App\Models\SoftDeletes" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\SoftDeletes\" not found at /Users/aleksandr/projects/btf/app/Models/User.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2026-06-24 19:31:40] production.ERROR: Trait "App\Models\SoftDeletes" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\SoftDeletes\" not found at /Users/aleksandr/projects/btf/app/Models/User.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2026-06-24 19:32:40] production.ERROR: Trait "App\Models\SoftDeletes" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\SoftDeletes\" not found at /Users/aleksandr/projects/btf/app/Models/User.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2026-06-24 19:33:40] production.ERROR: Trait "App\Models\SoftDeletes" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\SoftDeletes\" not found at /Users/aleksandr/projects/btf/app/Models/User.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2026-06-24 19:34:40] production.ERROR: Trait "App\Models\SoftDeletes" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\SoftDeletes\" not found at /Users/aleksandr/projects/btf/app/Models/User.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2026-06-24 19:35:40] production.ERROR: Trait "App\Models\SoftDeletes" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\SoftDeletes\" not found at /Users/aleksandr/projects/btf/app/Models/User.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2026-06-24 19:36:40] production.ERROR: Trait "App\Models\SoftDeletes" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\SoftDeletes\" not found at /Users/aleksandr/projects/btf/app/Models/User.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2026-06-24 19:37:40] production.ERROR: Trait "App\Models\SoftDeletes" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\SoftDeletes\" not found at /Users/aleksandr/projects/btf/app/Models/User.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2026-06-24 19:38:40] production.ERROR: Trait "App\Models\SoftDeletes" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\SoftDeletes\" not found at /Users/aleksandr/projects/btf/app/Models/User.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2026-06-24 19:39:40] production.ERROR: Trait "App\Models\SoftDeletes" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\SoftDeletes\" not found at /Users/aleksandr/projects/btf/app/Models/User.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2026-06-24 19:40:29] production.ERROR: Trait "App\Models\SoftDeletes" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\SoftDeletes\" not found at /Users/aleksandr/projects/btf/app/Models/User.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2026-06-24 19:40:40] production.ERROR: Trait "App\Models\SoftDeletes" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\SoftDeletes\" not found at /Users/aleksandr/projects/btf/app/Models/User.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2026-06-24 19:41:40] production.ERROR: Trait "App\Models\SoftDeletes" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\SoftDeletes\" not found at /Users/aleksandr/projects/btf/app/Models/User.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2026-06-24 19:42:06] production.DEBUG: Gzip: 18982B → 4075B (21.47%), saved 14.56KB  
+[2026-06-24 19:42:14] production.DEBUG: Gzip: 1477B → 592B (40.08%), saved 0.86KB  
+[2026-06-24 19:54:08] production.DEBUG: Gzip: 1044B → 458B (43.87%), saved 0.57KB  
+[2026-06-24 19:54:09] production.DEBUG: Gzip: 1044B → 458B (43.87%), saved 0.57KB  
+[2026-06-24 19:54:13] production.DEBUG: Gzip: 1044B → 458B (43.87%), saved 0.57KB  
+[2026-06-24 19:54:25] production.DEBUG: Gzip: 1013B → 452B (44.62%), saved 0.55KB  
+[2026-06-24 20:04:38] production.DEBUG: Gzip: 587B → 255B (43.44%), saved 0.32KB  
+[2026-06-24 20:05:07] production.DEBUG: Gzip: 1013B → 452B (44.62%), saved 0.55KB  
+[2026-06-24 20:05:10] production.DEBUG: Gzip: 1013B → 452B (44.62%), saved 0.55KB  
+[2026-06-24 20:05:13] production.DEBUG: Gzip: 587B → 255B (43.44%), saved 0.32KB  
+[2026-06-24 20:05:46] production.DEBUG: Gzip: 1477B → 592B (40.08%), saved 0.86KB  

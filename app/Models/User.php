@@ -10,10 +10,11 @@ use Carbon\Carbon;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable {
 
-  use HasFactory, Notifiable, HasApiTokens, TwoFactorAuthenticatable, HasRoles;
+  use HasFactory, Notifiable, HasApiTokens, TwoFactorAuthenticatable, HasRoles, SoftDeletes;
 
   protected $connection = 'mysql';
   protected $table = 'users';

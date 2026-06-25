@@ -11,7 +11,7 @@ class TestController extends Controller {
   }
 
   public function index() {
-  
+
     $promotionsController  = new PromotionsController;
     $promotions = $promotionsController->getAll();
     //print_r($promotions); die;

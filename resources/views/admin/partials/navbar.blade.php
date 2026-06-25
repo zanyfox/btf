@@ -31,12 +31,13 @@
             <?= \Spatie\Html\Elements\Element::withTag('span')->class('pcoded-mtext')->text(__('admin.Dashboard')) ?>
           </a>
         </li>
+
         <li class="nav-item @if(request()->routeIs('admin/settings')) active @endif"><a href="{{url('admin/settings')}}" class="nav-link"><span class="pcoded-micon"><i class="feather icon-settings m-r-5"></i></span><span class="pcoded-mtext">@lang('admin.Settings')</span></a></li>
 
         @if(Auth::user()->hasRole('super-admin'))
           <li class="nav-item @if(Request::is('admin/users*')) active @endif"><a href="{{url('admin/users')}}" class="nav-link"><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">{{ __('admin.Users') }}</span></a></li>
         @endif
-        
+
         <li class="nav-item pcoded-menu-caption">
           <label>Контент</label>
         </li>
@@ -86,7 +87,7 @@
         <li class="nav-item pcoded-menu-caption">
           <label>Каталог товаров</label>
         </li>
-        
+
         <li class="nav-item @if(Request::is('admin/categories*')) active @endif">
           <a href="{{url('admin/categories')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">{{ __('admin.Categories') }}</span></a>
         </li>
@@ -116,8 +117,8 @@
         <li class="nav-item @if(Request::is('admin/payment-methods*')) active @endif"><a href="{{url('admin/payment-methods')}}" class="nav-link"><span class="pcoded-micon"><i class="feather icon-info"></i></span><span class="pcoded-mtext">{{ __('admin.PaymentMethods') }}</span></a></li>
         <li class="nav-item @if(Request::is('admin/calendar')) active @endif"><a href="{{url('admin/calendar')}}" class="nav-link"><span class="pcoded-micon"><i class="feather icon-calendar m-r-5"></i></span><span class="pcoded-mtext">Режим работы корзины</span></a></li> --}}
         @endhasrole
-        
-        
+
+
         {{-- <li class="nav-item pcoded-hasmenu @if(Request::is('admin/logs*')) active @endif">
           <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-info"></i></span><span class="pcoded-mtext">{{ __('admin.Logs') }}</span></a>
           <ul class="pcoded-submenu">
@@ -127,7 +128,7 @@
             <li @if(Request::is('admin/logs/orders'))class="active"@endif><a href="{{url('admin/logs/orders')}}">Экспорт заказов в iiko</a></li>
           </ul>
         </li> --}}
-       
+
       </ul>
 
       @role('admin')

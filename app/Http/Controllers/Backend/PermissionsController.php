@@ -11,6 +11,7 @@ class PermissionsController extends Controller {
 
   public function __construct() {
     $this->middleware('auth');
+    //$this->middleware(['auth','AdminCheck','role:super-admin|admin'])->except(['index']);
   }
 
   public function index() {

@@ -39,18 +39,22 @@
             <span class="pc-mtext">@lang('admin.Pages')</span>
           </router-link>
         </li>
+        @role('editor|admin|super-admin')
         <li class="pc-item">
           <router-link to="/backend/rubrics" class="pc-link">
             <span class="pc-micon"><i data-feather="heart"></i></span>
             <span class="pc-mtext">@lang('admin.Rubrics')</span>
           </router-link>
         </li>
+        @endrole
+        @can('edit posts')
         <li class="pc-item">
           <router-link to="/backend/posts" class="pc-link">
             <span class="pc-micon"><i data-feather="heart"></i></span>
             <span class="pc-mtext">@lang('admin.Posts')</span>
           </router-link>
         </li>
+        @endcan
         <li class="pc-item">
           <router-link to="/backend/mainslider" class="pc-link">
             <span class="pc-micon"><i data-feather="image"></i></span>

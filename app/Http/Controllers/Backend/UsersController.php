@@ -26,7 +26,10 @@ class UsersController extends Controller {
       ->with('roles')
       ->select('id','name','surname','email','phone','picture','birthdate','created_at','status');
     /* $query = $query->transform(function ($user) {
-      $user->roles = $user->roles->pluck('name');
+      $user->role = $user->getRoleNames()->first();
+      //$user->roles = $user->roles->pluck('name');
+      $user->permissions = $user->getPermissionNames();
+      //return $user;
       return [
         'id' => $user->id,
         'name' => $user->name,
@@ -37,7 +40,8 @@ class UsersController extends Controller {
         'birthdate' => $user->birthdate,
         'created_at' => $user->created_at,
         'status' => $user->status,
-        'roles' => $user->roles
+        'roles' => $user->roles,
+        'permissions' => $user->permissions
       ];
     }); */
     //$query = $query->roles();
@@ -82,7 +86,7 @@ class UsersController extends Controller {
   public function show($id) {
 
     // Check if user is admin
-    //$this->authorize('isAdmin', User::class);
+    $this->authorize('isAdmin', User::class);
 
     if( \Gate::allows('isAdmin') || \Gate::allows('isAuthor') ) {
       $user = User::find($id);
@@ -137,6 +141,8 @@ class UsersController extends Controller {
       return response()->json(['status' => 'error', 'message' => 'User not created'], 500);
     }
 
+    //$user->assignRole($request->role);
+
     //$role = Role::findById($request->role);
     //$user->assignRole($role->name);
     //$user->role_id = $role->id;
@@ -147,11 +153,20 @@ class UsersController extends Controller {
 
     $user->save();
 
-    return response()->json(['success' => true, 'user' => $user, 'message' => 'User created successfully'], 201);
+    return response()->json([
+      'success' => true,
+      'user' => $user,
+      'message' => 'User has been created successfully'
+    ], 201);
   }
 
   // Update user
   public function update(Request $request, $id) {
+
+    // Check if user is admin
+    //$this->authorize('isAdmin', User::class);
+
+    //return $request->all();
 
     $user = User::findOrFail($id);
 
@@ -161,8 +176,8 @@ class UsersController extends Controller {
       'email' => 'bail|required|email|max:100|unique:users,email,' . $user->id,
       'phone' => 'nullable|string|max:20',
       'password' => 'sometimes|string|alpha_num|min:6',
-      'role' => 'required|integer',
-      'status' => 'required|boolean',
+      //'role' => 'required|integer',
+      /*'status' => 'required|boolean', */
     ]);
 
     $userData = [
@@ -170,12 +185,23 @@ class UsersController extends Controller {
       'surname' => $request->surname,
       'email' => $request->email,
       'phone' => $request->phone,
-      'password' => $request->password,
+      /*'password' => $request->password,
       'role_id' => $request->role,
-      'status' => $request->status,
+      'status' => $request->status,*/
     ];
 
-    if($request->password) {
+    \Log::info($request->path());
+    \Log::info($userData);
+
+    if($request->role) {
+      $userRoles = $user->getRoleNames();
+      foreach($userRoles as $role) {
+        $user->removeRole($role);
+      }
+      $user->assignRole($request->role);
+    }
+
+    if($request->has('password')) {
       $userData['password'] = Hash::make($request->password); // bcrypt($request->password);
     }
 
@@ -216,7 +242,7 @@ class UsersController extends Controller {
 
     $user = User::findOrFail($id);
     $user->delete();
-    return response()->noContent();
+    return response()->noContent(); // 204
   }
 
   public function bulkBan(Request $request) {

@@ -12,7 +12,7 @@
       </div>
     </div>
   </div>
-  <div class="card" v-if="!isLoading && $gate.isAdmin()">
+  <div class="card" v-if="$gate.isAdmin()">
     <div class="card-body table-border-style">
 
       <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -59,12 +59,7 @@
             </div>
             <div class="form-inline">
               <div class="form-group">
-                <input
-                  type="search"
-                  v-model="searchQuery"
-                  class="form-control form-control-sm"
-                  placeholder="Поиск по имени, email, телефону..."
-                >
+                <input type="search" v-model="searchQuery" class="form-control form-control-sm" placeholder="Поиск по имени, email,телефону...">
               </div>
             </div>
           </div>
@@ -92,14 +87,12 @@
                   <td>{{ user.role }}
                     <span v-for="(userRole, index) in user.roles" :key="index" class="badge rounded-pill bg-info ms-1">{{ userRole.name }}</span>
                   </td>
-                  <td>
-                    {{ moment(String(user.created_at)).format('DD.MM.YYYY HH:mm') }}
-                  </td>
+                  <td>{{ moment(String(user.created_at)).format('DD.MM.YYYY HH:mm') }}</td>
                   <td class="text-end">
                     <button type="button" @click.prevent="changeStatus(user)" class="btn btn-sm me-1" :class="user.status !== 1 ? 'btn-danger' : 'btn-success'" title="Change Status">
                       <i class="fa" :class="user.status !== 1 ? 'fa-lock' : 'fa-lock-open'"></i>
                     </button>
-                    <button type="button" @click.prevent="editUserModal(user)" class="btn btn-sm btn-info" title="Edit User">
+                    <button type="button" @click="editUserModal(user)" class="btn btn-sm btn-info" title="Edit User">
                       <i class="fa fa-edit"></i>
                     </button>
                     <button type="button" @click.prevent="deleteUser(user)" class="btn btn-sm btn-danger ms-1" title="Delete User">
@@ -110,7 +103,12 @@
               </tbody>
               <tbody v-else>
                 <tr>
-                  <td colspan="7" class="text-center">No results found</td>
+                  <td colspan="8" class="text-center">
+                    <span v-if="isLoading">No results found</span>
+                    <div v-else class="spinner-border spinner-border-sm" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -133,10 +131,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">
-            <span v-show="editMode">Редактировать пользователя</span>
-            <span v-show="!editMode">Новый пользователь</span>
-          </h5>
+          <h5 class="modal-title">{{ editMode ? 'Редактировать пользователя' : 'Новый пользователь' }}</h5>
           <button type="button" class="btn-close" @click.prevent="closeUserFormModal" aria-label="Close"></button>
         </div>
         <Form @submit="handleSubmit" v-slot:default="{ errors }" :initial-values="formValues">
@@ -214,9 +209,11 @@
               <div class="col col-4">
                 <div class="mb-3">
                   <label for="inputRole" class="form-label">Choose role</label>
-                  <Field name="role" as="select" class="form-control" id="inputRole">
+                  <Field name="role" as="select" class="form-control" multiple id="inputRole">
                     <option value="" disabled selected>Выберите вариант</option>
-                    <option v-for="role in roles" :value="role.id" :key="role.id" :selected="role.id == formValues.role">{{ role.name }}</option>
+                    <option v-for="(role, index) in roles" :value="role.id" :key="index" :selected="role.id == formValues.role">
+                      {{ role.name }}
+                    </option>
                   </Field>
                   <span v-if="errors.role" class="d-block invalid-feedback">{{ errors.role }}</span>
                 </div>
@@ -313,7 +310,7 @@ const formValues = ref({
   status: false,
   birthdate: ''
 })
-/* const formValues = new Form({
+/* const form = new Form({
   name: '',
   surname: '',
   email: '',
@@ -346,6 +343,16 @@ const resetForm = () => {
     status: false,
     birthdate: ''
   }
+  errors.value = {
+    name: '',
+    surname: '',
+    email: '',
+    phone: '',
+    password: '',
+    role: '',
+    status: false,
+    birthdate: ''
+  }
 }
 
 const searchQuery = ref(null)
@@ -359,9 +366,10 @@ watch(searchQuery, debounce((newValue) => {
 }, 300))
 
 const searchUsers = () => {
-  if(gate.isAdmin() && searchQuery.value.length >= 2) {
+  if(gate.isAdmin() && searchQuery.value.length >= 1) {
     // Fetch users from the backend
     fetch('/api/backend/users?search=' + searchQuery.value).then(response => response.json()).then(data => {
+      isLoading.value = false
       users.value.data = data.users.data
     }).catch(error => {
       console.error('Error fetching users:', error.message)
@@ -377,7 +385,15 @@ const fetchUsers = ($page = 1) => {
     fetch(`/api/backend/users/?page=${$page}`).then(response => response.json()).then(data => {
       users.value = data.users
       selectedUsers.value = []
+      setTimeout(() => {
+        isLoading.value = false
+      }, 3000)
+      /* if(data.success) {
+        isLoading.value = false
+      } */
+
     }).catch(error => {
+      isLoading.value = true
       console.error('Error fetching users:', error.message)
     })
   }
@@ -405,10 +421,15 @@ const editUserSchema = yup.object({
 
 const addUserModal = () => {
   resetForm() // Reset the form fields
+  editMode.value = false
   showUserFormModal.value = true
 }
 
 const editUserModal = (user) => {
+  //this.form.reset()
+  //this.form.clear()
+  //this.form.fill(user)
+  //this.form.role = user.roles[0].id
   resetForm()
   formValues.value = {
     id: user.id,
@@ -476,7 +497,7 @@ const createUser = (values, actions) => {
 
       swal.fire({
         icon: 'success',
-        title: 'User created successfully',
+        title: 'User has been created successfully',
         showConfirmButton: false,
         timer: 1500
       })
@@ -517,14 +538,19 @@ const createUser = (values, actions) => {
 
 const updateUser = (values, actions) => {
 
+  console.log(values.status);
+
+  // Create a form data object
   const formValues = {
     name: values.name,
     surname: values.surname,
     email: values.email,
     phone: values.phone,
+    status: values.status,
     //role: values.role,
     //password: values.password
   }
+
   fetch(`/api/backend/users/${values.id}`, {
     method: 'PUT',
     headers: {
@@ -532,26 +558,45 @@ const updateUser = (values, actions) => {
     },
     body: JSON.stringify(formValues)
   }).then(response => response.json()).then(data => {
+
     //fetchUsers()
+
     // Update the user in the users array
     const index = users.value.data.findIndex(user => user.id === data.user.id)
     users.value.data[index] = data.user
+
+    // Close the form
     showUserFormModal.value = false
+
+    // Show success message
     swal.fire({
       icon: 'success',
-      title: 'User updated successfully',
+      title: 'User information updated successfully',
       showConfirmButton: false,
       timer: 1500
     })
+
   }).catch(error => {
-    console.log(actions);
+
+    // Close the form
+    showUserFormModal.value = false
+
+    // Show error message
+    swal.fire({
+      icon: 'error',
+      title: 'Cannot update User information, try again',
+      showConfirmButton: false,
+      timer: 1500
+    })
+
+    //console.log(actions);
 
     /*console.log(error.response.data.errors);
     actions.setFieldError('email', error.response.data.errors.email[0]) */
     //actions.setErrors(error.response.data.errors)
-    console.error('Error updating user:', error.message)
+    //console.error('Error updating user:', error.message)
   }).finally(() => {
-    resetForm()
+    //resetForm()
     isSavingUser.value = false
   })
 
@@ -560,32 +605,33 @@ const updateUser = (values, actions) => {
 const deleteUser = (user) => {
   swal.fire({
     title: 'Are you sure you want to delete ' + user.name + '?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#04a9f5',
-      cancelButtonColor: '#f44236',
-      confirmButtonText: 'Yes, delete it!'
+    text: 'User ' + user.name + ' will be deleted permanently!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#04a9f5',
+    cancelButtonColor: '#f44236',
+    confirmButtonText: 'Yes, delete it!'
   }).then((result) => {
-      if (result.isConfirmed) {
-        // Send request to the server
-        fetch(`/api/backend/users/${user.id}`, {
-          method: 'DELETE'
-        }).then(response => {
-          if (response.status === 204) {
-            // Remove the user from the users array
-            const index = users.value.data.findIndex(u => u.id === user.id)
-            if (index !== -1) {
-              users.value.data.splice(index, 1)
-            }
-            swal.fire('Deleted!','User has been deleted.','success')
-          } else {
-            swal.fire('Error!','Error deleting user','error')
+    if (result.isConfirmed) {
+      // Send request to the server
+      fetch(`/api/backend/users/${user.id}`, {
+        method: 'DELETE'
+      }).then(response => {
+        if (response.status === 204) {
+          // Remove the user from the users array
+          const index = users.value.data.findIndex(u => u.id === user.id)
+          if (index !== -1) {
+            users.value.data.splice(index, 1)
           }
-        }).catch(error => {
-          console.error('Error deleting user:', error.message)
-        })
-      }
+          swal.fire('Deleted!','User has been deleted successfully.','success')
+        } else {
+          swal.fire('Error!','Error deleting user','error')
+        }
+      }).catch(error => {
+        console.error('Error deleting user:', error.message)
+        swal.fire('Error!','User was unable to be removed, try again','error')
+      })
+    }
   })
 }
 

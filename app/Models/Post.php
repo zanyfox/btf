@@ -68,6 +68,10 @@ class Post extends Model {
     return $this->belongsTo(User::class, 'user_id');
   }
 
+  /* public function tag() {
+    return $this->belongsToMany(Tag::class, 'PostTag');
+  } */
+
   public function getRubric() {
     return $this->hasOne('App\Models\Rubric');
   }

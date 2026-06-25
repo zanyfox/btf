@@ -26,7 +26,10 @@ use App\Mail\WelcomeMail;
 Route::get('/backend/{view}', BackendController::class)->where('view', '(.*)')->middleware('auth');
 
 Route::group(['prefix' => 'api/backend', 'middleware' => ['auth','AdminCheck']], function () {
+//Route::group(['prefix' => 'api/backend', 'middleware' => ['auth','AdminCheck','role:super-admin|admin']], function () {
 //Route::group(['prefix' => 'api/backend'], function () {
+
+  //Route::get('/dashboard', [\App\Http\Controllers\Backend\DashboardController::class, 'index'])->name('backend.dashboard');
 
   Route::get('stats/orders', [\App\Http\Controllers\Backend\StatsController::class, 'orders']);
   Route::get('stats/customers', [\App\Http\Controllers\Backend\StatsController::class, 'customers']);
@@ -40,11 +43,14 @@ Route::group(['prefix' => 'api/backend', 'middleware' => ['auth','AdminCheck']],
   // Posts
   Route::patch('posts/bulk-ban', [\App\Http\Controllers\Backend\PostsController::class, 'bulkBan']);
   Route::patch('posts/bulk-unban', [\App\Http\Controllers\Backend\PostsController::class, 'bulkUnban']);
-  Route::patch('posts/{id}/change-status', [\App\Http\Controllers\Backend\PostsController::class, 'changeStatus']);
-  Route::apiResource('posts', \App\Http\Controllers\Backend\PostsController::class)->only(['index','show','store','update','destroy']);
+  Route::middleware([
+    'role:manager|admin',
+    'permission:publish articles'
+  ])->patch('posts/{id}/change-status', [\App\Http\Controllers\Backend\PostsController::class, 'changeStatus']);
+  Route::middleware('role:manager,api')->apiResource('posts', \App\Http\Controllers\Backend\PostsController::class)->only(['index','show','store','update','destroy']);
 
   // Rubrics
-  Route::apiResource('rubrics', \App\Http\Controllers\Backend\RubricsController::class)->only(['index','show','store','update','destroy']);
+  Route::middleware('role_or_permission:manager|edit rubrics')->apiResource('rubrics', \App\Http\Controllers\Backend\RubricsController::class)->only(['index','show','store','update','destroy']);
 
   // Colors
   Route::apiResource('colors', \App\Http\Controllers\Backend\ColorsController::class)->only([

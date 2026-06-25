@@ -18,7 +18,9 @@ class PagesController extends Controller {
   }
 
   public function about() {
-    
+
+
+
     $page = Cache::remember('pages.about', now()->addDays(7), function () {
       return DB::table('pages')
         ->where('slug','about')
@@ -39,7 +41,7 @@ class PagesController extends Controller {
         }
       }
     }
-    
+
     return view('pages/about', [
       'page' => $page,
       'custom' => $custom,
@@ -47,16 +49,16 @@ class PagesController extends Controller {
   }
 
   public function distributors() {
-	  
+
 	//dd(__dir__);
-	  
+
     $page = DB::table('pages')->where(['slug' => 'distributors', 'status' => true])->first();
     if(!$page) {
       abort(404);
     }
 
     $distributors = DB::table('partners')->where(['status' => true])->orderBy('order_by', 'ASC')->get();
-	
+
 	$distributorCities = [];
 	if($distributors->isNotEmpty()) {
 		$distributorCities = array_unique($distributors->pluck('city')->toArray());
