@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Июн 04 2026 г., 20:38
+-- Время создания: Июн 25 2026 г., 13:22
 -- Версия сервера: 10.4.28-MariaDB
 -- Версия PHP: 8.2.4
 
@@ -569,13 +569,7 @@ CREATE TABLE `customer_addresses` (
 INSERT INTO `customer_addresses` (`id`, `user_id`, `name`, `country_id`, `type_id`, `city`, `street_id`, `street_name`, `house`, `building`, `entrance`, `floor`, `flat`, `doorphone`, `notes`, `delivery_date`, `delivery_time`, `created_at`, `updated_at`) VALUES
 (2, 1, 'Основной', 179, 3, 'Светлогорск', '[object Object]', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Тестовый заказ!!!', '2024-10-21', '17:18:00', '2023-12-13 08:48:03', '2024-10-21 14:33:14'),
 (4, 19, NULL, 179, NULL, 'Светлогорск', 'Улица гагарина', NULL, '1', '6', '3', '4', '13', NULL, NULL, NULL, NULL, '2023-12-13 09:08:59', '2023-12-13 09:08:59'),
-(8, 23, NULL, 179, NULL, 'Светлогорск', 'Улица гагарина', NULL, '1', '6', '3', '4', '13', NULL, NULL, NULL, NULL, '2023-12-13 09:17:16', '2023-12-13 09:17:16'),
-(9, 24, NULL, 179, NULL, 'Светлогорск', 'Улица гагарина', NULL, '1', '6', '3', '4', '13', NULL, NULL, NULL, NULL, '2023-12-13 09:18:33', '2023-12-13 09:18:33'),
-(10, 25, NULL, 179, NULL, 'Светлогорск', 'Улица гагарина', NULL, '1', '6', '3', '4', '13', NULL, NULL, NULL, NULL, '2023-12-13 09:28:21', '2023-12-13 09:28:21'),
-(15, 30, NULL, 179, NULL, 'Светлогорск', 'Улица гагарина', NULL, '1', '6', '3', '4', '13', NULL, NULL, NULL, NULL, '2023-12-13 10:00:22', '2023-12-13 10:00:22'),
-(16, 31, NULL, 179, NULL, 'Светлогорск', 'Улица гагарина', NULL, '1', '6', '3', '4', '13', NULL, NULL, NULL, NULL, '2023-12-13 10:03:44', '2023-12-13 10:03:44'),
 (17, 34, NULL, 179, 1, 'Светлогорск', 'Улица гагарина', NULL, '1', '2', '3', '4', '13', NULL, 'Тест', '2023-12-13', '16:11:00', '2023-12-13 12:12:36', '2023-12-13 12:12:36'),
-(18, 35, NULL, 179, 1, 'Светлогорск', 'Улица гагарина', NULL, '1', '2', '3', '4', '13', NULL, 'Тест', '2023-12-13', '16:11:00', '2023-12-13 12:14:06', '2023-12-13 12:14:06'),
 (19, 38, NULL, 179, 1, 'Светлогорск', 'Улица гагарина', NULL, '1', '2', '3', '4', '13', NULL, NULL, '2023-12-15', '12:47:00', '2023-12-15 08:47:55', '2023-12-15 08:47:55'),
 (20, 40, NULL, 179, 1, 'Светлогорск', '0484521b-c371-3e15-018c-7bfd8f46df55', NULL, '1', '1', '1', '1', '1', NULL, NULL, '2023-12-28', '11:10:00', '2023-12-28 07:11:39', '2023-12-28 07:11:39'),
 (21, 42, NULL, 179, 1, 'Светлогорск', '0484521b-c371-3e15-018c-7bfd8f46de41', NULL, '1', '1', '1', '1', '1', NULL, NULL, '2023-12-28', '11:26:00', '2023-12-28 07:28:59', '2023-12-28 07:28:59'),
@@ -820,14 +814,14 @@ INSERT INTO `customer_addresses` (`id`, `user_id`, `name`, `country_id`, `type_i
 (270, 321, NULL, 179, 1, 'Светлогорск', '0484521b-c371-3e15-018c-7bfd8f46dece', 'Зеленая', '1а', NULL, NULL, NULL, '3а', NULL, NULL, '2024-09-29', '20:25:00', '2024-09-29 14:29:13', '2024-09-29 14:29:13'),
 (271, 322, NULL, 179, 1, 'Светлогорск', '0484521b-c371-3e15-018c-7bfd8f46dece', 'Зеленая', '1а', NULL, NULL, NULL, '3а', NULL, NULL, '2024-09-29', '20:25:00', '2024-09-29 14:29:53', '2024-09-29 14:29:53'),
 (272, 323, NULL, 179, 1, 'Светлогорск', '0484521b-c371-3e15-018c-7bfd8f46ddf6', 'Ленина', '22', NULL, NULL, '1', NULL, NULL, 'Магазин косметики ,рядом с аптекой ригла напротив Кренделя . доп.пармезан. Не в блюдо а отдельно.', '2024-10-04', '14:52:00', '2024-10-04 08:57:58', '2024-10-04 08:57:58'),
-(273, 324, NULL, 179, 1, 'Светлогорск', '0484521b-c371-3e15-018c-7bfd8f46dfb5', 'Горького', '14', NULL, NULL, '6', '103', NULL, NULL, '2024-10-05', '21:09:00', '2024-10-05 15:12:38', '2024-10-05 15:12:38');
-INSERT INTO `customer_addresses` (`id`, `user_id`, `name`, `country_id`, `type_id`, `city`, `street_id`, `street_name`, `house`, `building`, `entrance`, `floor`, `flat`, `doorphone`, `notes`, `delivery_date`, `delivery_time`, `created_at`, `updated_at`) VALUES
+(273, 324, NULL, 179, 1, 'Светлогорск', '0484521b-c371-3e15-018c-7bfd8f46dfb5', 'Горького', '14', NULL, NULL, '6', '103', NULL, NULL, '2024-10-05', '21:09:00', '2024-10-05 15:12:38', '2024-10-05 15:12:38'),
 (274, 325, NULL, 179, 1, 'Светлогорск', '0484521b-c371-3e15-018c-7bfd8f46dfc7', 'Олимпийский', '3', NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-07', '20:04:00', '2024-10-07 14:07:07', '2024-10-07 14:07:07'),
 (275, 326, NULL, 179, 3, 'Светлогорск', '[object Object]', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-08', '15:13:00', '2024-10-08 09:15:32', '2024-10-08 09:15:32'),
 (276, 327, NULL, 179, 3, 'Светлогорск', '[object Object]', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-08', '15:13:00', '2024-10-08 09:15:35', '2024-10-08 09:15:35'),
 (277, 328, NULL, 179, 3, 'Светлогорск', '[object Object]', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-10', '15:20:00', '2024-10-10 09:58:46', '2024-10-10 09:58:46'),
 (278, 329, NULL, 179, 3, 'Светлогорск', '[object Object]', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-10', '19:35:00', '2024-10-10 13:59:01', '2024-10-10 13:59:01'),
-(279, 330, NULL, 179, 1, 'Светлогорск', '0484521b-c371-3e15-018c-7bfd8f46de38', 'Балтийская', '15', NULL, '15', '2', '24', NULL, 'Пиццу без соуса чили', '2024-10-14', '20:36:00', '2024-10-14 14:39:03', '2024-10-14 14:39:03'),
+(279, 330, NULL, 179, 1, 'Светлогорск', '0484521b-c371-3e15-018c-7bfd8f46de38', 'Балтийская', '15', NULL, '15', '2', '24', NULL, 'Пиццу без соуса чили', '2024-10-14', '20:36:00', '2024-10-14 14:39:03', '2024-10-14 14:39:03');
+INSERT INTO `customer_addresses` (`id`, `user_id`, `name`, `country_id`, `type_id`, `city`, `street_id`, `street_name`, `house`, `building`, `entrance`, `floor`, `flat`, `doorphone`, `notes`, `delivery_date`, `delivery_time`, `created_at`, `updated_at`) VALUES
 (280, 331, NULL, 179, 1, 'Светлогорск', '0484521b-c371-3e15-018c-7bfd8f46de68', '1-я', '1', NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-17', '12:35:00', '2024-10-17 06:36:17', '2024-10-17 06:36:17'),
 (283, 334, NULL, 179, 1, 'Светлогорск', '0484521b-c371-3e15-018c-7bfd8f46de68', '1-я', '1', NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-18', '13:31:00', '2024-10-18 07:35:48', '2024-10-18 07:35:48');
 
@@ -1487,6 +1481,13 @@ CREATE TABLE `model_has_roles` (
   `model_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Дамп данных таблицы `model_has_roles`
+--
+
+INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
+(4, 'App\\Models\\User', 34);
+
 -- --------------------------------------------------------
 
 --
@@ -1926,7 +1927,7 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at
 (2, 'view role', 'web', '2024-11-08 02:35:24', '2024-11-08 02:35:24'),
 (3, 'update role', 'web', '2024-11-08 02:35:41', '2024-11-08 02:35:41'),
 (4, 'delete role', 'web', '2024-11-08 02:36:02', '2024-11-08 02:36:02'),
-(9, 'delete-post', 'web', '2024-11-10 02:23:49', '2024-11-10 02:23:49'),
+(9, 'delete post', 'web', '2024-11-10 02:23:49', '2024-11-10 02:23:49'),
 (10, 'view payments', 'web', '2024-11-10 02:29:50', '2024-11-10 03:13:09'),
 (11, 'view payment methods', 'web', '2024-11-10 02:41:08', '2024-11-10 03:13:18'),
 (12, 'create payment method', 'web', '2024-11-10 02:41:21', '2024-11-10 03:01:09'),
@@ -1942,9 +1943,7 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at
 (22, 'update category', 'web', '2024-11-10 12:12:28', '2024-11-10 12:12:28'),
 (23, 'delete category', 'web', '2024-11-10 12:12:56', '2024-11-10 12:12:56'),
 (24, 'restore category', 'web', '2024-11-10 12:13:12', '2024-11-10 12:13:12'),
-(25, 'Test test', 'web', '2025-04-30 12:20:16', '2025-04-30 12:20:16'),
-(26, 'Test666', 'web', '2025-04-30 12:24:01', '2025-04-30 12:24:01'),
-(27, 'Testq43453', 'web', '2025-04-30 12:24:33', '2025-05-03 17:46:13');
+(25, 'Test test', 'web', '2025-04-30 12:20:16', '2025-04-30 12:20:16');
 
 -- --------------------------------------------------------
 
@@ -2096,7 +2095,7 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `rubric_id`, `user_id`, `metatitle`, `keywords`, `description`, `robots`, `name`, `slug`, `tagline`, `excerpt`, `body`, `preview`, `picture`, `tags`, `lang`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, NULL, NULL, NULL, NULL, 'Празднуйте вместе с нами!', 'prazdnuyte-vmeste-s-nami', 'Скидка 15% в день рождения!', 'Мы предоставляем скидку 15% на всё меню в честь вашего дня рождения если вы отметите его у нас! Предложение действует 3 дня до и 3 дня после даты', '<p>Мы предоставляем скидку 15% на всё меню в честь вашего дня рождения если вы отметите его у нас! Предложение действует 3 дня до и 3 дня после даты.</p><p><strong>*Скидка и подарок действуют не только в зале нашего ресторана, но и навынос и на доставку.</strong></p><p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия</p>', 'posts/preview/jWAO5wCBB8v6KBLFPDhkxpTOzseSTgjuDOyXAnJk.png', 'posts/qPlB4g6mPzNhLuEfKTG8hIblWVSnr6uGSn4ekV1I.jpg', NULL, 'ru', 1, '2023-11-20 09:43:39', '2025-05-05 12:50:32');
+(1, 1, 1, NULL, NULL, NULL, NULL, 'Празднуйте вместе с нами!', 'prazdnuyte-vmeste-s-nami', 'Скидка 15% в день рождения!', 'Мы предоставляем скидку 15% на всё меню в честь вашего дня рождения если вы отметите его у нас! Предложение действует 3 дня до и 3 дня после даты', '<p>Мы предоставляем скидку 15% на всё меню в честь вашего дня рождения если вы отметите его у нас! Предложение действует 3 дня до и 3 дня после даты.</p><p><strong>*Скидка и подарок действуют не только в зале нашего ресторана, но и навынос и на доставку.</strong></p><p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия</p>', 'posts/preview/jWAO5wCBB8v6KBLFPDhkxpTOzseSTgjuDOyXAnJk.png', 'posts/qPlB4g6mPzNhLuEfKTG8hIblWVSnr6uGSn4ekV1I.jpg', NULL, 'ru', 1, '2023-11-20 09:43:39', '2026-06-07 17:00:07');
 
 -- --------------------------------------------------------
 
@@ -2133,7 +2132,7 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
-(1, 'super-admin', 'web', '2024-11-08 22:28:56', '2024-11-10 02:03:04'),
+(1, 'super-admin', 'web', '2024-11-08 22:28:56', '2026-06-20 07:09:18'),
 (2, 'admin', 'web', '2024-11-08 22:29:29', '2024-11-08 22:29:29'),
 (4, 'user', 'web', '2024-11-09 01:29:02', '2024-11-09 01:29:02'),
 (5, 'staff', 'web', '2024-11-09 01:29:12', '2024-11-09 01:29:12'),
@@ -2210,8 +2209,10 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (21, 9),
 (22, 1),
 (23, 1),
+(24, 1),
 (24, 20),
 (24, 21),
+(25, 1),
 (25, 19);
 
 -- --------------------------------------------------------
@@ -2305,8 +2306,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('n4TBSTsANbFTD2QzunwStW1TYzlzzhSNDJz5wxuC', NULL, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiZkxEYW44c2ZIM2NjbHlEb3V6bzQ3Skx5NTltM0ZaM3c0ZXp1bXd2UCI7czoyMjoiUEhQREVCVUdCQVJfU1RBQ0tfREFUQSI7YTowOnt9czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hcGkvYmFja2VuZC9wcm9maWxlL2luZGV4Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1780597210),
-('Wvsv9oveAqVdadt2HttlGrNpyJq2QB8gazMZz86M', 1, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoieU84ZmFQdXg4Z3ZmQ3B0VVB3a2JmSXRaU05zdHlqWENGMWZaaTY2RiI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozNzoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2JhY2tlbmQvcHJvZmlsZSI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjM5OiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYmFja2VuZC9wcm9maWxlNjciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjIyOiJQSFBERUJVR0JBUl9TVEFDS19EQVRBIjthOjA6e31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1780597920);
+('0pQ4T2JffE4MLy32Q1Kz5PrtFKbsPczxEf1kfxWS', 1, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:151.0) Gecko/20100101 Firefox/151.0', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoidVJxQlBHWFJ3S01tbUNmUnU5UGNIUTU1Z3A4VDVLcDNQRmVscGlQMSI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozNToiaHR0cDovL2xvY2FsaG9zdDo4MDAwL2JhY2tlbmQvdXNlcnMiO31zOjk6Il9wcmV2aW91cyI7YToyOntzOjM6InVybCI7czo0NToiaHR0cDovL2xvY2FsaG9zdDo4MDAwL2FwaS9iYWNrZW5kL3Blcm1pc3Npb25zIjtzOjU6InJvdXRlIjtzOjE3OiJwZXJtaXNzaW9ucy5pbmRleCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1782382398),
+('RfqCvG5JoK3KCcHRpAdDyl6XTzRhimx1XkCSDTVN', 1, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:151.0) Gecko/20100101 Firefox/151.0', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiZjNKYkVnV3B4ZU1mTXd5MWZaWExZVnhSZ1ZGbFhzaTJ2cG5oRXFWSCI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozNToiaHR0cDovL2xvY2FsaG9zdDo4MDAwL2JhY2tlbmQvdXNlcnMiO31zOjk6Il9wcmV2aW91cyI7YToyOntzOjM6InVybCI7czo0NToiaHR0cDovL2xvY2FsaG9zdDo4MDAwL2FwaS9iYWNrZW5kL3Blcm1pc3Npb25zIjtzOjU6InJvdXRlIjtzOjE3OiJwZXJtaXNzaW9ucy5pbmRleCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1782367161);
 
 -- --------------------------------------------------------
 
@@ -2676,6 +2677,7 @@ CREATE TABLE `users` (
   `status` tinyint(1) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   `stripe_id` varchar(255) DEFAULT NULL,
   `pm_type` varchar(255) DEFAULT NULL,
   `pm_last_four` varchar(4) DEFAULT NULL,
@@ -2686,12 +2688,10 @@ CREATE TABLE `users` (
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `surname`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `is_admin`, `role_id`, `remember_token`, `picture`, `phone`, `address`, `city`, `region`, `zip`, `country`, `marketingoptin`, `birthdate`, `device_key`, `status`, `created_at`, `updated_at`, `stripe_id`, `pm_type`, `pm_last_four`, `trial_ends_at`) VALUES
-(1, 'Данила', 'Филатов', 'fff_trizna@mail.ru', NULL, '$2y$10$o1ohJ.uTodm8BivSlbjygOOJlOfcL/xWZbttcFdPk34AIt9w26GHm', NULL, NULL, NULL, 1, 2, 'lvkC18qk8cOYn6SB2jQ4GY2EwXzeH5fTTM4YJWSV7OPP7YHvwnx1mHOCCmUb', '1780565481.jpeg', '+7 950 675 40 57', NULL, NULL, NULL, NULL, 'RU', 1, NULL, 'dW2fSmEuwr8NOYejD_Xh1U:APA91bHqROotCKwEemSLg7cC0B_ycOmsoCConJta0sGwLB1A93_lo9UOkTNKxNNRgKHVTDKraVlFxpR8PJ74hKqTCioAEbUPr_GYCAw904n-2GYUdI3v8LCriG7WNiFZtFlb_yMO8rrM', 1, '2023-11-20 05:41:33', '2026-06-04 09:31:21', NULL, NULL, NULL, NULL),
-(2, 'Test2', 'Testivich8', 'test@mail.ru', NULL, '', NULL, NULL, NULL, 0, 1, NULL, NULL, '+7(904)606-41-92', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, '2025-04-19 17:43:06', '2025-05-01 08:55:56', NULL, NULL, NULL, NULL),
-(23, 'test1', NULL, 'test1@yandex.ru', NULL, '$2y$10$Tcp9ukjJDjh/pxFtcGVv1OG6CUtODJWsmRT96wU5gUkd6dHQAYRWu', NULL, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, '2025-05-01 12:39:48', '2025-05-01 12:39:48', NULL, NULL, NULL, NULL),
-(24, 'test2', NULL, 'test2@yandex.ru', NULL, '$2y$10$FHjN/KK1bgtoxxG3VoNM6OR9SSJTJYoG5SwQ7pSApYoYN.Uvdf8.G', NULL, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, '2025-05-01 12:42:01', '2025-05-01 12:42:01', NULL, NULL, NULL, NULL),
-(25, 'Test22', NULL, 'test22@yandex.ru', NULL, '$2y$10$rlvkFukzFqB7ng2u9Z8F0uLPl5omXd5okxy50TK.MlF4GdTj38Nee', NULL, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, '2025-05-01 12:46:44', '2025-05-01 12:46:44', NULL, NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `name`, `surname`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `is_admin`, `role_id`, `remember_token`, `picture`, `phone`, `address`, `city`, `region`, `zip`, `country`, `marketingoptin`, `birthdate`, `device_key`, `status`, `created_at`, `updated_at`, `deleted_at`, `stripe_id`, `pm_type`, `pm_last_four`, `trial_ends_at`) VALUES
+(1, 'Данила', 'Филатов', 'fff_trizna@mail.ru', NULL, '$2y$10$WK8.1uISxnTwaVl1AaNeMukR9WO4YL630dFo5w7KgFsEqVrdPVduG', NULL, NULL, NULL, 1, 2, 'lvkC18qk8cOYn6SB2jQ4GY2EwXzeH5fTTM4YJWSV7OPP7YHvwnx1mHOCCmUb', '1780565481.jpeg', '+7 (950) 675 40 57', NULL, NULL, NULL, NULL, 'RU', 1, '2007-08-01', 'dW2fSmEuwr8NOYejD_Xh1U:APA91bHqROotCKwEemSLg7cC0B_ycOmsoCConJta0sGwLB1A93_lo9UOkTNKxNNRgKHVTDKraVlFxpR8PJ74hKqTCioAEbUPr_GYCAw904n-2GYUdI3v8LCriG7WNiFZtFlb_yMO8rrM', 1, '2023-11-20 05:41:33', '2026-06-06 08:16:17', NULL, NULL, NULL, NULL, NULL),
+(34, 'Test9', 'Testov9', 'test9@mail.ru', NULL, '$2y$10$4G41zlLgQa3oxkeLXLY/XO7s5Vkiai6IGvaunK2o3Nble5IM/JHLm', NULL, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2026-06-09', NULL, 1, '2026-06-09 11:04:39', '2026-06-09 11:04:39', NULL, NULL, NULL, NULL, NULL),
+(36, 'Test36', 'Testov36', 'test36@mail.ru', NULL, '$2y$10$NuaCphVrLulWkwyTOe3.vu5w4RYXR/4MMalwy/nyLRWGL8uxsKByS', NULL, NULL, NULL, 0, 1, NULL, NULL, '+7 (977) 777 77 77', NULL, NULL, NULL, NULL, NULL, 0, '2026-06-10', NULL, 1, '2026-06-09 12:29:33', '2026-06-24 17:42:11', '2026-06-24 17:42:11', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -3471,7 +3471,7 @@ ALTER TABLE `types`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT для таблицы `wishlists`
